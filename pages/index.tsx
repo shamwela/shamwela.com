@@ -1,17 +1,19 @@
 import Image from 'next/image'
 import profilePicture from 'public/profile-picture.jpg'
-import Link from 'next/link'
 
 export default function Home() {
   return (
-    <main className='p-4 min-h-screen'>
+    <main className='p-4 min-h-screen flex flex-col gap-4 md:px-48 md:py-20'>
       <h1>Sha Mwe La</h1>
 
-      <Image
-        src={profilePicture}
-        alt='Picture of the author'
-        className='rounded'
-      />
+      <div className='md:w-52'>
+        <Image
+          src={profilePicture}
+          alt='Picture of the author'
+          placeholder='blur'
+          priority={true}
+        />
+      </div>
 
       <h2>My mission is to improve the world with quality software.</h2>
 
@@ -23,9 +25,7 @@ export default function Home() {
         and watch YouTube. I live in Yangon, Myanmar.
       </p>
 
-      <Link href='mailto:shamwela@hotmail.com'>
-        <a>Email me</a>
-      </Link>
+      <a href='mailto:shamwela@hotmail.com'>Email me</a>
     </main>
   )
 }

@@ -9,11 +9,11 @@
   *::before,
   *::after {
     font-family: 'IBM Plex Sans', sans-serif;
-    color: #fafafa;
+    @apply text-secondary;
   }
 
   body {
-    background-color: #000;
+    @apply bg-primary;
   }
 
   h1 {
