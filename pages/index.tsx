@@ -34,18 +34,22 @@ export default function Home() {
           I've been doing Front-end Web Development since 2019. I'm proficient
           in JavaScript (especially React) and CSS. I upload most of my projects
           on{' '}
-          <a href='https://github.com/shamwela' target='_blank'>
+          <a href='https://github.com/shamwela' target='_blank' rel='noopener'>
             GitHub
           </a>
           . I'm also learning Software Engineering at{' '}
-          <a href='https://www.gusto.edu.mm' target='_blank'>
+          <a href='https://www.gusto.edu.mm' target='_blank' rel='noopener'>
             GUSTO University
           </a>
           . When I'm not coding, I listen to songs and watch YouTube. I live in
           Yangon, Myanmar.
         </p>
 
-        <BlockAnchor href='mailto:shamwela@hotmail.com' target='_blank'>
+        <BlockAnchor
+          href='mailto:shamwela@hotmail.com'
+          target='_blank'
+          rel='noopener'
+        >
           Email me
         </BlockAnchor>
       </main>
