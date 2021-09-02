@@ -30,7 +30,7 @@
   }
 
   a {
-    text-underline-offset: 0.1875em;
     @apply underline;
+    text-underline-offset: 0.1875em;
   }
 }

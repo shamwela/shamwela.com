@@ -1,10 +1,10 @@
-// interface BlockAnchorProps {
-//   href: string
-//   target?: string
-//   children: React.ReactNode
-// }
+interface BlockAnchorProps {
+  href: string
+  target?: string
+  children: React.ReactNode
+}
 
-export default function BlockAnchor(props) {
+export default function BlockAnchor(props: BlockAnchorProps) {
   const { href, target, children } = props
 
   return (

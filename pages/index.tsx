@@ -15,7 +15,9 @@ export default function Home() {
         style={{ maxWidth: '70ch' }}
         className='p-8 mx-auto flex flex-col gap-8'
       >
-        <h1>Sha Mwe La</h1>
+        <h1>
+          Hello, I'm <span className='block md:inline'>Sha Mwe La.</span>
+        </h1>
 
         <div className='md:w-52'>
           <Image
