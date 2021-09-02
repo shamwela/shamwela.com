@@ -13,15 +13,26 @@ export default function Footer() {
       className='mx-auto px-8 py-4 flex justify-evenly items-center'
     >
       <IconContext.Provider value={{ style: { verticalAlign: 'middle' } }}>
-        <a href='mailto:shamwela@hotmail.com' target='_blank' rel='noopener'>
+        <a
+          aria-label='Email'
+          href='mailto:shamwela@hotmail.com'
+          target='_blank'
+          rel='noopener'
+        >
           <AiOutlineMail />
         </a>
 
-        <a href='https://github.com/shamwela' target='_blank' rel='noopener'>
+        <a
+          aria-label='GitHub'
+          href='https://github.com/shamwela'
+          target='_blank'
+          rel='noopener'
+        >
           <AiFillGithub />
         </a>
 
         <a
+          aria-label='LinkedIn'
           href='https://www.linkedin.com/in/shamwela'
           target='_blank'
           rel='noopener'
@@ -29,7 +40,12 @@ export default function Footer() {
           <AiFillLinkedin />
         </a>
 
-        <a href='https://twitter.com/shamwela_' target='_blank' rel='noopener'>
+        <a
+          aria-label='Twitter'
+          href='https://twitter.com/shamwela_'
+          target='_blank'
+          rel='noopener'
+        >
           <AiOutlineTwitter />
         </a>
       </IconContext.Provider>
