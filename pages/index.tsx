@@ -9,6 +9,7 @@ export default function Home() {
     <>
       <Head>
         <title>About Me | Sha Mwe La</title>
+        <meta name='description' content="Sha Mwe La's personal website"></meta>
       </Head>
 
       <main
