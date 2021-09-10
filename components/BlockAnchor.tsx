@@ -1,13 +1,14 @@
-interface BlockAnchorProps {
+const BlockAnchor = ({
+  href,
+  target,
+  rel,
+  children,
+}: {
   href: string
   target?: string
   rel?: string
   children: React.ReactNode
-}
-
-const BlockAnchor = (props: BlockAnchorProps) => {
-  const { href, target, rel, children } = props
-
+}) => {
   return (
     <a
       href={href}
