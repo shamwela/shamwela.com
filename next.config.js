@@ -6,9 +6,9 @@ module.exports = withMDX({
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
 })
 
-module.exports = {
-  i18n: {
-    locales: ['en'],
-    defaultLocale: 'en',
-  },
-}
+// module.exports = {
+//   i18n: {
+//     locales: ['en'],
+//     defaultLocale: 'en',
+//   },
+// }
