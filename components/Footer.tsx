@@ -6,7 +6,7 @@ import {
   AiOutlineTwitter,
 } from 'react-icons/ai'
 
-export default function Footer() {
+const Footer = () => {
   return (
     <footer
       style={{ maxWidth: '70ch', minHeight: '10vh' }}
@@ -52,3 +52,5 @@ export default function Footer() {
     </footer>
   )
 }
+
+export default Footer

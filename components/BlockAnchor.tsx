@@ -5,7 +5,7 @@ interface BlockAnchorProps {
   children: React.ReactNode
 }
 
-export default function BlockAnchor(props: BlockAnchorProps) {
+const BlockAnchor = (props: BlockAnchorProps) => {
   const { href, target, rel, children } = props
 
   return (
@@ -19,3 +19,5 @@ export default function BlockAnchor(props: BlockAnchorProps) {
     </a>
   )
 }
+
+export default BlockAnchor

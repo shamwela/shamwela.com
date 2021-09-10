@@ -4,7 +4,7 @@ import profilePicture from 'public/profile-picture.jpg'
 import BlockAnchor from 'components/BlockAnchor'
 import Footer from 'components/Footer'
 
-export default function Home() {
+const Home = () => {
   return (
     <>
       <Head>
@@ -59,3 +59,5 @@ export default function Home() {
     </>
   )
 }
+
+export default Home
