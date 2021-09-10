@@ -1,17 +1,15 @@
+import Layout from 'components/Layout'
 import Link from 'next/link'
 
 const Articles = () => {
   return (
-    <main
-      style={{ maxWidth: '70ch' }}
-      className='p-8 mx-auto flex flex-col gap-y-8'
-    >
+    <Layout>
       <h1>Articles</h1>
 
       <Link href='/articles/roadmap'>
         <a>Web Development Roadmap for Beginners</a>
       </Link>
-    </main>
+    </Layout>
   )
 }
 

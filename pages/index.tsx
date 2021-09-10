@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import profilePicture from 'public/profile-picture.jpg'
+import Layout from 'components/Layout'
 import BlockAnchor from 'components/BlockAnchor'
 import Footer from 'components/Footer'
 
@@ -12,10 +13,7 @@ const Home = () => {
         <meta name='description' content="Sha Mwe La's personal website"></meta>
       </Head>
 
-      <main
-        style={{ maxWidth: '70ch' }}
-        className='p-8 mx-auto flex flex-col gap-y-8'
-      >
+      <Layout>
         <h1>
           Hello, I'm <span className='block md:inline'>Sha Mwe La.</span>
         </h1>
@@ -53,7 +51,7 @@ const Home = () => {
         >
           Email me
         </BlockAnchor>
-      </main>
+      </Layout>
 
       <Footer />
     </>
