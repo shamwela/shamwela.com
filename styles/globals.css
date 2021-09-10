@@ -33,4 +33,12 @@
     @apply underline;
     text-underline-offset: 0.1875em;
   }
+
+  ol {
+    list-style: decimal inside;
+  }
+
+  ul {
+    list-style: square inside;
+  }
 }

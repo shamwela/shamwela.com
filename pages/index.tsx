@@ -14,7 +14,7 @@ const Home = () => {
 
       <main
         style={{ maxWidth: '70ch' }}
-        className='p-8 mx-auto flex flex-col gap-8'
+        className='p-8 mx-auto flex flex-col gap-y-8'
       >
         <h1>
           Hello, I'm <span className='block md:inline'>Sha Mwe La.</span>
