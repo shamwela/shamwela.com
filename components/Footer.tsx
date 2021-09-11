@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <footer
       style={{ maxWidth: '70ch', minHeight: '10vh' }}
-      className='mx-auto px-8 py-4 flex justify-evenly items-center'
+      className='flex justify-evenly items-center'
     >
       <a
         aria-label='Email'
