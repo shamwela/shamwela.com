@@ -3,7 +3,6 @@ import Image from 'next/image'
 import profilePicture from 'public/profile-picture.jpg'
 import Layout from 'components/Layout'
 import BlockAnchor from 'components/BlockAnchor'
-import Footer from 'components/Footer'
 
 const Home = () => {
   return (
@@ -52,8 +51,6 @@ const Home = () => {
           Email me
         </BlockAnchor>
       </Layout>
-
-      <Footer />
     </>
   )
 }
