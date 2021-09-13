@@ -14,7 +14,7 @@ const BlockAnchor = ({
       href={href}
       target={target}
       rel={rel}
-      className='px-6 py-2 no-underline block w-max bg-secondary text-primary'
+      className='px-6 py-2 no-underline block w-max bg-secondary text-primary font-bold'
     >
       {children}
     </a>
