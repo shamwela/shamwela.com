@@ -12,8 +12,8 @@ const Nav = () => {
         </li>
 
         <li>
-          <Link href='/articles'>
-            <a className='no-underline text-primary'>Articles</a>
+          <Link href='/blog'>
+            <a className='no-underline text-primary'>Blog</a>
           </Link>
         </li>
       </ol>
