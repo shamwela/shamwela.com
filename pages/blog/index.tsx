@@ -1,16 +1,10 @@
-import Head from 'next/head'
 import Layout from 'components/Layout'
 import Link from 'next/link'
 
 const Blog = () => {
   return (
     <>
-      <Head>
-        <title>Blog | Sha Mwe La</title>
-        <meta name='description' content="Sha Mwe La's personal website"></meta>
-      </Head>
-
-      <Layout>
+      <Layout title='Blog | Sha Mwe La'>
         <h1>Blog</h1>
 
         <Link href='/blog/why-i-love-tailwind-css'>

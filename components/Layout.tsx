@@ -3,7 +3,7 @@ import Nav from './Nav'
 import Footer from './Footer'
 
 const Layout = ({
-  title,
+  title = 'Sha Mwe La',
   children,
 }: {
   title: string
@@ -13,6 +13,7 @@ const Layout = ({
     <>
       <Head>
         <title>{title}</title>
+        <meta name='description' content="Sha Mwe La's personal website"></meta>
       </Head>
 
       <Nav />
@@ -23,8 +24,9 @@ const Layout = ({
         className='p-8 pb-12 md:pb-8 mx-auto flex flex-col gap-y-8'
       >
         {children}
-        <Footer />
       </main>
+
+      <Footer />
     </>
   )
 }
