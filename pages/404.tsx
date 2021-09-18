@@ -6,7 +6,6 @@ const Custom404 = () => {
     <>
       <Head>
         <title>Page not found</title>
-        <meta name='description' content="Sha Mwe La's personal website"></meta>
       </Head>
 
       <main className='min-h-screen flex flex-col items-center justify-center gap-y-4'>

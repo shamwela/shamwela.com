@@ -13,15 +13,14 @@ const Layout = ({
     <>
       <Head>
         <title>{title}</title>
-        <meta name='description' content="Sha Mwe La's personal website"></meta>
+        <meta name='description' content="Sha Mwe La's website"></meta>
       </Head>
 
       <Nav />
 
       <main
         style={{ maxWidth: '70ch' }}
-        // Bottom padding should be the same as the Nav height
-        className='p-8 pb-12 md:pb-8 mx-auto flex flex-col gap-y-8'
+        className='p-8 mx-auto flex flex-col gap-y-8'
       >
         {children}
       </main>
