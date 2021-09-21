@@ -20,7 +20,7 @@ const Layout = ({
 
       <main
         style={{ maxWidth: '70ch' }}
-        className='p-8 mx-auto flex flex-col gap-y-8'
+        className='mx-auto p-8 flex flex-col gap-y-8'
       >
         {children}
       </main>
