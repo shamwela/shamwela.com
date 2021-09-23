@@ -6,6 +6,7 @@ const Custom404 = () => {
     <>
       <Head>
         <title>Page not found</title>
+        <meta name='description' content='Page not found' />
       </Head>
 
       <main className='min-h-screen flex flex-col items-center justify-center gap-y-4'>

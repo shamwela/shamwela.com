@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import Image from 'next/image'
 import ShaMweLaPhoto from 'public/sha-mwe-la-photo.jpg'
 import BlockAnchor from 'components/BlockAnchor'
@@ -5,6 +6,11 @@ import BlockAnchor from 'components/BlockAnchor'
 const Home = () => {
   return (
     <>
+      <Head>
+        <title>About Me | Sha Mwe La</title>
+        <meta name='description' content='About Sha Mwe La' />
+      </Head>
+
       <h1>
         Hello, I'm <span className='block md:inline'>Sha Mwe La.</span>
       </h1>
