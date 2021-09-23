@@ -26,7 +26,7 @@ const App = ({ Component, pageProps }) => {
         style={{ maxWidth: '70ch' }}
         className='mx-auto p-8 flex flex-col gap-y-8'
       >
-      <Component {...pageProps} />
+        <Component {...pageProps} />
       </main>
 
       <Footer />
