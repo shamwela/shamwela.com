@@ -15,16 +15,29 @@ const Projects = ({ pinnedItems }) => {
         <meta name='description' content="Sha Mwe La's Projects" />
       </Head>
 
-      {pinnedItems.map((item) => {
-        const { id, url, name, description } = item
+      {pinnedItems.map(
+        ({
+          id,
+          url,
+          name,
+          description,
+        }: {
+          id: string
+          url: string
+          name: string
+          description: string
+        }) => {
+          return (
+            <div key={id}>
+              <a href={url} target='_blank' rel='noopener'>
+                {name}
+              </a>
 
-        return (
-          <div key={id}>
-            <a href={url}>{name}</a>
-            {description && <p>{description}</p>}
-          </div>
-        )
-      })}
+              {description && <p>{description}</p>}
+            </div>
+          )
+        }
+      )}
     </>
   )
 }
