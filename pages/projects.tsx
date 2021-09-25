@@ -15,6 +15,8 @@ const Projects = ({ pinnedItems }) => {
         <meta name='description' content="Sha Mwe La's Projects" />
       </Head>
 
+      <h1>Projects</h1>
+
       {pinnedItems.map(
         ({
           id,
