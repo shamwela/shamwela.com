@@ -12,6 +12,12 @@ const Nav = () => {
         </li>
 
         <li>
+          <Link href='/projects'>
+            <a className='no-underline text-primary'>Projects</a>
+          </Link>
+        </li>
+
+        <li>
           <Link href='/blog'>
             <a className='no-underline text-primary'>Blog</a>
           </Link>
