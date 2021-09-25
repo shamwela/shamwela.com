@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import ShaMweLaPhoto from 'public/sha-mwe-la-photo.jpg'
+import ShaMweLaPhoto from 'public/assets/sha-mwe-la-photo.jpg'
 import BlockAnchor from 'components/BlockAnchor'
 
 const Home = () => {

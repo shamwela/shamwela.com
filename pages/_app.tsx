@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import * as gtag from '../lib/gtag'
+import Head from 'next/head'
 import Nav from 'components/Nav'
 import Footer from 'components/Footer'
 import 'tailwindcss/tailwind.css'
@@ -20,6 +21,10 @@ const App = ({ Component, pageProps }) => {
 
   return (
     <>
+      <Head>
+        <link rel='icon' href='/assets/favicon.ico' />
+      </Head>
+
       <Nav />
 
       <main
