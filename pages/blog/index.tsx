@@ -11,12 +11,16 @@ const Blog = () => {
 
       <h1>Blog</h1>
 
-      <Link href='/blog/why-i-love-tailwind-css'>
-        <a>Why I Love Tailwind CSS</a>
+      <Link href='blog/tips-for-coders'>
+        <a>Tips for Coders</a>
       </Link>
 
-      <Link href='/blog/roadmap'>
+      <Link href='blog/roadmap'>
         <a>Web Development Roadmap for Beginners</a>
+      </Link>
+
+      <Link href='blog/why-i-love-tailwind-css'>
+        <a>Why I Love Tailwind CSS</a>
       </Link>
     </>
   )
