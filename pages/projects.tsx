@@ -38,20 +38,28 @@ const Projects = ({ pinnedItems }) => {
               {description && <p>{description}</p>}
 
               <section className='flex gap-x-4'>
-                <a href={url} target='_blank' rel='noopener'>
-                  Visit site
-                </a>
-
                 {homepageUrl && (
                   <a href={homepageUrl} target='_blank' rel='noopener'>
-                    View code
+                    Visit site
                   </a>
                 )}
+
+                <a href={url} target='_blank' rel='noopener'>
+                  View code
+                </a>
               </section>
             </section>
           )
         }
       )}
+
+      <a
+        href='https://github.com/shamwela?tab=repositories'
+        target='_blank'
+        rel='noopener'
+      >
+        View all projects on GitHub
+      </a>
     </>
   )
 }
