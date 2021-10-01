@@ -20,23 +20,35 @@ const Projects = ({ pinnedItems }) => {
       {pinnedItems.map(
         ({
           id,
-          url,
           name,
           description,
+          url,
+          homepageUrl,
         }: {
           id: string
-          url: string
           name: string
           description: string
+          url: string
+          homepageUrl: string
         }) => {
           return (
-            <div key={id}>
-              <a href={url} target='_blank' rel='noopener'>
-                {name}
-              </a>
+            <section key={id} className='border p-4 flex flex-col gap-y-4'>
+              <h2>{name}</h2>
 
               {description && <p>{description}</p>}
-            </div>
+
+              <section className='flex gap-x-4'>
+                <a href={url} target='_blank' rel='noopener'>
+                  Visit site
+                </a>
+
+                {homepageUrl && (
+                  <a href={homepageUrl} target='_blank' rel='noopener'>
+                    View code
+                  </a>
+                )}
+              </section>
+            </section>
           )
         }
       )}
@@ -74,9 +86,10 @@ export async function getStaticProps() {
               node {
                 ... on Repository {
                   id
-                  url
                   name
                   description
+                  url
+                  homepageUrl
                 }
               }
             }
