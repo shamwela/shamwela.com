@@ -1,13 +1,13 @@
 module.exports = {
   mode: 'jit',
   purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: false,
   theme: {
     extend: {
       colors: {
-        primary: '#000',
-        secondary: '#FAFAFA',
-        accent: '#3EA6FF'
+        primary: '#181818',
+        secondary: '#fff',
+        accent: '#38aecc',
       },
     },
   },
