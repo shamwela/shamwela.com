@@ -7,6 +7,17 @@ const Nav = () => {
       <ol className='list-none h-12 bg-secondary flex justify-center items-center gap-x-8'>
         <li>
           <Link href='/'>
+            <a
+              style={{ fontSize: '1.5em' }}
+              className='no-underline text-primary font-medium'
+            >
+              S
+            </a>
+          </Link>
+        </li>
+
+        <li>
+          <Link href='/'>
             <a className='no-underline text-primary'>About Me</a>
           </Link>
         </li>
