@@ -1,39 +1,17 @@
-import Link from 'next/link'
+import NavLink from './NavLink'
 
 const Nav = () => {
   return (
-    <nav>
-      <ol className='list-none h-12 bg-secondary flex justify-center items-center gap-x-8'>
-        <li>
-          <Link href='/'>
-            <a
-              style={{ fontSize: '1.5em' }}
-              className='no-underline text-primary font-medium'
-            >
-              S
-            </a>
-          </Link>
-        </li>
-
-        <li>
-          <Link href='/'>
-            <a className='no-underline text-primary'>About Me</a>
-          </Link>
-        </li>
-
-        <li>
-          <Link href='/projects'>
-            <a className='no-underline text-primary'>Projects</a>
-          </Link>
-        </li>
-
-        <li>
-          <Link href='/blog'>
-            <a className='no-underline text-primary'>Blog</a>
-          </Link>
-        </li>
+    <header>
+      <ol className='list-none h-14 bg-secondary flex justify-center items-center gap-x-8'>
+        <NavLink href='/' style={{ fontSize: '1.5em' }}>
+          S
+        </NavLink>
+        <NavLink href='/'>About Me</NavLink>
+        <NavLink href='/projects'>Projects</NavLink>
+        <NavLink href='/blog'>Blog</NavLink>
       </ol>
-    </nav>
+    </header>
   )
 }
 
