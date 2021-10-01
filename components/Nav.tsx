@@ -3,7 +3,6 @@ import Link from 'next/link'
 const Nav = () => {
   return (
     <nav>
-      {/* Height should be the same as the Layout's bottom padding */}
       <ol className='list-none h-12 bg-secondary flex justify-center items-center gap-x-8'>
         <li>
           <Link href='/'>
