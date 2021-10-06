@@ -2,16 +2,14 @@ import NavLink from './NavLink'
 
 const Nav = () => {
   return (
-    <header>
-      <ol className='list-none h-14 bg-secondary flex justify-center items-center gap-x-8'>
-        <NavLink href='/' style={{ fontSize: '1.5em' }}>
-          S
-        </NavLink>
-        <NavLink href='/'>About Me</NavLink>
+    <nav>
+      <ol className='fixed right-0 bottom-0 left-0 list-none h-14 bg-secondary flex justify-evenly items-center'>
+        <NavLink href='/blog/tips-for-coders'>Home</NavLink>
+        <NavLink href='/blog'>All Blogs</NavLink>
         <NavLink href='/projects'>Projects</NavLink>
-        <NavLink href='/blog'>Blog</NavLink>
+        <NavLink href='/'>About</NavLink>
       </ol>
-    </header>
+    </nav>
   )
 }
 

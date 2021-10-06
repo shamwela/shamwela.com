@@ -2,18 +2,16 @@ import Link from 'next/link'
 
 const NavLink = ({
   href,
-  style,
   children,
 }: {
   href: string
-  style?: React.CSSProperties
   children: React.ReactNode
 }) => {
   return (
     <li>
       <Link href={href}>
         <a
-          style={style}
+          style={{ fontSize: '0.875rem' }}
           className='px-2 py-1 no-underline text-primary font-medium'
         >
           {children}
