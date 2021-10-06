@@ -9,7 +9,8 @@ const Footer = () => {
   return (
     <footer
       style={{ maxWidth: '70ch', minHeight: '10vh' }}
-      className='mx-auto flex justify-evenly items-center'
+      // Bottom margin should be the same as the nav height
+      className='mb-14 mx-auto flex justify-evenly items-center'
     >
       <a
         aria-label='Email'
