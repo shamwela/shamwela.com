@@ -7,7 +7,7 @@ const Nav = () => {
         <NavLink href='/blog/tips-for-coders'>Home</NavLink>
         <NavLink href='/blog'>All Blogs</NavLink>
         <NavLink href='/projects'>Projects</NavLink>
-        <NavLink href='/'>About</NavLink>
+        <NavLink href='/about'>About</NavLink>
       </ol>
     </nav>
   )
