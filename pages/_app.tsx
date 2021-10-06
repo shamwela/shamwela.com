@@ -42,12 +42,20 @@ const App = ({ Component, pageProps }) => {
         <link rel='icon' href='/assets/favicon.ico' />
       </Head>
 
-      {router.asPath.includes('/blog/') && nextBlog && (
-        <div>
-          <Link href={'/blog/' + nextBlog}>
-            <a>Next Blog</a>
-          </Link>
-        </div>
+      {router.asPath.includes('/blog/') && (
+        <section>
+          {nextBlog && (
+            <Link href={'/blog/' + nextBlog}>
+              <a>Next Blog</a>
+            </Link>
+          )}
+
+          {previousBlog && (
+            <Link href={'/blog/' + previousBlog}>
+              <a>Previous Blog</a>
+            </Link>
+          )}
+        </section>
       )}
 
       <Nav />
