@@ -43,7 +43,10 @@ const App = ({ Component, pageProps }) => {
       </Head>
 
       {router.asPath.includes('/blog/') && (
-        <section>
+        <section
+          style={{ fontSize: '0.875rem' }}
+          className='fixed right-0 bottom-32 p-4 flex flex-col text-right'
+        >
           {nextBlog && (
             <Link href={'/blog/' + nextBlog}>
               <a>Next Blog</a>
