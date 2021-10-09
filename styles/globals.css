@@ -24,19 +24,23 @@
 
   h1 {
     font-size: 2rem; /* 32px */
+    line-height: 1.25;
   }
 
   h2 {
     font-size: 1.25rem; /* 20px */
+    line-height: 1.4;
   }
 
   @media (min-width: 768px) {
     h1 {
       font-size: 3.5rem; /* 56px */
+      line-height: 1.17857;
     }
 
     h2 {
       font-size: 2rem; /* 32px */
+      line-height: 1.25;
     }
   }
 
