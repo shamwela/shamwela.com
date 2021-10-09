@@ -8,6 +8,7 @@ const SideBar = () => {
     'roadmap',
     'favorite-coding-resources',
     'favorite-visual-studio-code-extensions',
+    'how-to-host-a-website-for-free',
     'why-i-love-tailwind-css',
   ]
 

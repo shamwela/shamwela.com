@@ -27,6 +27,10 @@ const Blog = () => {
         <a>Favorite Visual Studio Code Extensions</a>
       </Link>
 
+      <Link href='/blog/how-to-host-a-website-for-free'>
+        <a>How to host a website for free</a>
+      </Link>
+
       <Link href='/blog/why-i-love-tailwind-css'>
         <a>Why I Love Tailwind CSS</a>
       </Link>
