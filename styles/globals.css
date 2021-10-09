@@ -43,6 +43,7 @@
   a {
     @apply underline;
     text-underline-offset: 0.1875em;
+    max-width: fit-content;
   }
 
   ol {
