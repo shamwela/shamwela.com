@@ -12,7 +12,7 @@ const About = () => {
       </Head>
 
       <h1>
-        Hello, I'm <span className='block md:inline'>Sha Mwe La.</span>
+        Hi, I'm <span className='block md:inline'>Sha Mwe La.</span>
       </h1>
 
       <div className='md:w-52'>
