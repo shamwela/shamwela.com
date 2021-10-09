@@ -7,7 +7,7 @@ import Head from 'components/Head'
 
 # How to host a website for free
 
-This will take you about 15 minutes.
+Before following this, you have to know the basics of Git and HTML. If you don't know them, you can learn them on YouTube. This entire process will take you about 15 minutes.
 
 [Install Git](https://git-scm.com/downloads)
 
@@ -21,15 +21,12 @@ Create a folder on your computer and add some code.
 
 Open your project folder in the terminal and type `git init`
 
-Go back to your GitHub repository. Click on green **Code** button and copy the link. And, type in the following 3 commands.
+Go back to your GitHub repository. Click on the green **Code** button and copy the link. And, type:
 
 ```
 git remote add origin <the link you copied>
-
 Example: git remote add origin https://github.com/yourname/yourproject.git
-
 git commit -am 'First commit'
-
 git push -u origin main
 ```
 
@@ -45,4 +42,15 @@ Click **Deploy**.
 
 Click **Visit** to visit your website.
 
-You can also edit the domain name by going to **Settings** and then **Domains**. The free domain name will end in **vercel.app**. If you want a custom domain like **yourname.com**, you have to buy it.
+You can also edit the domain name by selecting the **Settings** tab and then **Domains**. The free domain name will end in **vercel.app**. If you want a custom domain like **yourname.com**, you have to buy it.
+
+If you want to make changes. Open your project folder in the terminal and type:
+
+```
+git commit -am 'Your commit message'
+git push
+```
+
+This will update your website.
+
+If you want to learn more about Vercel, you can read the [Vercel documentation](https://vercel.com/docs/concepts).
