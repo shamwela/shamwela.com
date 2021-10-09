@@ -24,21 +24,27 @@ const SideBar = () => {
       {router.asPath.includes('/blog/') && (
         <section
           style={{ fontSize: '0.875rem' }}
-          className='fixed right-0 bottom-32 bg-secondary text-primary p-4 flex flex-col text-right'
+          className='text-sm md:text-base fixed right-0 bottom-32 bg-secondary text-primary p-4 flex flex-col text-right'
         >
           {nextBlog && (
             <Link href={'/blog/' + nextBlog}>
-              <a>Next Blog</a>
+              <a>←</a>
             </Link>
           )}
 
           {previousBlog && (
             <Link href={'/blog/' + previousBlog}>
-              <a>Previous Blog</a>
+              <a>→</a>
             </Link>
           )}
         </section>
       )}
+
+      <style jsx>{`
+        a {
+          text-decoration: none;
+        }
+      `}</style>
     </>
   )
 }

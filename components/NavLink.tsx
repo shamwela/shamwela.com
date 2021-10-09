@@ -10,10 +10,7 @@ const NavLink = ({
   return (
     <li>
       <Link href={href}>
-        <a
-          style={{ fontSize: '0.875rem' }}
-          className='px-2 py-1 no-underline text-primary font-medium'
-        >
+        <a className='px-2 py-1 no-underline text-primary font-medium'>
           {children}
         </a>
       </Link>
