@@ -18,7 +18,7 @@ const About = () => {
       <div className='md:w-52'>
         <Image
           src={ShaMweLaPhoto}
-          alt='Picture of the author'
+          alt='Sha Mwe La'
           placeholder='blur'
           priority={true}
         />
