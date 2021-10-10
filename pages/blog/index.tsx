@@ -5,7 +5,7 @@ const Blog = () => {
   return (
     <>
       <Head>
-        <title>Blog | Sha Mwe La</title>
+        <title>Sha Mwe La's Blog</title>
         <meta name='description' content="Sha Mwe La's Blog" />
       </Head>
 

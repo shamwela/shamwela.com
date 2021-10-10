@@ -11,7 +11,7 @@ const Projects = ({ pinnedItems }) => {
   return (
     <>
       <Head>
-        <title>Projects | Sha Mwe La</title>
+        <title>Sha Mwe La's Projects</title>
         <meta name='description' content="Sha Mwe La's Projects" />
       </Head>
 
