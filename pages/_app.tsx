@@ -3,7 +3,6 @@ import { useRouter } from 'next/router'
 import * as gtag from '../lib/gtag'
 import Head from 'next/head'
 import Footer from 'components/Footer'
-import SideBar from 'components/SideBar'
 import Nav from 'components/Nav'
 import 'tailwindcss/tailwind.css'
 import 'styles/globals.css'
@@ -35,8 +34,6 @@ const App = ({ Component, pageProps }) => {
       </main>
 
       <Footer />
-
-      <SideBar />
       <Nav />
     </>
   )
