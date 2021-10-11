@@ -20,6 +20,7 @@ const About = () => {
           src={ShaMweLaPhoto}
           alt='Sha Mwe La'
           placeholder='blur'
+          quality={100}
           priority={true}
         />
       </div>
