@@ -1,16 +1,18 @@
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
-const NavLink = ({
-  href,
-  children,
-}: {
-  href: string
-  children: React.ReactNode
-}) => {
+const NavLink = ({ href, children }: { href: string; children: string }) => {
+  const { asPath } = useRouter()
+  const isActive = asPath.includes(href)
+
   return (
     <li>
       <Link href={href}>
-        <a className='px-2 py-1 no-underline text-primary font-medium'>
+        <a
+          className={`${
+            isActive ? 'underline' : 'no-underline'
+          } px-6 py-2 font-medium text-primary`}
+        >
           {children}
         </a>
       </Link>
