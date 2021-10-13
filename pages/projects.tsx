@@ -37,7 +37,7 @@ const Projects = ({ pinnedItems }) => {
 
               {description && <p>{description}</p>}
 
-              <section className='flex gap-x-4'>
+              <section className='flex gap-x-8'>
                 {homepageUrl && (
                   <a href={homepageUrl} target='_blank' rel='noopener'>
                     Visit site
