@@ -7,8 +7,8 @@ const Nav = () => {
         className='mx-auto list-none h-14 flex justify-evenly items-center'
         style={{ maxWidth: '70ch' }}
       >
-        <NavLink href='/blog'>Blog</NavLink>
         <NavLink href='/projects'>Projects</NavLink>
+        <NavLink href='/blog'>Blog</NavLink>
         <NavLink href='/about'>About</NavLink>
       </ol>
     </nav>

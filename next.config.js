@@ -8,6 +8,11 @@ module.exports = withMDX({
     return [
       {
         source: '/',
+        destination: '/projects',
+        permanent: true,
+      },
+      {
+        source: '/blogs',
         destination: '/blog',
         permanent: true,
       },
