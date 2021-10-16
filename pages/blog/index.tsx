@@ -34,6 +34,10 @@ const Blog = () => {
       <Link href='/blog/why-i-love-tailwind-css'>
         <a>Why I Love Tailwind CSS</a>
       </Link>
+
+      <Link href='/blog/html-tips'>
+        <a>HTML Tips</a>
+      </Link>
     </>
   )
 }
