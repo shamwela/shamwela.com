@@ -11,7 +11,7 @@ const NavLink = ({ href, children }: { href: string; children: string }) => {
         <a
           className={`${
             isActive ? 'underline' : 'no-underline'
-          } px-6 py-2 font-medium text-primary`}
+          } px-6 py-2 rounded-full font-medium text-primary`}
         >
           {children}
         </a>

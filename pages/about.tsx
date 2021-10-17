@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import ShaMweLaPhoto from 'public/assets/sha-mwe-la-photo.jpg'
-import BlockAnchor from 'components/BlockAnchor'
 
 const About = () => {
   return (
@@ -41,13 +40,14 @@ const About = () => {
         Yangon, Myanmar.
       </p>
 
-      <BlockAnchor
+      <a
         href='mailto:shamwela@hotmail.com'
         target='_blank'
         rel='noopener'
+        className='button'
       >
         Email me
-      </BlockAnchor>
+      </a>
     </>
   )
 }

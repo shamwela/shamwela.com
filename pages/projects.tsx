@@ -32,7 +32,10 @@ const Projects = ({ pinnedItems }) => {
           homepageUrl: string
         }) => {
           return (
-            <section key={id} className='border p-4 flex flex-col gap-y-4'>
+            <section
+              key={id}
+              className='border rounded p-4 flex flex-col gap-y-4'
+            >
               <h2>{name}</h2>
 
               {description && <p>{description}</p>}
