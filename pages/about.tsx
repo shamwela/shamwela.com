@@ -23,6 +23,7 @@ const About = () => {
           placeholder='blur'
           quality={100}
           priority={true}
+          className='rounded-full'
         />
       </div>
 
