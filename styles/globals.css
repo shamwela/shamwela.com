@@ -70,7 +70,6 @@
     min-width: 100%;
   }
 
-  img,
   code {
     @apply rounded;
   }

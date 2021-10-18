@@ -34,7 +34,7 @@ const Projects = ({ pinnedItems }) => {
           return (
             <section
               key={id}
-              className='border rounded p-4 flex flex-col gap-y-4'
+              className='border rounded-lg p-4 flex flex-col gap-y-4'
             >
               <h2>{name}</h2>
 
