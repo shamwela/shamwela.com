@@ -17,6 +17,8 @@ const About = () => {
       <div className='md:w-52'>
         <Image
           src={ShaMweLaPhoto}
+          width={750}
+          height={750}
           alt='Sha Mwe La'
           placeholder='blur'
           quality={100}
