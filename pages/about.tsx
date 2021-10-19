@@ -10,9 +10,7 @@ const About = () => {
         <meta name='description' content='About Sha Mwe La' />
       </Head>
 
-      <h1>
-        Hi, I'm <span className='block md:inline'>Sha Mwe La.</span>
-      </h1>
+      <h1>Hi, I'm Sha Mwe La.</h1>
 
       <div className='md:w-52'>
         <Image
@@ -28,17 +26,12 @@ const About = () => {
       </div>
 
       <p>
-        I've been doing Front-end Web Development since 2019. I'm proficient in
-        JavaScript (especially React) and CSS. I upload most of my projects on{' '}
-        <a href='https://github.com/shamwela' target='_blank' rel='noopener'>
+        I love building web and mobile apps. You can see my projects on{' '}
+        <a href='github.com/shamwela' target='_blank' rel='noopener'>
           GitHub
         </a>
-        . I'm also learning Software Engineering at{' '}
-        <a href='https://www.gusto.edu.mm' target='_blank' rel='noopener'>
-          GUSTO University
-        </a>
-        . When I'm not coding, I listen to songs and watch YouTube. I live in
-        Yangon, Myanmar.
+        . I also blog to help beginners and share my opinions. I'm also learning
+        Software Engineering at GUSTO University. I live in Yangon, Myanmar.
       </p>
 
       <a
