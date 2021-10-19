@@ -27,8 +27,6 @@ const About = () => {
         />
       </div>
 
-      <h2>My mission is to improve the world with quality software.</h2>
-
       <p>
         I've been doing Front-end Web Development since 2019. I'm proficient in
         JavaScript (especially React) and CSS. I upload most of my projects on{' '}
