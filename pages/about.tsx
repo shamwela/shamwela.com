@@ -27,7 +27,7 @@ const About = () => {
 
       <p>
         I love building web and mobile apps. You can see my projects on{' '}
-        <a href='github.com/shamwela' target='_blank' rel='noopener'>
+        <a href='https://github.com/shamwela' target='_blank' rel='noopener'>
           GitHub
         </a>
         . I also blog to help beginners and share my opinions. I'm also learning
