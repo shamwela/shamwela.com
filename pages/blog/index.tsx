@@ -16,7 +16,7 @@ const Blog = () => {
       </Link>
 
       <Link href='/blog/roadmap'>
-        <a>Web Development Roadmap for Beginners</a>
+        <a>Web Development Roadmap</a>
       </Link>
 
       <Link href='/blog/favorite-coding-resources'>
