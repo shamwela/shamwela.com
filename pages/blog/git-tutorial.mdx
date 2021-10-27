@@ -1,0 +1,51 @@
+import Head from 'components/Head'
+
+<Head title='Git Tutorial' />
+
+# Git Tutorial
+
+## What is Version Control?
+
+A version control is a software that saves your code again and again. You can restore any previous saved code. Version control has many more features but this is the basics.
+
+## What is Git?
+
+Git is the most popular version control. It's used at almost every company including Google, Facebook and Microsoft. Git provides a history of content changes.
+
+## Git Basics
+
+[Download Git installer](https://git-scm.com/downloads) and run it.
+
+Create a folder if you haven't already. Open that folder in a command line interface. To initialize Git in a folder, run: `git init`
+
+Create a `index.html` file or any file in your folder. Staging area is an intermediate area where code can be formatted and reviewed before committing. Add `index.html` file to the staging area. `git add index.html`
+
+To add all files, use dot: `git add .`
+
+A commit is a historical version. To commit with a message: `git commit -m 'Your commit message here'`
+
+You can use single or double quotes.
+
+Create a GitHub account and create a repository.
+
+Add a new remote.
+
+`git remote add origin your-link-here`
+
+origin is a common name. You can name it anything you want.
+
+There's only 1 brach for now, main brach. Push your main branch on your computer to origin. origin is your GitHub repository.
+
+`git push -u origin main`
+
+u saves the origin main part. So, next time you push, you can just type git push.
+
+After you've made some code changes, you can type
+
+```
+git add .
+git commit -m 'Your commit message here'
+git push
+```
+
+These are just the basics. You can learn more on YouTube.
