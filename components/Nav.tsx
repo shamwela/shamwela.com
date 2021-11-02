@@ -2,9 +2,9 @@ import NavLink from './NavLink'
 
 const Nav = () => {
   return (
-    <nav className='fixed right-0 bottom-0 left-0 bg-secondary'>
+    <nav className='fixed bottom-0 left-0 right-0 md:static bg-secondary'>
       <ol
-        className='mx-auto list-none h-14 flex justify-evenly items-center'
+        className='flex items-center mx-auto list-none h-14 justify-evenly'
         style={{ maxWidth: '70ch' }}
       >
         <NavLink href='/about'>About</NavLink>

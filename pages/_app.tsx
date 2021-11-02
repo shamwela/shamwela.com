@@ -26,17 +26,15 @@ const App = ({ Component, pageProps }) => {
       <Head>
         <link rel='icon' href='/assets/favicon.ico' />
       </Head>
-
+      <Nav />
       <main
         style={{ maxWidth: '70ch' }}
-        className='mx-auto p-8 flex flex-col gap-y-8'
+        className='flex flex-col p-8 mx-auto gap-y-8'
       >
         <Component {...pageProps} />
         <BlogCallToAction />
       </main>
-
       <Footer />
-      <Nav />
     </>
   )
 }
