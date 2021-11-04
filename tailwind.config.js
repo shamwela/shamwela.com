@@ -9,6 +9,9 @@ module.exports = {
         secondary: '#fff',
         accent: '#38aecc',
       },
+      fontFamily: {
+        sans: 'Helvetica, Arial, sans-serif',
+      }
     },
   },
   variants: {
