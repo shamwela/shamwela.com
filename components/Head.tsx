@@ -4,7 +4,7 @@ import Head from 'next/head'
 const CustomHead = ({
   title,
   description = title,
-  ogImageUrl = '/sha-mwe-la-photo.jpg'
+  ogImageUrl = '/sha-mwe-la-photo.jpg',
 }: {
   title: string
   description?: string
@@ -14,7 +14,10 @@ const CustomHead = ({
     <Head>
       <title>{title}</title>
       <meta name='description' content={description} />
-      <meta property="og:image" content={ogImageUrl} />
+      <meta property='og:image' content={ogImageUrl} />
+      <meta name='twitter:card' content='summary_large_image' />
+      <meta name='twitter:site' content='@shamwela_' />
+      <meta name='twitter:creator' content='@shamwela_' />
     </Head>
   )
 }
