@@ -1,31 +1,45 @@
 import Head from 'components/Head'
+import Image from 'next/image'
+import TailwindCSSCodeExample from 'public/images/tailwind-css-code-example.png'
+import TailwindCSSSizes from 'public/images/tailwind-css-sizes.png'
+import TailwindCSSOutput from 'public/images/tailwind-css-output.png'
 
-<Head title='Why I Love Tailwind CSS' description='Why I Love Tailwind CSS' ogImageUrl='https://getlogovector.com/wp-content/uploads/2021/01/tailwind-css-logo-vector.png' />
+<Head
+  title='Why I Love Tailwind CSS'
+  description='Why I Love Tailwind CSS'
+  keywords='tailwind css, tailwind'
+  imageUrl='https://getlogovector.com/wp-content/uploads/2021/01/tailwind-css-logo-vector.png'
+/>
 
 # Why I Love Tailwind CSS
 
-## 1. Can do single-file component structure
+Tailwind CSS is a utility-first CSS framework packed with classes like `flex`, `pt-4`, `text-center` and `rotate-90` that can be composed to build any design, directly in your markup.
 
-Since the classes are written in a single file, it's easy to structure your components.
+Tailwind syntax looks like this:
 
-## 2. Can scale well
+<Image src={TailwindCSSCodeExample} alt='Tailwind CSS Code Example' />
+<Image src={TailwindCSSOutput} alt='Taiwind CSS Output' />
 
-Tailwind is used at Algolia, Clubhouse, CovertKit and many other companies.
+If you use Tailwind CSS in a vanilla project, you will duplicate the classes a lot and it's not maintainable. Only use Tailwind with a component-based framework or library like React, Vue or Angular.
 
-## 3. Editing the CSS only affects the specific component
+<Image src={TailwindCSSSizes} alt='Tailwind CSS Sizes' />
 
-## 4. No dead CSS
+Tailwind CSS restricts your design a little bit to make it look consistent and pretty but is also customizable enough to build any design.
 
-If you delete a markup, the CSS will also be deleted. So, there's no dead CSS.
+Coding with Tailwind is a lot faster than CSS-in-JS, vanilla CSS or any other styling methods.
 
-## 5. You don't have to name elements
+Since the HTML, CSS and JavaScript are in a single file, it's easy to move and edit your code.
 
-Sometimes, naming an element is even harder than writing the CSS. In Tailwind CSS, you just write the classes, so you don't have to name elements.
+It can scale well. Tailwind is used at Algolia, Clubhouse, CovertKit and many other companies.
 
-## 6. Easier and faster to write and read
+Editing the CSS only affects the specific component.
 
-Instead of typing `display: flex;`, you can just add `flex` class to the element. It's arguably easier and faster to write and read.
+No dead CSS. If you delete a markup, the CSS will also be deleted. So, there's no dead CSS.
 
-## 7. Design is more consistent (No random numbers)
+You don't have to name elements. Sometimes, naming an element is even harder than writing the CSS. In Tailwind CSS, you just write the classes, so you don't have to name elements.
 
-## 8. Easy to debug
+Easier and faster to write and read. Instead of typing `display: flex;`, you can just add `flex` class to the element. It's arguably easier and faster to write and read.
+
+## Some drawbacks
+
+Nothing is perfect. Tailwind CSS syntax is a bit strange at first, but you'll get used to it. Although it is very easy, you still have to learn it.
