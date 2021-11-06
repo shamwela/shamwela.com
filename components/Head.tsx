@@ -1,32 +1,41 @@
 import Head from 'next/head'
 
-// This component is created because next/head can't be used directly in MDX files
-const CustomHead = ({
+const MyHead = ({
   title,
-  description = title,
-  ogImageUrl = '/sha-mwe-la-photo.jpg',
+  description,
+  keywords,
+  imageUrl,
 }: {
   title: string
-  description?: string
-  ogImageUrl?: string
+  description: string
+  keywords: string
+  imageUrl: string
 }) => {
   return (
     <Head>
       <title>{title}</title>
       <meta property='og:title' content={title} />
-      <meta />
+      <meta name='twitter:title' content={title} />
+      <meta name='twitter:alt' content={title} />
 
       <meta name='description' content={description} />
       <meta property='og:description' content={description} />
+      <meta name='twitter:description' content={description} />
 
-      <meta property='og:image' content={ogImageUrl} />
-      <meta name="twitter:image" content={ogImageUrl}/>
+      <meta name='keywords' content={keywords} />
+
+      <meta name='image' content={imageUrl} />
+      <meta property='og:image' content={imageUrl} />
+      <meta name='twitter:image' content={imageUrl} />
 
       <meta name='twitter:card' content='summary_large_image' />
       <meta name='twitter:creator' content='@shamwela_' />
       <meta name='twitter:site' content='@shamwela_' />
+
+      <meta property='og:url' content='https://www.shamwela.com' />
+      <link rel='canonical' href='https://www.shamwela.com' />
     </Head>
   )
 }
 
-export default CustomHead
+export default MyHead

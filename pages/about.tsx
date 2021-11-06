@@ -1,14 +1,16 @@
-import Head from 'next/head'
+import Head from 'components/Head'
 import Image from 'next/image'
 import ShaMweLaPhoto from 'public/assets/sha-mwe-la-photo.jpg'
 
 const About = () => {
   return (
     <>
-      <Head>
-        <title>About Sha Mwe La</title>
-        <meta name='description' content='Get to know Sha Mwe La' />
-      </Head>
+      <Head
+        title='About Sha Mwe La'
+        description='Get to know Sha Mwe La'
+        keywords='about, sha mwe la, shamwela, shamwe'
+        imageUrl='/sha-mwe-la-photo.jpg'
+      />
 
       <h1>Hi, I'm Sha Mwe La.</h1>
 
