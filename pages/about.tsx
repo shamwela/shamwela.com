@@ -7,7 +7,7 @@ const About = () => {
     <>
       <Head>
         <title>About Sha Mwe La</title>
-        <meta name='description' content='About Sha Mwe La' />
+        <meta name='description' content='Get to know Sha Mwe La' />
       </Head>
 
       <h1>Hi, I'm Sha Mwe La.</h1>
