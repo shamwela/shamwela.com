@@ -33,8 +33,8 @@ const MyHead = ({
       <meta name='twitter:site' content='@shamwela_' />
 
       <meta property='og:type' content='blog' />
-      <meta property='og:url' content='https://www.shamwela.com' />
-      <link rel='canonical' href='https://www.shamwela.com' />
+      {/* <meta property='og:url' content='https://www.shamwela.com' />
+      <link rel='canonical' href='https://www.shamwela.com' /> */}
     </Head>
   )
 }
