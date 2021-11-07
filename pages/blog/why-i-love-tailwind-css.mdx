@@ -13,24 +13,24 @@ import TailwindCSSOutput from 'public/images/tailwind-css-output.png'
 
 # Why I Love Tailwind CSS
 
-Tailwind CSS is a utility-first CSS framework packed with classes like `flex`, `pt-4`, `text-center` and `rotate-90` that can be composed to build any design, directly in your markup.
+Tailwind CSS is a utility-first CSS framework packed with classes like `flex`, `pt-4`, `text-center`, and `rotate-90` that can be composed to build any design, directly in your markup.
 
 Tailwind syntax looks like this:
 
 <Image src={TailwindCSSCodeExample} alt='Tailwind CSS Code Example' />
 <Image src={TailwindCSSOutput} alt='Taiwind CSS Output' />
 
-If you use Tailwind CSS in a vanilla project, you will duplicate the classes a lot and it's not maintainable. Only use Tailwind with a component-based framework or library like React, Vue or Angular.
+If you use Tailwind CSS in a vanilla project, you will duplicate the classes a lot and it's not maintainable. Only use Tailwind with component-based frameworks or libraries like React, Vue, or Angular.
 
 <Image src={TailwindCSSSizes} alt='Tailwind CSS Sizes' />
 
 Tailwind CSS restricts your design a little bit to make it look consistent and pretty but is also customizable enough to build any design.
 
-Coding with Tailwind is a lot faster than CSS-in-JS, vanilla CSS or any other styling methods.
+In my opinion, Tailwind is the fastest styling method.
 
-Since the HTML, CSS and JavaScript are in a single file, it's easy to move and edit your code.
+Since the HTML, CSS, and JavaScript are in a single file, it's easy to move and edit your code.
 
-It can scale well. Tailwind is used at Algolia, Clubhouse, CovertKit and many other companies.
+It can scale well. Tailwind is used at [React Docs Beta](https://beta.reactjs.org), Algolia, Clubhouse, CovertKit, and many other websites.
 
 Editing the CSS only affects the specific component.
 
@@ -42,4 +42,8 @@ Easier and faster to write and read. Instead of typing `display: flex;`, you can
 
 ## Some drawbacks
 
-Nothing is perfect. Tailwind CSS syntax is a bit strange at first, but you'll get used to it. Although it is very easy, you still have to learn it.
+Tailwind isn't perfect but the benefits outweigh the drawbacks. Adding many classes into the HTML is a bit ugly. You have to spend some time first to understand Tailwind classes.
+
+## Conclusion
+
+Vanilla CSS, CSS Modules and CSS preprocessors are too permissive and hard to maintain. Premade component libraries and frameworks are too restrictive. CSS-in-JS is heavy and not flexible. Inline CSS lacks many features. Tailwind CSS seems to be the best choice for now.
