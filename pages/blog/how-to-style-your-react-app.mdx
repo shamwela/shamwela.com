@@ -3,35 +3,64 @@ import Head from 'components/Head'
 <Head
   title='How to style your React app'
   description='How to style your React app'
-  keywords='style, CSS, front-end'
+  keywords='style, CSS, React, front-end'
   imageUrl=''
 />
 
 # How to style your React app
 
-If you want a short answer, Tailwind CSS is the best in my opinion. If you want a long answer, keep reading.
+## What should I use?
 
-There're many ways to style your React app.
+It depends. In my opinion, utility-first CSS (especially Tailwind CSS) is the best way to style your React app.
+
+## Utility-first CSS
+
+This category includes Tailwind CSS, Tachyons, Shed.css, and more. I'll talk about Tailwind CSS here.
+
+```
+const Button = () => (
+  <button className='bg-blue-500 text-white'>Buy</button>
+)
+
+export default Button
+```
+
+👍 Pros
+
+- Scoped styles
+- Fastest to write and reading
+- It's easy to move and edit your code.
+- You don't have to name elements.
+
+👎 Cons
+
+- Adding many classes into the HTML is a bit ugly.
+- You have to spend some time first to understand Tailwind classes.
+
+There are other ways too.
 
 1. Inline CSS
 1. Normal CSS
 1. CSS Preprocessors
 1. CSS Modules
 1. CSS-in-JS
-1. Utility-first CSS
 1. Premade CSS, and more.
 
 ## Inline CSS
 
 ```
-<button
-  style={{
-    backgroundColor: 'red',
-    color: 'white',
-  }}
->
-  Buy
-</button>
+const Button = () => (
+  <button
+    style={{
+      backgroundColor: 'blue',
+      color: 'white',
+    }}
+  >
+    Buy
+  </button>
+)
+
+export default Button
 ```
 
 You add an object with CSS properties to the style attribute. Use camelCase. For example, `background-color` becomes `backgroundColor`.
@@ -39,18 +68,23 @@ You add an object with CSS properties to the style attribute. Use camelCase. For
 👍 Pros
 
 - No need to name your elements
-- Easiest to write
+- No dead code
 
 👎 Cons
 
 - Can't use media queries
-- Can't use hover, focus, and other states
+- Can't use pseudo selectors and pseudo elements like hover, focus, and other states
+- Generally slower performance than other styling methods.
+- Can't autoprefix vendor names to selectors
+- Can't do keyframe animations
+- Can't do global styles
+- It loses the cascading nature of CSS
 
 ## Normal CSS
 
 ```
 button {
-  background-color: red;
+  background-color: blue;
   color: white;
 }
 ```
@@ -58,15 +92,13 @@ button {
 Write your CSS in a `.css` file and import it in your component file.
 
 ```
-import './App.css'
+import './Button.css'
 
-const App = () => (
-  <main>
-    <button>Buy</button>
-  </main>
+const Button = () => (
+  <button>Buy</button>
 )
 
-export default App
+export default Button
 ```
 
 👍 Pros
@@ -76,11 +108,13 @@ export default App
 👎 Cons
 
 - The styles are global. So there can be name repetitions and style overriding issues.
+- Hard to delete dead code.
 - Hard to maintain.
+- Naming things is hard.
 
 ## CSS Preprocessors
 
-This type includes Sass, LESS, Stylus, PostCSS, and more. These are similar to normal CSS, but they have more features like extending styles, and nesting. Sass is the most popular in this category so I'll talk about it here. First, install Sass via npm.
+This type includes Sass, LESS, Stylus, PostCSS, and more. These are similar to normal CSS, but they have more features like extending styles, and nesting. Sass is the most popular in this category so I'll talk about it here. First, install Sass using npm.
 
 ```
 npm i sass
@@ -90,17 +124,19 @@ Don't use `node-sass` because [it's deprecated](https://sass-lang.com/blog/libsa
 
 ```
 button
-  background-color: red
+  background-color: blue
   color: white
 ```
 
 👍 Pros
 
-- Has many more features than normal CSS
+- Has many more features than normal CSS like mixins, nesting, and more
 
 👎 Cons
 
 - Same cons as normal CSS
+- Nesting may be hard to scale.
+- You might not even need mixins and nesting because of Component Composition.
 
 ## CSS Modules
 
@@ -109,8 +145,8 @@ If you want to use CSS Modules, use the `[name].module.css` file naming conventi
 ```
 /* Button.module.css */
 
-button {
-  background-color: red;
+.button {
+  background-color: blue;
   color: white;
 }
 ```
@@ -136,3 +172,62 @@ export default Button
 👎 Cons
 
 - At first, might be hard to understand the syntax
+
+## CSS-in-JS
+
+This category inclues styled-components, Emotion, styled-jsx, and more. styled-components is the most popular in this category so I'll talk about it here. First, install styled-components using npm.
+
+```
+npm i styled-components
+```
+
+The syntax looks like this:
+
+```
+import styled from 'styled-components'
+
+const StyledButton = styled.button`
+  background-color: blue;
+  color: white;
+`
+
+const Button = () => (
+  <StyledButton>Buy</StyledButton>
+)
+
+export default Button
+```
+
+Most CSS-in-JS use a special type of JavaScript function called a tagged template literal. You can associate styles with any HTML elements, for example, `styled.button`, `styled.h1`.
+
+👍 Pros
+
+- Scoped styles
+- Easy to implement dynamic styling
+- No name collision
+
+👎 Cons
+
+- A bit of learning curve for beginners
+
+## Premade CSS
+
+This category includes Bootstrap, Materialize, Semantic UI, and more. I'll talk about Bootstrap here.
+
+```
+const Button = () => (
+  <button className='btn btn-danger'>Buy</button>
+)
+
+export default Button
+```
+
+👍 Pros
+
+- Save time and energy
+- Consistent style
+
+👎 Cons
+
+- Hard to customize
+- Looks mediocre if you don't customize
