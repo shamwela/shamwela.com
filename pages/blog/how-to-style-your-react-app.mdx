@@ -1,0 +1,138 @@
+import Head from 'components/Head'
+
+<Head
+  title='How to style your React app'
+  description='How to style your React app'
+  keywords='style, CSS, front-end'
+  imageUrl=''
+/>
+
+# How to style your React app
+
+If you want a short answer, Tailwind CSS is the best in my opinion. If you want a long answer, keep reading.
+
+There're many ways to style your React app.
+
+1. Inline CSS
+1. Normal CSS
+1. CSS Preprocessors
+1. CSS Modules
+1. CSS-in-JS
+1. Utility-first CSS
+1. Premade CSS, and more.
+
+## Inline CSS
+
+```
+<button
+  style={{
+    backgroundColor: 'red',
+    color: 'white',
+  }}
+>
+  Buy
+</button>
+```
+
+You add an object with CSS properties to the style attribute. Use camelCase. For example, `background-color` becomes `backgroundColor`.
+
+👍 Pros
+
+- No need to name your elements
+- Easiest to write
+
+👎 Cons
+
+- Can't use media queries
+- Can't use hover, focus, and other states
+
+## Normal CSS
+
+```
+button {
+  background-color: red;
+  color: white;
+}
+```
+
+Write your CSS in a `.css` file and import it in your component file.
+
+```
+import './App.css'
+
+const App = () => (
+  <main>
+    <button>Buy</button>
+  </main>
+)
+
+export default App
+```
+
+👍 Pros
+
+- Simple
+
+👎 Cons
+
+- The styles are global. So there can be name repetitions and style overriding issues.
+- Hard to maintain.
+
+## CSS Preprocessors
+
+This type includes Sass, LESS, Stylus, PostCSS, and more. These are similar to normal CSS, but they have more features like extending styles, and nesting. Sass is the most popular in this category so I'll talk about it here. First, install Sass via npm.
+
+```
+npm i sass
+```
+
+Don't use `node-sass` because [it's deprecated](https://sass-lang.com/blog/libsass-is-deprecated). You can use `.sass` or `.scss` extensions for your files. `.scss` has the same syntax as normal CSS. `.sass` doesn't require curly braces and semicolons.
+
+```
+button
+  background-color: red
+  color: white
+```
+
+👍 Pros
+
+- Has many more features than normal CSS
+
+👎 Cons
+
+- Same cons as normal CSS
+
+## CSS Modules
+
+If you want to use CSS Modules, use the `[name].module.css` file naming convention. If you want to use CSS Modules with Sass, use the file extension `[name].module.sass` or `[name].module.scss`.
+
+```
+/* Button.module.css */
+
+button {
+  background-color: red;
+  color: white;
+}
+```
+
+In your component file, import the CSS modules and reference as a JavaScript object.
+
+```
+import styles from './Button.module.css'
+
+const Button = () => (
+  <button className={styles.button}>Buy</button>
+)
+
+export default Button
+```
+
+[Learn more about CSS Modules](https://create-react-app.dev/docs/adding-a-css-modules-stylesheet).
+
+👍 Pros
+
+- Since this scopes your style to the specific component, it eliminates name repetitions and style overriding issues.
+
+👎 Cons
+
+- At first, might be hard to understand the syntax
