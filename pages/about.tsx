@@ -9,7 +9,7 @@ const About = () => {
         title='About Sha Mwe La'
         description='Get to know Sha Mwe La'
         keywords='about, sha mwe la, shamwela, sha mwe'
-        imageUrl='https://www.shamwela.com/assets/sha-mwe-la-photo.jpg'
+        imageUrl='/assets/sha-mwe-la-photo.jpg'
       />
 
       <h1>Hi, I'm Sha Mwe La.</h1>
