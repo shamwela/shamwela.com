@@ -3,32 +3,25 @@ import Link from 'next/link'
 
 const BlogCallToAction = () => {
   const { asPath } = useRouter()
-  const isBlog = asPath.includes('/blog/')
+  if (!asPath.includes('/blog/')) {
+    return null
+  }
 
   return (
     <>
-      {isBlog && (
-        <>
-          <p>
-            If you found this useful, please bookmark this website for new blogs
-            every Saturday. Please also{' '}
-            <a
-              href='https://github.com/shamwela/my-website'
-              target='_blank'
-              rel='noopener'
-            >
-              star the repository on GitHub
-            </a>
-            .
-          </p>
+      <hr />
 
-          <p>
-            <Link href='/blog'>
-              <a>See other blogs</a>
-            </Link>
-          </p>
-        </>
-      )}
+      <section className='flex flex-col'>
+        <strong>Written by Sha Mwe La</strong>
+
+        <Link href='/about'>
+          <a>Learn more about Sha Mwe La</a>
+        </Link>
+
+        <Link href='/blog'>
+          <a>See other blogs</a>
+        </Link>
+      </section>
     </>
   )
 }
