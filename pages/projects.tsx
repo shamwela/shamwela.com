@@ -1,4 +1,4 @@
-import Head from 'next/head'
+import Head from 'components/Head'
 import {
   ApolloClient,
   InMemoryCache,
@@ -10,10 +10,12 @@ import { setContext } from '@apollo/client/link/context'
 const Projects = ({ pinnedItems }) => {
   return (
     <>
-      <Head>
-        <title>Sha Mwe La's Projects</title>
-        <meta name='description' content="Sha Mwe La's Projects" />
-      </Head>
+      <Head
+        title="Sha Mwe La's Projects"
+        description="Sha Mwe La's Projects"
+        keywords='sha mwe la projects, shamwela projects'
+        imageUrl='/images/sha-mwe-la-open-graph.png'
+      />
 
       <h1>Projects</h1>
 
@@ -34,7 +36,7 @@ const Projects = ({ pinnedItems }) => {
           return (
             <section
               key={id}
-              className='border rounded-lg p-4 flex flex-col gap-y-4'
+              className='flex flex-col p-4 border rounded-lg gap-y-4'
             >
               <h2>{name}</h2>
 
