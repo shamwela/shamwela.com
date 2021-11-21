@@ -34,7 +34,7 @@ const App = ({ Component, pageProps }) => {
   return (
     <>
       <Head>
-        <link rel='icon' href='/assets/favicon.ico' />
+        <link rel='icon' href='/favicon.ico' />
       </Head>
       <Nav />
       <main

@@ -1,6 +1,6 @@
 import Head from 'components/Head'
 import Image from 'next/image'
-import ShaMweLaPhoto from 'public/assets/sha-mwe-la-photo.jpg'
+import ShaMweLaPhoto from 'public/images/sha-mwe-la-photo.jpg'
 
 const About = () => {
   return (
