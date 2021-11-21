@@ -6,10 +6,13 @@ import Head from 'components/Head'
 
 Every page should have the followings:
 
-- `<title>`
-- `<meta name='description' content='Your description here'>`
-- `<main>`
-- `<h1>`.
+```html
+<title>Your Page Title</title>
+<meta name='description' content='Your description'>
+<main>
+  <h1>Your Heading 1</h1>
+</main>
+```
 
 Use `<nav>` for the navigation bar and `<footer>` for the footer. Don't use `<div>`s for these.
 
@@ -31,7 +34,7 @@ Adding `rel='noopener'` to your `target='_blank'` links avoids performance and s
 
 Add `<base target='_blank'>` in a page `<head>` to open all links in that page in a new tab.
 
-```
+```html
 <head>
   <base target='_blank'>
 </head>
