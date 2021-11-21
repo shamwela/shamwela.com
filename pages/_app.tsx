@@ -12,6 +12,7 @@ import 'prismjs/themes/prism-tomorrow.css'
 // Some languages are not added by default. They should be added maually.
 import 'prismjs/components/prism-sass'
 import 'prismjs/components/prism-jsx'
+import 'prismjs/components/prism-git'
 
 const App = ({ Component, pageProps }) => {
   const router = useRouter()
