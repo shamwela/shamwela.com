@@ -1,10 +1,12 @@
 import Head from 'next/head'
 
 const MyHead = ({
-  title,
-  description,
-  keywords,
-  imageUrl,
+  // Although these parameters are required, they don't work well on MDX files.
+  // So, the default parameters are added here.
+  title = 'Sha Mwe La',
+  description = "Sha Mwe La's website",
+  keywords = 'sha mwe la, shamwela, shamwela.com',
+  imageUrl = '/images/sha-mwe-la-open-graph.png',
 }: {
   title: string
   description: string
