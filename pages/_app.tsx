@@ -1,14 +1,17 @@
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import * as gtag from '../lib/gtag'
-import prism from 'prismjs'
-import 'prismjs/themes/prism-tomorrow.css'
 import Head from 'next/head'
 import BlogCallToAction from 'components/BlogCallToAction'
 import Footer from 'components/Footer'
 import Nav from 'components/Nav'
 import 'tailwindcss/tailwind.css'
 import 'styles/globals.css'
+import prism from 'prismjs'
+import 'prismjs/themes/prism-tomorrow.css'
+// Some languages are not added by default. They should be added maually.
+import 'prismjs/components/prism-sass'
+import 'prismjs/components/prism-jsx'
 
 const App = ({ Component, pageProps }) => {
   const router = useRouter()
