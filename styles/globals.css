@@ -20,11 +20,11 @@
   }
 
   h1 {
-    @apply text-[2rem] leading-tight md:text-[3.5rem] md:leading-[1.17857];
+    @apply text-5xl;
   }
-  
+
   h2 {
-    @apply text-xl leading-[1.4] md:text-[2rem] md:leading-tight;
+    @apply text-3xl;
   }
 
   a {
