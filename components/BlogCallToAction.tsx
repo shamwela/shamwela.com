@@ -11,17 +11,15 @@ const BlogCallToAction = () => {
     <>
       <hr />
 
-      <section className='flex flex-col'>
-        <strong>Written by Sha Mwe La</strong>
+      <strong>Written by Sha Mwe La</strong>
 
-        <Link href='/about'>
-          <a>Learn more about Sha Mwe La</a>
-        </Link>
+      <Link href='/about'>
+        <a className='button'>Learn more about Sha Mwe La</a>
+      </Link>
 
-        <Link href='/blog'>
-          <a>See other blogs</a>
-        </Link>
-      </section>
+      <Link href='/blog'>
+        <a className='button'>See other blogs</a>
+      </Link>
     </>
   )
 }
