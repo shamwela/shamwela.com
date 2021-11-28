@@ -2,7 +2,7 @@ import NavLink from './NavLink'
 
 const Nav = () => {
   return (
-    <nav className='fixed bottom-0 left-0 right-0 z-10 md:static bg-secondary'>
+    <nav className='bg-secondary'>
       <ol
         className='flex items-center mx-auto list-none h-14 justify-evenly'
         style={{ maxWidth: '70ch' }}
