@@ -8,7 +8,7 @@ Every page should have the followings:
 
 ```html
 <title>Your Page Title</title>
-<meta name='description' content='Your description'>
+<meta name="description" content="Your description" />
 <main>
   <h1>Your Heading 1</h1>
 </main>
@@ -30,13 +30,13 @@ Use `loading=lazy` attribute to defer the loading of `<img>` until the user scro
 
 Add `type='search'` in `<input>` and you get the **clear** button for free.
 
-Adding `rel='noopener'` to your `target='_blank'` links avoids performance and security issues. [Learn more about this on web.dev.](https://web.dev/external-anchors-use-rel-noopener)
+Adding `rel='noreferrer'` to your `target='_blank'` links avoids performance and security issues. [Learn more about this on web.dev.](https://web.dev/external-anchors-use-rel-noopener)
 
 Add `<base target='_blank'>` in a page `<head>` to open all links in that page in a new tab.
 
 ```html
 <head>
-  <base target='_blank'>
+  <base target="_blank" />
 </head>
 ```
 

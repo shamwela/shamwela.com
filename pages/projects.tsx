@@ -44,12 +44,12 @@ const Projects = ({ pinnedItems }) => {
 
               <section className='flex gap-x-8'>
                 {homepageUrl && (
-                  <a href={homepageUrl} target='_blank' rel='noopener'>
+                  <a href={homepageUrl} target='_blank' rel='noreferrer'>
                     Visit site
                   </a>
                 )}
 
-                <a href={url} target='_blank' rel='noopener'>
+                <a href={url} target='_blank' rel='noreferrer'>
                   View code
                 </a>
               </section>
@@ -61,7 +61,7 @@ const Projects = ({ pinnedItems }) => {
       <a
         href='https://github.com/shamwela?tab=repositories'
         target='_blank'
-        rel='noopener'
+        rel='noreferrer'
       >
         View all projects on GitHub
       </a>

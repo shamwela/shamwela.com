@@ -10,7 +10,7 @@ const Footer = () => {
         aria-label='Email'
         href='mailto:shamwela@hotmail.com'
         target='_blank'
-        rel='noopener'
+        rel='noreferrer'
       >
         <svg
           xmlns='http://www.w3.org/2000/svg'
@@ -28,7 +28,7 @@ const Footer = () => {
         aria-label='GitHub'
         href='https://github.com/shamwela'
         target='_blank'
-        rel='noopener'
+        rel='noreferrer'
       >
         <svg
           xmlns='http://www.w3.org/2000/svg'
@@ -45,7 +45,7 @@ const Footer = () => {
         aria-label='LinkedIn'
         href='https://www.linkedin.com/in/shamwela'
         target='_blank'
-        rel='noopener'
+        rel='noreferrer'
       >
         <svg
           xmlns='http://www.w3.org/2000/svg'
@@ -62,7 +62,7 @@ const Footer = () => {
         aria-label='Twitter'
         href='https://twitter.com/shamwela_'
         target='_blank'
-        rel='noopener'
+        rel='noreferrer'
       >
         <svg
           xmlns='http://www.w3.org/2000/svg'
