@@ -9,27 +9,30 @@ import 'tailwindcss/tailwind.css'
 import 'styles/globals.css'
 import prism from 'prismjs'
 import 'prismjs/themes/prism-tomorrow.css'
-// Some languages are not added by default. They should be added maually.
+// Some languages are not added by default. They should be added manually here.
 import 'prismjs/components/prism-sass'
 import 'prismjs/components/prism-jsx'
 import 'prismjs/components/prism-git'
 
 const App = ({ Component, pageProps }) => {
-  const router = useRouter()
+  const { events, pathname } = useRouter()
 
   useEffect(() => {
     const handleRouteChange = (url) => {
       gtag.pageview(url)
     }
-    router.events.on('routeChangeComplete', handleRouteChange)
+    events.on('routeChangeComplete', handleRouteChange)
     return () => {
-      router.events.off('routeChangeComplete', handleRouteChange)
+      events.off('routeChangeComplete', handleRouteChange)
     }
-  }, [router.events])
+  }, [events])
 
   useEffect(() => {
-    prism.highlightAll()
-  }, [])
+    // If it is a blog page, highlight the <code> tags
+    if (pathname.includes('/blog/')) {
+      prism.highlightAll()
+    }
+  }, [pathname])
 
   return (
     <>
