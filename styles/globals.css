@@ -3,6 +3,13 @@
 @tailwind utilities;
 
 @layer base {
+  @font-face {
+    font-family: 'Roboto Mono';
+    src: local('Roboto Mono'),
+      url('/typefaces/roboto-mono-variable.woff2') format('woff2');
+    font-display: swap;
+  }
+
   *,
   *::before,
   *::after {

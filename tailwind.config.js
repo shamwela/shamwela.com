@@ -11,7 +11,9 @@ module.exports = {
       },
       fontFamily: {
         sans: 'Helvetica, Arial, sans-serif',
-      }
+        // "!important" is used here to override Prism.js default font family
+        mono: '"Roboto Mono", monospace !important',
+      },
     },
   },
   variants: {
