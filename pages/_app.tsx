@@ -17,6 +17,7 @@ import 'prismjs/components/prism-git'
 const App = ({ Component, pageProps }) => {
   const { events, pathname } = useRouter()
 
+  // Google Analytics
   useEffect(() => {
     const handleRouteChange = (url) => {
       gtag.pageview(url)
