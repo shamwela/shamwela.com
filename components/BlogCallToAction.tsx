@@ -2,8 +2,8 @@ import { useRouter } from 'next/router'
 import Link from 'next/link'
 
 const BlogCallToAction = () => {
-  const { asPath } = useRouter()
-  if (!asPath.includes('/blog/')) {
+  const { pathname } = useRouter()
+  if (!pathname.includes('/blog/')) {
     return null
   }
 

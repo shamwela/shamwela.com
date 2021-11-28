@@ -2,8 +2,8 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 const NavLink = ({ href, children }: { href: string; children: string }) => {
-  const { asPath } = useRouter()
-  const isActive = asPath.includes(href)
+  const { pathname } = useRouter()
+  const isActive = pathname.includes(href)
 
   return (
     <li>
