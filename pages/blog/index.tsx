@@ -13,6 +13,10 @@ const Blog = () => {
 
       <h1>Blog</h1>
 
+      <Link href='/blog/productivity-tips'>
+        <a>Productivity tips</a>
+      </Link>
+
       <Link href='/blog/how-to-style-your-react-app'>
         <a>How to style your React app</a>
       </Link>
