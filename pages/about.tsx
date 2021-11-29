@@ -20,9 +20,9 @@ const About = () => {
           width={750}
           height={750}
           alt='Sha Mwe La'
-          placeholder='blur'
           quality={100}
-          priority={true}
+          placeholder='blur'
+          priority
           className='rounded-full'
         />
       </div>

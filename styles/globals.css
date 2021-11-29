@@ -70,4 +70,8 @@
   .button {
     @apply block max-w-full px-6 py-2 font-medium text-center no-underline rounded-full md:w-max bg-accent text-primary;
   }
+
+  img {
+    @apply rounded-lg;
+  }
 }
