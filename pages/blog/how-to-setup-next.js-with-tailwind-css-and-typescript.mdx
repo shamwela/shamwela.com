@@ -1,0 +1,84 @@
+import Head from 'components/Head'
+
+<Head
+  title='How to setup Next.js with Tailwind CSS and TypeScript'
+  description='How to setup Next.js with Tailwind CSS and TypeScript'
+  keywords='next.js, tailwind css, tailwind, typescript'
+  imageUrl=''
+/>
+
+# How to setup Next.js with Tailwind CSS and TypeScript
+
+```shell
+npx create-next-app -e with-tailwindcss my-project
+cd my-project
+npm install -D tailwindcss@latest postcss@latest autoprefixer@latest
+npx tailwindcss init -p
+```
+
+In the root of your project folder, create a folder called `styles`. Inside this folder, create a file called `globals.css` and add the following code:
+
+```css
+/* ./styles/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+Import `globals.css` into your `_app.js` file:
+
+```jsx
+// pages/_app.js
+import 'styles/globals.css'
+
+function MyApp({ Component, pageProps }) {
+  return <Component {...pageProps} />
+}
+
+export default MyApp
+```
+
+In the root of your project folder, create a file called `tsconfig.json`. And run the following command:
+
+```shell
+npm install --save-dev typescript @types/react @types/node
+```
+
+Change `.js` extensions to `.tsx`. Then, run `npm run dev` to start the development server.
+
+Add baseUrl for easy import statements. For example instead of writing `import '../styles/globals.css`, you can write `import 'styles/globals.css'`.
+
+```json
+// tsconfig.json
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+...
+```
+
+## Optional
+
+Add `lang='en'` to improve SEO.
+
+```tsx
+// _document.tsx
+import Document, { Html, Head, Main, NextScript } from 'next/document'
+
+class MyDocument extends Document {
+  render() {
+    return (
+      <Html lang='en'>
+        <Head />
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    )
+  }
+}
+
+export default MyDocument
+```
+
+Run `npx next lint` to check for linting errors.
