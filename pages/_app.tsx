@@ -12,7 +12,9 @@ import 'prismjs/themes/prism-tomorrow.css'
 // Some languages are not added by default. They should be added manually here.
 import 'prismjs/components/prism-sass'
 import 'prismjs/components/prism-jsx'
+import 'prismjs/components/prism-tsx'
 import 'prismjs/components/prism-git'
+import 'prismjs/components/prism-json'
 
 const App = ({ Component, pageProps }) => {
   const { events, pathname } = useRouter()
