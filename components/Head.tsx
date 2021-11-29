@@ -1,7 +1,7 @@
 import Head from 'next/head'
 
 const MyHead = ({
-  // Although these parameters are required, they don't work well on MDX files.
+  // Although these parameters are required, they don't work well in MDX files.
   // So, the default parameters are added here.
   title = 'Sha Mwe La',
   description = "Sha Mwe La's website",
