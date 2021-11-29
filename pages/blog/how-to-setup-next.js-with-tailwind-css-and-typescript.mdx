@@ -9,11 +9,12 @@ import Head from 'components/Head'
 
 # How to setup Next.js with Tailwind CSS and TypeScript
 
+To create a project with Next.js and Tailwind CSS, run the following commands. TypeScript will be added later.
+
 ```shell
-npx create-next-app -e with-tailwindcss my-project
-cd my-project
+npx create-next-app -e with-tailwindcss your-project-name
+cd your-project-name
 npm install -D tailwindcss@latest postcss@latest autoprefixer@latest
-npx tailwindcss init -p
 ```
 
 In the root of your project folder, create a folder called `styles`. Inside this folder, create a file called `globals.css` and add the following code:
@@ -25,10 +26,11 @@ In the root of your project folder, create a folder called `styles`. Inside this
 @tailwind utilities;
 ```
 
-Import `globals.css` into your `_app.js` file:
+In `pages/_app.js` file, import `globals.css`:
 
 ```jsx
 // pages/_app.js
+import 'tailwindcss/tailwind.css'
 import 'styles/globals.css'
 
 function MyApp({ Component, pageProps }) {
@@ -44,8 +46,6 @@ In the root of your project folder, create a file called `tsconfig.json`. And ru
 npm install --save-dev typescript @types/react @types/node
 ```
 
-Change `.js` extensions to `.tsx`. Then, run `npm run dev` to start the development server.
-
 Add baseUrl for easy import statements. For example instead of writing `import '../styles/globals.css`, you can write `import 'styles/globals.css'`.
 
 ```json
@@ -56,9 +56,14 @@ Add baseUrl for easy import statements. For example instead of writing `import '
 ...
 ```
 
+Change `.js` extensions to `.tsx`. And start the development server (`npm run dev`). After starting the server, Next.js will:
+
+1. Populate the `tsconfig.json` file for you. You may customize this file.
+1. Create the `next-env.d.ts` file, which ensures Next.js types are picked up by the TypeScript compiler. You should not touch this file.
+
 ## Optional
 
-Add `lang='en'` to improve SEO.
+In `pages` folder, create `_document.tsx` and add the following code to improve SEO.
 
 ```tsx
 // _document.tsx
@@ -81,4 +86,4 @@ class MyDocument extends Document {
 export default MyDocument
 ```
 
-Run `npx next lint` to check for linting errors.
+Run `npx next lint` and select `strict` to check for linting errors.
