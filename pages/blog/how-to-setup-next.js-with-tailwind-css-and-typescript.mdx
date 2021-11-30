@@ -9,44 +9,39 @@ import Head from 'components/Head'
 
 # How to setup Next.js with Tailwind CSS and TypeScript
 
-To create a project with Next.js and Tailwind CSS, run the following commands. TypeScript will be added later.
+Install [Node.js](https://nodejs.org/en/download) if you haven't already.
+
+First, create your project using [the official Next.js + Tailwind CSS Example](https://github.com/vercel/next.js/tree/master/examples/with-tailwindcss). TypeScript will be installed later.
 
 ```shell
 npx create-next-app -e with-tailwindcss your-project-name
-cd your-project-name
-npm install -D tailwindcss@latest postcss@latest autoprefixer@latest
 ```
 
-In the root of your project folder, create a folder called `styles`. Inside this folder, create a file called `globals.css` and add the following code:
+In the root of your project folder, create a folder called `styles`. Inside this folder, create a file called `globals.css`. Use the `@tailwind` directive to include Tailwind’s `base`, `components`, and `utilities` styles.
 
 ```css
-/* ./styles/globals.css */
+/* styles/globals.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 ```
 
-In `pages/_app.js` file, import `globals.css`:
+In `pages/_app.js` file, replace `import 'tailwindcss/tailwind.css'` with `import '../styles/globals.css'`
 
-```jsx
-// pages/_app.js
-import 'tailwindcss/tailwind.css'
-import 'styles/globals.css'
-
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
-}
-
-export default MyApp
-```
-
-In the root of your project folder, create a file called `tsconfig.json`. And run the following command:
+In the root of your project folder, create a file called `tsconfig.json`. And to use TypeScript, these 3 must be installed:
 
 ```shell
-npm install --save-dev typescript @types/react @types/node
+npm i -D typescript @types/react @types/node
 ```
 
-Add baseUrl for easy import statements. For example instead of writing `import '../styles/globals.css`, you can write `import 'styles/globals.css'`.
+Change `.js` extensions to `.tsx`. And start the development server (`npm run dev`). After starting the server, Next.js will:
+
+- Populate the `tsconfig.json` file for you. You may customize this file.
+- Create the `next-env.d.ts` file, which ensures Next.js types are picked up by the TypeScript compiler. You should not touch this file.
+
+## Optional
+
+Add `baseUrl` for easy import statements. For example, instead of writing `import '../styles/globals.css`, you can write `import 'styles/globals.css'`.
 
 ```json
 // tsconfig.json
@@ -56,14 +51,7 @@ Add baseUrl for easy import statements. For example instead of writing `import '
 ...
 ```
 
-Change `.js` extensions to `.tsx`. And start the development server (`npm run dev`). After starting the server, Next.js will:
-
-1. Populate the `tsconfig.json` file for you. You may customize this file.
-1. Create the `next-env.d.ts` file, which ensures Next.js types are picked up by the TypeScript compiler. You should not touch this file.
-
-## Optional
-
-In `pages` folder, create `_document.tsx` and add the following code to improve SEO.
+In `pages` folder, create `_document.tsx`. Set the `lang` attribute to `en` or your website's language. This will improve the SEO of your website.
 
 ```tsx
 // _document.tsx
