@@ -4,9 +4,26 @@
 
 @layer base {
   @font-face {
+    font-family: 'Roboto';
+    src: local('Roboto'), url('/typefaces/Roboto-Regular.woff2') format('woff2'),
+      url('/typefaces/Roboto-Regular.woff') format('woff');
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Roboto';
+    font-weight: 700;
+    src: local('Roboto Bold'),
+      url('/typefaces/Roboto-Bold.woff2') format('woff2'),
+      url('/typefaces/Roboto-Bold.woff') format('woff');
+    font-display: swap;
+  }
+
+  @font-face {
     font-family: 'Roboto Mono';
     src: local('Roboto Mono'),
-      url('/typefaces/roboto-mono-variable.woff2') format('woff2');
+      url('/typefaces/Roboto-Mono-Regular.woff2') format('woff2'),
+      url('/typefaces/Roboto-Mono-Regular.woff') format('woff');
     font-display: swap;
   }
 

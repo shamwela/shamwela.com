@@ -10,9 +10,9 @@ module.exports = {
         accent: '#38aecc',
       },
       fontFamily: {
-        sans: 'Helvetica, Arial, sans-serif',
+        sans: 'Roboto, Helvetica, sans-serif',
         // "!important" is used here to override Prism.js default font family
-        mono: '"Roboto Mono", monospace !important',
+        mono: '"Roboto Mono", Consolas, monospace !important',
       },
     },
   },
