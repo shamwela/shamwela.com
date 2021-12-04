@@ -6,13 +6,15 @@ const CustomHead = ({
   title = 'Sha Mwe La',
   description = "Sha Mwe La's website",
   keywords = 'sha mwe la, shamwela, shamwela.com',
-  imageUrl = '/images/sha-mwe-la-open-graph.png',
+  previewImage = 'sha-mwe-la-open-graph.png',
 }: {
   title: string
   description: string
   keywords: string
-  imageUrl: string
+  previewImage: string
 }) => {
+  const previewImageUrl = `https://www.shamwela.com/images/${previewImage}`
+
   return (
     <Head>
       <title>{title}</title>
@@ -26,9 +28,9 @@ const CustomHead = ({
 
       <meta name='keywords' content={keywords} />
 
-      <meta name='image' content={imageUrl} />
-      <meta property='og:image' content={imageUrl} />
-      <meta name='twitter:image' content={imageUrl} />
+      <meta name='image' content={previewImageUrl} />
+      <meta property='og:image' content={previewImageUrl} />
+      <meta name='twitter:image' content={previewImageUrl} />
 
       <meta name='twitter:card' content='summary_large_image' />
       <meta name='twitter:creator' content='@shamwela_' />

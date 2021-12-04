@@ -8,7 +8,7 @@ const Blog = () => {
         title="Sha Mwe La's Blog"
         description="Sha Mwe La's Blog"
         keywords='sha mwe la blog, shamwela blog'
-        imageUrl='/images/sha-mwe-la-open-graph.png'
+        previewImage='sha-mwe-la-open-graph.png'
       />
 
       <h1>Blog</h1>

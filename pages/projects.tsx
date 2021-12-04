@@ -14,7 +14,7 @@ const Projects = ({ pinnedItems }) => {
         title="Sha Mwe La's Projects"
         description="Sha Mwe La's Projects"
         keywords='sha mwe la projects, shamwela projects'
-        imageUrl='/images/sha-mwe-la-open-graph.png'
+        previewImage='/images/sha-mwe-la-open-graph.png'
       />
 
       <h1>Projects</h1>

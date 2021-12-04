@@ -9,7 +9,7 @@ const About = () => {
         title='About Sha Mwe La'
         description='Get to know Sha Mwe La'
         keywords='about, sha mwe la, shamwela, sha mwe'
-        imageUrl='/images/sha-mwe-la-open-graph.png'
+        previewImage='/images/sha-mwe-la-open-graph.png'
       />
 
       <h1>Hi, I&apos;m Sha Mwe La.</h1>
@@ -32,8 +32,9 @@ const About = () => {
         <a href='https://github.com/shamwela' target='_blank' rel='noreferrer'>
           GitHub
         </a>
-        . I also blog to help beginners and share my opinions. I&apos;m also learning
-        Software Engineering at GUSTO University. I live in Yangon, Myanmar.
+        . I also blog to help beginners and share my opinions. I&apos;m also
+        learning Software Engineering at GUSTO University. I live in Yangon,
+        Myanmar.
       </p>
 
       <a
