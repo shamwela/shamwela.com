@@ -25,6 +25,7 @@ const CustomHead = ({
       <meta name='twitter:description' content={description} />
 
       <meta name='keywords' content={keywords} />
+      <meta property='og:url' content='https://www.shamwela.com/' />
 
       <meta name='image' content={imageUrl} />
       <meta property='og:image' content={imageUrl} />
