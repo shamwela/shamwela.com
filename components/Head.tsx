@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import { useRouter } from 'next/router'
 
 const CustomHead = ({
   // Although these parameters are required, they don't work well in MDX files.
@@ -14,6 +15,8 @@ const CustomHead = ({
   previewImage: string
 }) => {
   const previewImageUrl = `https://www.shamwela.com/images/${previewImage}`
+  const { pathname } = useRouter()
+  const ogUrl = `https://www.shamwela.com${pathname}`
 
   return (
     <Head>
@@ -31,6 +34,8 @@ const CustomHead = ({
       <meta name='image' content={previewImageUrl} />
       <meta property='og:image' content={previewImageUrl} />
       <meta name='twitter:image' content={previewImageUrl} />
+
+      <meta property='og:url' content={ogUrl} />
 
       <meta name='twitter:card' content='summary_large_image' />
       <meta name='twitter:creator' content='@shamwela_' />
