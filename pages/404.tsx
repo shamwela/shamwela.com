@@ -1,13 +1,15 @@
-import Head from 'next/head'
+import Head from 'components/Head'
 import Link from 'next/link'
 
 const Custom404 = () => {
   return (
     <>
-      <Head>
-        <title>Page not found</title>
-        <meta name='description' content='Page not found' />
-      </Head>
+      <Head
+        title='Page not found'
+        description='Page not found'
+        keywords='page not found, 404'
+        previewImage='sha-mwe-la-open-graph.png'
+      />
 
       <h1>Page not found</h1>
       <Link href='/'>
