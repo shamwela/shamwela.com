@@ -1,7 +1,6 @@
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import * as gtag from '../lib/gtag'
-import Head from 'next/head'
 import BlogCallToAction from 'components/BlogCallToAction'
 import Footer from 'components/Footer'
 import Nav from 'components/Nav'
@@ -38,9 +37,6 @@ const App = ({ Component, pageProps }) => {
 
   return (
     <>
-      <Head>
-        <link rel='icon' href='/favicon.ico' />
-      </Head>
       <Nav />
       <main
         style={{ maxWidth: '70ch' }}
