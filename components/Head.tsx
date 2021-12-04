@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-const MyHead = ({
+const CustomHead = ({
   // Although these parameters are required, they don't work well in MDX files.
   // So, the default parameters are added here.
   title = 'Sha Mwe La',
@@ -39,4 +39,4 @@ const MyHead = ({
   )
 }
 
-export default MyHead
+export default CustomHead
