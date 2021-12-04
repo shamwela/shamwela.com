@@ -67,6 +67,7 @@
 
   pre {
     overflow-x: auto;
+    @apply rounded-lg;
   }
 
   code {
