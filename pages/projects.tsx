@@ -45,7 +45,7 @@ const Projects = ({ pinnedItems }) => {
               <section className='flex gap-x-8'>
                 {homepageUrl && (
                   <a href={homepageUrl} target='_blank' rel='noreferrer'>
-                    Visit site
+                    Visit website
                   </a>
                 )}
 
