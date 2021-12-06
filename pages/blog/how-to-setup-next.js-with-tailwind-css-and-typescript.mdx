@@ -1,77 +1,21 @@
 import Head from 'components/Head'
 
 <Head
-  title='How to setup Next.js with Tailwind CSS and TypeScript'
-  description='How to setup Next.js with Tailwind CSS and TypeScript'
-  keywords='next.js, tailwind css, tailwind, typescript'
+  title='How to setup Next.js with TypeScript and Tailwind CSS'
+  description='How to setup Next.js with TypeScript and Tailwind CSS'
+  keywords='next.js, typescript, tailwind css, tailwind'
   previewImage=''
 />
 
-# How to setup Next.js with Tailwind CSS and TypeScript
+# How to setup Next.js with TypeScript and Tailwind CSS
 
 Install [Node.js](https://nodejs.org/en/download) if you haven't already.
 
-First, create your project using [the official Next.js + Tailwind CSS Example](https://github.com/vercel/next.js/tree/master/examples/with-tailwindcss). TypeScript will be installed later.
-
-```shell
-npx create-next-app -e with-tailwindcss your-project-name
-```
-
-In the root of your project folder, create a folder called `styles`. Inside this folder, create a file called `globals.css`. Use the `@tailwind` directive to include Tailwind’s `base`, `components`, and `utilities` styles.
-
-```css
-/* styles/globals.css */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-```
-
-In `pages/_app.js` file, replace `import 'tailwindcss/tailwind.css'` with `import '../styles/globals.css'`
-
-In the root of your project folder, create a file called `tsconfig.json`. And to use TypeScript, these 3 must be installed:
-
-```shell
-npm i -D typescript @types/react @types/node
-```
-
-Change `.js` extensions to `.tsx`. And start the development server (`npm run dev`). After starting the server, Next.js will:
-
-- Populate the `tsconfig.json` file for you. You may customize this file.
-- Create the `next-env.d.ts` file, which ensures Next.js types are picked up by the TypeScript compiler. You should not touch this file.
-
-## Optional
-
-Add `baseUrl` for easy import statements. For example, instead of writing `import '../styles/globals.css`, you can write `import 'styles/globals.css'`.
-
-```json
-// tsconfig.json
-{
-  "compilerOptions": {
-    "baseUrl": ".",
-...
-```
-
-In `pages` folder, create a file called `_document.tsx`. Set the `lang` attribute to `en` or your website's language. This will improve the SEO of your website.
-
-```tsx
-// _document.tsx
-import Document, { Html, Head, Main, NextScript } from 'next/document'
-
-class MyDocument extends Document {
-  render() {
-    return (
-      <Html lang='en'>
-        <Head />
-        <body>
-          <Main />
-          <NextScript />
-        </body>
-      </Html>
-    )
-  }
-}
-
-export default MyDocument
-```
-
-<!-- Run `npx next lint` and select `strict` to check for linting errors. -->
+1. Go to this [GitHub repository](https://github.com/shamwela/next.js-typescript-tailwind-css-starter). I prepared essential packages for Next.js, TypeScript, and Tailwind CSS in that repository.
+1. Click the green "Code" button.
+1. Click "Download ZIP".
+1. Unzip the downloaded zip file.
+1. Rename the folder to your project name.
+1. Open the folder in the terminal.
+1. Run `npm i`.
+1. Now, you can start coding.
