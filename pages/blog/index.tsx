@@ -13,6 +13,10 @@ const Blog = () => {
 
       <h1>Blog</h1>
 
+      <Link href='/blog/how-to-setup-next.js-with-tailwind-css-and-typescript'>
+        <a>How to setup Next.js with TypeScript and Tailwind CSS</a>
+      </Link>
+
       <Link href='/blog/productivity-tips'>
         <a>Productivity tips</a>
       </Link>
