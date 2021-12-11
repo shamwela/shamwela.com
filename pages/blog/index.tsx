@@ -52,10 +52,6 @@ const Blog = () => {
       <Link href='/blog/html-tips'>
         <a>HTML Tips</a>
       </Link>
-
-      <Link href='/blog/git-tutorial'>
-        <a>Git Tutorial</a>
-      </Link>
     </>
   )
 }
