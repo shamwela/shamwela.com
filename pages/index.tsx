@@ -2,7 +2,7 @@ import Head from 'components/Head'
 import Image from 'next/image'
 import ShaMweLaPhoto from 'public/images/sha-mwe-la-photo.jpg'
 
-const About = () => {
+const Home = () => {
   return (
     <>
       <Head
@@ -49,4 +49,4 @@ const About = () => {
   )
 }
 
-export default About
+export default Home
