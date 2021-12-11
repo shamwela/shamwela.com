@@ -4,7 +4,14 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "next lint",
+    "prepare": "husky install",
+    "check-types": "tsc --pretty --noEmit",
+    "check-format": "prettier --check .",
+    "check-lint": "eslint . --ext ts --ext tsx --ext js",
+    "format": "prettier --write .",
+    "test-all": "npm run check-format && npm run check-lint && npm run check-types && npm run build"
   },
   "dependencies": {
     "@apollo/client": "^3.4.16",
@@ -23,7 +30,10 @@
     "autoprefixer": "^10.3.7",
     "eslint": "^7.32.0",
     "eslint-config-next": "12.0.4",
+    "eslint-config-prettier": "^8.3.0",
+    "husky": "^7.0.4",
     "postcss": "^8.3.9",
+    "prettier": "^2.5.1",
     "tailwindcss": "^2.2.16",
     "typescript": "^4.4.3"
   }
