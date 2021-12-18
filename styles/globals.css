@@ -42,10 +42,7 @@
     @apply font-bold;
   }
 
-  h1 {
-    @apply text-5xl;
-  }
-
+  h1,
   h2 {
     @apply text-3xl;
   }
@@ -64,31 +61,26 @@
     list-style: inside;
   }
 
-  pre {
-    overflow-x: auto;
+  pre,
+  img {
     @apply rounded-lg;
   }
 
+  pre {
+    @apply overflow-x-auto;
+  }
+
   code {
-    background-color: #303030;
-    padding: 0.1em;
+    @apply bg-[#2d2d2d] p-[0.1em] rounded;
+    /* This background color should be the same as prism.js's */
   }
 
   pre > code {
-    display: inline-block;
-    min-width: 100%;
-  }
-
-  code {
-    @apply rounded;
+    @apply inline-block min-w-full;
   }
 
   button,
-  .button {
-    @apply block max-w-full px-6 py-2 font-medium text-center no-underline rounded-full md:w-max bg-accent text-primary;
-  }
-
-  img {
-    @apply rounded-lg;
+  a.button {
+    @apply block max-w-full px-6 py-2 text-center no-underline rounded-full md:w-max bg-accent text-primary;
   }
 }
