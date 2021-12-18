@@ -28,7 +28,7 @@ const App = ({ Component, pageProps }) => {
   }, [events])
 
   useEffect(() => {
-    // If it is a blog page, highlight the <code> tags
+    // Only if it is a blog page, highlight the <code> tags
     if (pathname.includes('/blog/')) {
       prism.highlightAll()
     }
