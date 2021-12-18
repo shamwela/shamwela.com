@@ -2,8 +2,8 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 
 const CustomHead = ({
-  // Although these parameters are required, they don't work well in MDX files.
-  // So, the default parameters are added here.
+  // Although these parameters are required, they don't work well in MDX files
+  // So, the default parameters are added here
   title = 'Sha Mwe La',
   description = "Sha Mwe La's website",
   keywords = 'sha mwe la, shamwela, shamwela.com',
