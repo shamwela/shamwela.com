@@ -1,6 +1,5 @@
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
-import * as gtag from '../lib/gtag'
 import Footer from 'components/Footer'
 import Nav from 'components/Nav'
 import 'styles/globals.css'
@@ -14,22 +13,11 @@ import 'prismjs/components/prism-git'
 import 'prismjs/components/prism-json'
 
 const App = ({ Component, pageProps }) => {
-  const { events, pathname } = useRouter()
-
-  // Google Analytics
-  useEffect(() => {
-    const handleRouteChange = (url) => {
-      gtag.pageview(url)
-    }
-    events.on('routeChangeComplete', handleRouteChange)
-    return () => {
-      events.off('routeChangeComplete', handleRouteChange)
-    }
-  }, [events])
+  const { pathname } = useRouter()
 
   useEffect(() => {
     // Only if it is a blog page, highlight the <code> tags
-    if (pathname.includes('/blog/')) {
+    if (pathname.startsWith('/blog/')) {
       prism.highlightAll()
     }
   }, [pathname])
