@@ -1,9 +1,7 @@
-# My Website
+# shamwela.com
 
-## Main Technologies
-
-1. React
-2. Next.js
-3. TypeScript
-4. Tailwind CSS
-5. MDX
+- Main framework: Next.js + React
+- Main language: TypeScript
+- Content: MDX
+- Styling: Tailwind CSS
+- Deployment: Vercel
