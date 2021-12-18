@@ -5,7 +5,6 @@ const Nav = () => {
     <nav>
       <ol className='max-w-[70ch] flex items-center mx-auto list-none h-14 justify-evenly'>
         <NavLink text='About' href='/' />
-        <NavLink text='Projects' href='/projects' />
         <NavLink text='Blog' href='/blog' hasNestedRoutes />
       </ol>
     </nav>
