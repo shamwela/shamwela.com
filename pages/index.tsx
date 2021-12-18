@@ -36,15 +36,6 @@ const Home = () => {
         learning Software Engineering at GUSTO University. I live in Yangon,
         Myanmar.
       </p>
-
-      <a
-        href='mailto:shamwela@hotmail.com'
-        target='_blank'
-        rel='noreferrer'
-        className='button'
-      >
-        Email me
-      </a>
     </>
   )
 }
