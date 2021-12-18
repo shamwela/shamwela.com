@@ -3,13 +3,13 @@
 
 npm run check-format ||
 (
-  echo 'Prettier check failed. Run `npm run format`, stage changes and try committing again.';
+  echo 'Prettier check failed. Run `npm run format`, stage changes, and try committing again.';
   false;
 )
 
 npm run check-lint ||
 (
-  echo 'ESLint check failed. Make the required changes listed above, stage changes and try committing again.'
+  echo 'ESLint check failed. Make the required changes listed above, stage changes, and try committing again.'
   false; 
 )
 
