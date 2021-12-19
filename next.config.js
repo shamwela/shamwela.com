@@ -1,6 +1,4 @@
-const withMDX = require('@next/mdx')({
-  extension: /\.mdx$/,
-})
+const withMDX = require('@next/mdx')({ extension: /\.mdx$/ })
 
 // Wrap the config so it can add necessary configurations to process MDX files.
 module.exports = withMDX({
