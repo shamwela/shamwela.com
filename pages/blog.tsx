@@ -1,7 +1,40 @@
 import Head from 'components/Head'
 import Link from 'next/link'
+import fs from 'fs'
+import path from 'path'
+import grayMatter from 'gray-matter'
 
-const Blog = () => {
+const blogDirectory = path.join(process.cwd(), 'pages', 'blog') // "cwd" means current working directory
+
+export const getStaticProps = async () => {
+  // Get file names under /pages/blog
+  const fileNames = fs.readdirSync(blogDirectory) // Should this be async? not sure.
+  const allPostsData = fileNames.map((fileName) => {
+    // Remove ".mdx" from file name to get id
+    const id = fileName.replace(/\.mdx$/, '')
+
+    // Read markdown file as string
+    const fullPath = path.join(blogDirectory, fileName)
+    const fileContents = fs.readFileSync(fullPath, 'utf8')
+
+    // Use gray-matter to parse the post metadata section
+    const matterResult = grayMatter(fileContents)
+
+    // Combine the data with the id
+    return {
+      id,
+      ...(matterResult.data as { title: string }),
+    }
+  })
+
+  return {
+    props: { allPostsData },
+  }
+}
+
+const Blog = ({ allPostsData }) => {
+  console.log(allPostsData)
+
   return (
     <>
       <Head
@@ -13,49 +46,11 @@ const Blog = () => {
 
       <h1>Blog</h1>
 
-      <Link href='/blog/essential-vs-code-extensions-for-tailwind-css'>
-        <a>Essential VS Code extensions for Tailwind CSS</a>
-      </Link>
-
-      <Link href='/blog/how-to-setup-next.js-with-tailwind-css-and-typescript'>
-        <a>How to setup Next.js with TypeScript and Tailwind CSS</a>
-      </Link>
-
-      <Link href='/blog/productivity-tips'>
-        <a>Productivity tips</a>
-      </Link>
-
-      <Link href='/blog/how-to-style-your-react-app'>
-        <a>How to style your React app</a>
-      </Link>
-
-      <Link href='/blog/tips-for-coders'>
-        <a>Tips for Coders</a>
-      </Link>
-
-      <Link href='/blog/roadmap'>
-        <a>Web Development Roadmap</a>
-      </Link>
-
-      <Link href='/blog/favorite-coding-resources'>
-        <a>Favorite Coding Resources</a>
-      </Link>
-
-      <Link href='/blog/favorite-visual-studio-code-extensions'>
-        <a>Favorite Visual Studio Code Extensions</a>
-      </Link>
-
-      <Link href='/blog/how-to-host-a-website-for-free'>
-        <a>How to host a website for free</a>
-      </Link>
-
-      <Link href='/blog/why-i-love-tailwind-css'>
-        <a>Why I Love Tailwind CSS</a>
-      </Link>
-
-      <Link href='/blog/html-tips'>
-        <a>HTML Tips</a>
-      </Link>
+      {allPostsData.map(({ id, title }) => (
+        <Link href={'/blog/' + id} key={id}>
+          <a>{title}</a>
+        </Link>
+      ))}
     </>
   )
 }
