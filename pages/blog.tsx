@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { InferGetStaticPropsType } from 'next'
 import { allBlogs } from '.contentlayer/data'
 import { pick } from 'lib/utils'
@@ -13,8 +12,6 @@ export function getStaticProps() {
 export default function Blog({
   posts,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  console.log(posts)
-
   return (
     <>
       {posts.map((post) => (
