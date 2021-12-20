@@ -12,7 +12,7 @@ export const getStaticProps = async () => {
 
 const Blog = ({ blogs }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const [searchValue, setSearchValue] = useState('')
-  const filteredBlogPosts = blogs
+  const filteredBlogs = blogs
     .sort((a, b) => Number(new Date(b.date)) - Number(new Date(a.date)))
     .filter((blog) =>
       blog.title.toLowerCase().includes(searchValue.toLowerCase())
@@ -30,12 +30,14 @@ const Blog = ({ blogs }: InferGetStaticPropsType<typeof getStaticProps>) => {
       <h1>Blog</h1>
 
       <input
+        placeholder='Search a blog'
+        aria-label='Search a blog'
         type='search'
         value={searchValue}
         onChange={(event) => setSearchValue(event.currentTarget.value)}
       />
 
-      {filteredBlogPosts.map(({ slug, title }) => (
+      {filteredBlogs.map(({ slug, title }) => (
         <Link href={'/blog/' + slug} key={slug}>
           <a>{title}</a>
         </Link>
