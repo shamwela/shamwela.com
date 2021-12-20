@@ -3,6 +3,7 @@ import components from 'components/MDXComponents'
 import BlogLayout from 'layouts/blog'
 import { allBlogs } from '.contentlayer/data'
 import type { Blog } from '.contentlayer/types'
+import Head from 'components/Head'
 
 export const getStaticPaths = async () => {
   return {
@@ -18,17 +19,21 @@ export const getStaticProps = async ({ params }) => {
 
 const Post = ({ blog }: { blog: Blog }) => {
   const Component = useMDXComponent(blog.body.code)
+  const { title } = blog
 
   return (
-    <BlogLayout blog={blog}>
-      <Component
-        components={
-          {
-            ...components,
-          } as any
-        }
-      />
-    </BlogLayout>
+    <>
+      {/* <Head title={title} /> */}
+      <BlogLayout blog={blog}>
+        <Component
+          components={
+            {
+              ...components,
+            } as any
+          }
+        />
+      </BlogLayout>
+    </>
   )
 }
 
