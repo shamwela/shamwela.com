@@ -19,11 +19,10 @@ export const getStaticProps = async ({ params }) => {
 
 const Post = ({ blog }: { blog: Blog }) => {
   const Component = useMDXComponent(blog.body.code)
-  const { title } = blog
 
   return (
     <>
-      {/* <Head title={title} /> */}
+      <Head {...blog} />
       <BlogLayout blog={blog}>
         <Component
           components={
