@@ -8,7 +8,8 @@ const Home = () => {
       <Head
         title='About Sha Mwe La'
         description='Get to know Sha Mwe La'
-        previewImage='/images/sha-mwe-la-open-graph.png'
+        image='/images/sha-mwe-la-open-graph.png'
+        date='2021-12-20'
       />
 
       <h1>Hi, I&apos;m Sha Mwe La.</h1>
