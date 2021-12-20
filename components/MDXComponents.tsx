@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 const CustomLink = (props) => {
   const href = props.href
@@ -15,5 +16,9 @@ const CustomLink = (props) => {
   return <a target='_blank' rel='noopener noreferrer' {...props} />
 }
 
-const MDXComponents = { a: CustomLink }
+const CustomImage = (props) => {
+  return <Image alt={props.alt} {...props} />
+}
+
+const MDXComponents = { a: CustomLink, Image: CustomImage }
 export default MDXComponents

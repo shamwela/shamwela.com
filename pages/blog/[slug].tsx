@@ -24,13 +24,7 @@ const Post = ({ blog }: { blog: Blog }) => {
     <>
       <Head {...blog} />
       <BlogLayout blog={blog}>
-        <Component
-          components={
-            {
-              ...components,
-            } as any
-          }
-        />
+        <Component components={{ ...components } as any} />
       </BlogLayout>
     </>
   )

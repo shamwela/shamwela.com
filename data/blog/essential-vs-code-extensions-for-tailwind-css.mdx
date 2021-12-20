@@ -1,23 +1,9 @@
 ---
-title: Essential VS Code extensions for Tailwind CSS
+title: 'Essential VS Code extensions for Tailwind CSS'
+description: 'Essential VS Code extensions for Tailwind CSS'
+image: '/images/tailwind-css-logo.png'
+date: '2021-12-14'
 ---
-
-import Head from 'components/Head'
-import Image from 'next/image'
-import Link from 'next/link'
-import TailwindCSSIntellisenseAutocomplete from 'public/images/tailwind-css-intellisense-autocomplete.png'
-import TailwindCSSIntellisenseLinting from 'public/images/tailwind-css-intellisense-linting.png'
-import TailwindCSSIntellisenseHoverPreviews from 'public/images/tailwind-css-intellisense-hover-previews.png'
-import HowHeadwindWorks from 'public/images/how-headwind-works.gif'
-
-<Head
-  title='Essential VS Code extensions for Tailwind CSS'
-  description='Essential VS Code extensions for Tailwind CSS'
-  keywords='visual studio code, vs code, tailwind css, tailwind'
-  previewImage='tailwind-css-logo.png'
-/>
-
-# Essential VS Code extensions for Tailwind CSS
 
 Download [Visual Studio Code](https://code.visualstudio.com/download) if you haven't already. It's feature-rich, fast, and free.
 
@@ -26,24 +12,30 @@ Download [Visual Studio Code](https://code.visualstudio.com/download) if you hav
 **Autocomplete**: Intelligent suggestions for class names, as well as CSS functions and directives.
 
 <Image
-  src={TailwindCSSIntellisenseAutocomplete}
   alt='Tailwind CSS IntelliSense Autocomplete'
+  src='/images/tailwind-css-intellisense-autocomplete.png'
+  width={2000}
+  height={1000}
   priority
 />
 
 **Linting**: Highlights errors and potential bugs in both your CSS and your markup.
 
 <Image
-  src={TailwindCSSIntellisenseLinting}
   alt='Tailwind CSS IntelliSense Linting'
+  src='/images/tailwind-css-intellisense-linting.png'
+  width={2000}
+  height={1000}
 />
 
 **Hover Previews**: See the complete CSS for a Tailwind class name by hovering over
 it.
 
 <Image
-  src={TailwindCSSIntellisenseHoverPreviews}
   alt='Tailwind CSS IntelliSense Hover Previews'
+  src='/images/tailwind-css-intellisense-hover-previews.png'
+  width={2000}
+  height={1000}
 />
 
 **Syntax Highlighting**: Provides syntax definitions so that Tailwind features are highlighted correctly.
@@ -52,10 +44,15 @@ it.
 
 Headwind is an opinionated Tailwind CSS class sorter. It enforces consistent ordering of classes by parsing your code and reprinting class tags to follow a given order. Headwind runs on save, will remove duplicate classes, and can even sort entire workspaces.
 
-<Image src={HowHeadwindWorks} alt='How Headwind works' />
+<Image
+  alt='How Headwind works'
+  src='/images/how-headwind-works.gif'
+  width={2000}
+  height={1000}
+/>
 
 ## [PostCSS Language Support](https://marketplace.visualstudio.com/items?itemName=csstools.postcss)
 
 Tailwind is built on top of PostCSS. Since VS Code doesn't understand PostCSS out of the box, it will warn about custom CSS at-rules like `@tailwind`, `@apply`, and `@screen`. Install this extension to get rid of those warnings.
 
-There are also great, general-purpose VS Code extensions. Read about them <Link href='/blog/favorite-visual-studio-code-extensions'><a>here</a></Link>.
+There are also great, general-purpose VS Code extensions. Read about them [here](/blog/favorite-visual-studio-code-extensions).
