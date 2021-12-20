@@ -3,15 +3,13 @@ import { allBlogs } from '.contentlayer/data'
 import { pick } from 'lib/utils'
 import Link from 'next/link'
 
-export function getStaticProps() {
+export const getStaticProps = async () => {
   const posts = allBlogs.map((post) => pick(post, ['slug', 'title']))
 
   return { props: { posts } }
 }
 
-export default function Blog({
-  posts,
-}: InferGetStaticPropsType<typeof getStaticProps>) {
+const Blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <>
       {/* {posts.map((post) => (
@@ -23,3 +21,5 @@ export default function Blog({
     </>
   )
 }
+
+export default Blog
