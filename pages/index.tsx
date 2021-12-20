@@ -8,7 +8,6 @@ const Home = () => {
       <Head
         title='About Sha Mwe La'
         description='Get to know Sha Mwe La'
-        keywords='about, sha mwe la, shamwela, sha mwe'
         previewImage='/images/sha-mwe-la-open-graph.png'
       />
 

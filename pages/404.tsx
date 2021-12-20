@@ -7,7 +7,6 @@ const Custom404 = () => {
       <Head
         title='Page not found'
         description='Page not found'
-        keywords='page not found, 404'
         previewImage='sha-mwe-la-open-graph.png'
       />
 
