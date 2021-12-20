@@ -4,7 +4,7 @@ const BlogLayout = ({ children, blog }) => {
     <>
       {/* Add Head component here later */}
       <h1>{blog.title}</h1>
-      <div>{children}</div>
+      <>{children}</>
     </>
   )
 }
