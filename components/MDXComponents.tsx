@@ -12,9 +12,8 @@ const CustomLink = (props) => {
     )
   }
 
-  return <a target='\_blank' rel='noopener noreferrer' {...props} />
+  return <a target='_blank' rel='noopener noreferrer' {...props} />
 }
 
 const MDXComponents = { a: CustomLink }
-
 export default MDXComponents
