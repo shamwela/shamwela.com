@@ -13,9 +13,10 @@ const Blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
 
   return (
     <>
-      {posts.map((post) => (
-        <Link href={'/blog/' + post.slug} key={post.slug}>
-          <a>{post.title}</a>
+      <h1>Blog</h1>
+      {posts.map(({ slug, title }) => (
+        <Link href={'/blog/' + slug} key={slug}>
+          <a>{title}</a>
         </Link>
       ))}
     </>
