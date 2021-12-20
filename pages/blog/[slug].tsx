@@ -4,11 +4,23 @@ import BlogLayout from 'layouts/blog'
 import { allBlogs } from '.contentlayer/data'
 import type { Blog } from '.contentlayer/types'
 
-const Post = ({ post }: { post: Blog }) => {
-  const Component = useMDXComponent(post.body.code)
+export const getStaticPaths = async () => {
+  return {
+    paths: allBlogs.map((p) => ({ params: { slug: p.slug } })),
+    fallback: false,
+  }
+}
+
+export const getStaticProps = async ({ params }) => {
+  const blog = allBlogs.find((blog) => blog.slug === params.slug)
+  return { props: { blog } }
+}
+
+const Post = ({ blog }: { blog: Blog }) => {
+  const Component = useMDXComponent(blog.body.code)
 
   return (
-    <BlogLayout post={post}>
+    <BlogLayout blog={blog}>
       <Component
         components={
           {
@@ -21,15 +33,3 @@ const Post = ({ post }: { post: Blog }) => {
 }
 
 export default Post
-
-export const getStaticPaths = async () => {
-  return {
-    paths: allBlogs.map((p) => ({ params: { slug: p.slug } })),
-    fallback: false,
-  }
-}
-
-export const getStaticProps = async ({ params }) => {
-  const post = allBlogs.find((post) => post.slug === params.slug)
-  return { props: { post } }
-}
