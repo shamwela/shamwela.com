@@ -1,24 +1,19 @@
-import Head from 'components/Head'
-import Image from 'next/image'
-import ElonMuskSchedule from 'public/images/elon-musk-schedule.png'
-
-<Head
-  title='Productivity tips'
-  description='This is how I manage my life.'
-  keywords='productivity tips, productivity'
-  previewImage='elon-musk-schedule.png'
-/>
-
-# Productivity tips
+---
+title: 'Productivity tips'
+description: 'This is how I manage my life.'
+image: '/images/elon-musk-schedule.png'
+date: '2021-11-29'
+---
 
 This is how I manage my life.
 
 Don't multitask. For example, I usually blog on Monday and Tuesday. I code on other days. This way, there's less stress and more focus.
 
 <Image
-  src={ElonMuskSchedule}
   alt="Elon Musk's schedule"
-  placeholder='blur'
+  src='/images/elon-musk-schedule.png'
+  width={1920}
+  height={1080}
   priority
 />
 
