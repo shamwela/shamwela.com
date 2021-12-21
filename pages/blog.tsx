@@ -30,8 +30,8 @@ const Blog = ({ blogs }: InferGetStaticPropsType<typeof getStaticProps>) => {
       <h1>Blog</h1>
 
       <input
-        placeholder='Search a blog'
-        aria-label='Search a blog'
+        placeholder='Search'
+        aria-label='Search'
         type='search'
         value={searchValue}
         onChange={(event) => setSearchValue(event.currentTarget.value)}
