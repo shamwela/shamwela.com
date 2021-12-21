@@ -6,17 +6,17 @@ import Head from 'components/Head'
 import { useState } from 'react'
 
 export const getStaticProps = async () => {
-  const blogs = allBlogs.map((blog) => pick(blog, ['slug', 'title', 'date']))
+  const blogs = allBlogs
+    .map((blog) => pick(blog, ['slug', 'title', 'date']))
+    .sort((a, b) => Number(new Date(b.date)) - Number(new Date(a.date)))
   return { props: { blogs } }
 }
 
 const Blog = ({ blogs }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const [searchValue, setSearchValue] = useState('')
-  const filteredBlogs = blogs
-    .sort((a, b) => Number(new Date(b.date)) - Number(new Date(a.date)))
-    .filter((blog) =>
-      blog.title.toLowerCase().includes(searchValue.toLowerCase())
-    )
+  const filteredBlogs = blogs.filter((blog) =>
+    blog.title.toLowerCase().includes(searchValue.toLowerCase())
+  )
 
   return (
     <>
