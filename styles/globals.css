@@ -48,7 +48,7 @@
   }
 
   a {
-    @apply underline cursor-pointer; /* Added cursor-pointer because it's not working on the Next.js Links in MDX files */
+    @apply underline;
     text-underline-offset: 0.1875em;
     max-width: fit-content;
   }
