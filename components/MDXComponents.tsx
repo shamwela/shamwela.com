@@ -20,5 +20,5 @@ const CustomImage = (props) => {
   return <Image alt={props.alt} {...props} />
 }
 
-const MDXComponents = { a: CustomLink, img: CustomImage }
+const MDXComponents = { a: CustomLink, Image: CustomImage }
 export default MDXComponents
