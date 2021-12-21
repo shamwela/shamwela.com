@@ -37,6 +37,8 @@ const Blog = ({ blogs }: InferGetStaticPropsType<typeof getStaticProps>) => {
         onChange={(event) => setSearchValue(event.currentTarget.value)}
       />
 
+      {filteredBlogs.length === 0 && <p>No blogs found.</p>}
+
       {filteredBlogs.map(({ slug, title }) => (
         <Link href={'/blog/' + slug} key={slug}>
           <a>{title}</a>
