@@ -5,14 +5,13 @@ module.exports = {
   ],
   theme: {
     colors: {
-      primary: '#181818',
-      secondary: '#fff',
+      primary: '#000',
+      secondary: 'hsl(0, 0%, 90%)',
       accent: '#38aecc',
     },
     fontFamily: {
       sans: 'Roboto, Helvetica, sans-serif',
-      mono: '"Roboto Mono", Consolas, monospace !important',
-      // "!important" is used here to override Prism.js default font family
+      mono: '"Roboto Mono", Consolas, monospace',
     },
   },
 }
