@@ -70,7 +70,7 @@
   }
 
   code {
-    @apply bg-[#2d2d2d] p-[0.1em] rounded;
+    @apply bg-light-primary p-[0.1em] rounded;
   }
 
   pre > code {
