@@ -48,7 +48,7 @@
   }
 
   a {
-    @apply text-accent hover:underline max-w-fit;
+    @apply max-w-fit text-accent hover:underline;
   }
 
   ol {
@@ -71,7 +71,6 @@
 
   code {
     @apply bg-[#2d2d2d] p-[0.1em] rounded;
-    /* This background color should be the same as prism.js's */
   }
 
   pre > code {
