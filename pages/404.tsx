@@ -14,7 +14,7 @@ const Custom404 = () => {
       <article className='flex flex-col items-center gap-y-4'>
         <h1>Page not found</h1>
         <Link href='/'>
-          <a className='button'>Go to home page</a>
+          <a>Go to home page</a>
         </Link>
       </article>
     </>
