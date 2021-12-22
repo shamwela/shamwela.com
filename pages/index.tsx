@@ -14,11 +14,9 @@ const Home = () => {
 
       <h1>Hi, I&apos;m Sha Mwe La.</h1>
 
-      <div className='md:w-52'>
+      <div className='w-20 md:w-32'>
         <Image
           src={ShaMweLaPhoto}
-          width={750}
-          height={750}
           alt='Sha Mwe La'
           quality={100}
           placeholder='blur'
