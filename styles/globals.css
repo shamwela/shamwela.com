@@ -32,6 +32,10 @@
     @apply text-secondary;
   }
 
+  ::selection {
+    @apply bg-accent text-primary;
+  }
+
   body {
     @apply bg-primary;
   }
