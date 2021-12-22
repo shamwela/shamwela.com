@@ -24,9 +24,9 @@ const NavLink = ({
     <li>
       <Link href={href}>
         <a
-          className={`${
-            isActive && 'text-accent'
-          } no-underline px-6 py-2 rounded-full`}
+          className={`text-secondary px-6 py-2 rounded-full ${
+            isActive && 'font-bold'
+          }`}
         >
           {text}
         </a>
