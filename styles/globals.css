@@ -81,9 +81,9 @@
     @apply inline-block min-w-full;
   }
 
-  /* input[type='search'] {
+  input[type='search'] {
     -webkit-appearance: none;
-  } */
+  }
 
   input {
     @apply bg-light-primary px-4 py-2 focus:outline-none ring-accent focus:ring-1;
