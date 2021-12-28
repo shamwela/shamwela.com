@@ -1,0 +1,99 @@
+---
+title: 'Web rendering strategies'
+description: 'Explanation of SSG, SSR, ISR, and CSR'
+image: ''
+date: '2021-12-28'
+---
+
+These are the 4 ways to render your web pages:
+
+1. Static Site Generation (SSG)
+2. Server-Side Rendering (SSR)
+3. Incremental Static Regeneration (ISR)
+4. Client Side Rendering (CSR).
+
+## Static Site Generation (SSG)
+
+This generates HTML at build time. This generated HTML is reused every time someone visit your web page. [Next.js](https://nextjs.org) and [Gatsby](https://www.gatsbyjs.com) supports SSG.
+
+<Image
+  alt='Static Site Generation'
+  src='/images/static-site-generation.png'
+  width={1386}
+  height={744}
+  priority
+/>
+
+### Pros
+
+- Much faster than Server-Side Rendering
+- Best for [SEO](https://en.wikipedia.org/wiki/Search_engine_optimization)
+- Easiest to deploy
+
+### Cons
+
+- Builds are slower
+- Need to rebuild every time you make a change
+
+## Server-Side Rendering (SSR)
+
+This generates HTML every time someone visit your web page. This is good for websites with dynamic data and a lot of different pages. Next.js supports SSR.
+
+<Image
+  alt='Server-Side Rendering'
+  src='/images/server-side-rendering.png'
+  width={1386}
+  height={800}
+/>
+
+### Pros
+
+- Builds are faster
+- Good for SEO
+
+### Cons
+
+- Frequent server requests
+- Deployment is harder than SSG.
+- Slow TTFB (Time to First Byte). Time to First Byte is the time between clicking a link and the first bit of content coming in.
+- Full page reloads
+
+## Incremental Static Regeneration (ISR)
+
+This is similar to SSG. But instead of rebuilding the site every time, you set `revalidate` time (for example, every 10 seconds). Next.js supports ISR.
+
+### Pros
+
+- Most pros of SSG
+
+### Cons
+
+- Because this revalidates more often than SSG, it may costs more.
+
+## Client Side Rendering (CSR)
+
+First, the browser loads a HTML with little to no content. Then, it fetches the JavaScript and compiles everything. If the user disabled JavaScript, your website won't work. [Create React App](https://create-react-app.dev) supports CSR.
+
+### Pros
+
+- Good for data heavy pages (for example, dashboards, account pages)
+- Fast rendering after the initial load
+
+### Cons
+
+- Initial load is slow because the browser needs to download the JavaScript first
+- Bad SEO because search engines can't crawl the web page well
+
+## How to choose
+
+<Image
+  alt='Rendering decision'
+  src='/images/rendering-decision.png'
+  width={745}
+  height={436}
+/>
+
+- Use SSG for blog, documentation, marketing page etc.
+- Use SSR for newsfeed, chat app, etc.
+- Use ISR for blog page with comments, etc.
+- Use CSR for account dashboard, etc.
