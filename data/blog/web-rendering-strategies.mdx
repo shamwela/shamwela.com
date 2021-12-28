@@ -1,7 +1,7 @@
 ---
 title: 'Web rendering strategies'
 description: 'Explanation of SSG, SSR, ISR, and CSR'
-image: ''
+image: '/images/sha-mwe-la-open-graph.png'
 date: '2021-12-28'
 ---
 
@@ -10,11 +10,11 @@ These are the 4 ways to render your web pages:
 1. Static Site Generation (SSG)
 2. Server-Side Rendering (SSR)
 3. Incremental Static Regeneration (ISR)
-4. Client Side Rendering (CSR).
+4. Client-Side Rendering (CSR).
 
 ## Static Site Generation (SSG)
 
-This generates HTML at build time. This generated HTML is reused every time someone visit your web page. [Next.js](https://nextjs.org) and [Gatsby](https://www.gatsbyjs.com) supports SSG.
+This generates HTML at build time. This generated HTML is reused every time someone visits your web page. [Next.js](https://nextjs.org) and [Gatsby](https://www.gatsbyjs.com) support SSG.
 
 <Image
   alt='Static Site Generation'
@@ -37,7 +37,7 @@ This generates HTML at build time. This generated HTML is reused every time some
 
 ## Server-Side Rendering (SSR)
 
-This generates HTML every time someone visit your web page. This is good for websites with dynamic data and a lot of different pages. Next.js supports SSR.
+This generates HTML every time someone visits your web page. This is good for websites with dynamic data and a lot of different pages. Next.js supports SSR.
 
 <Image
   alt='Server-Side Rendering'
@@ -68,15 +68,15 @@ This is similar to SSG. But instead of rebuilding the site every time, you set `
 
 ### Cons
 
-- Because this revalidates more often than SSG, it may costs more.
+- Because this revalidates more often than SSG, it may cost more.
 
-## Client Side Rendering (CSR)
+## Client-Side Rendering (CSR)
 
-First, the browser loads a HTML with little to no content. Then, it fetches the JavaScript and compiles everything. If the user disabled JavaScript, your website won't work. [Create React App](https://create-react-app.dev) supports CSR.
+First, the browser loads an HTML with little to no content. Then, it fetches JavaScript and compiles everything. If the user disabled JavaScript, your website won't work. [Create React App](https://create-react-app.dev) supports CSR.
 
 ### Pros
 
-- Good for data heavy pages (for example, dashboards, account pages)
+- Good for data-heavy pages (for example, dashboards, account pages)
 - Fast rendering after the initial load
 
 ### Cons
@@ -93,7 +93,7 @@ First, the browser loads a HTML with little to no content. Then, it fetches the 
   height={436}
 />
 
-- Use SSG for blog, documentation, marketing page etc.
+- Use SSG for blog, documentation, marketing page, etc.
 - Use SSR for newsfeed, chat app, etc.
-- Use ISR for blog page with comments, etc.
+- Use ISR for a blog page with comments, etc.
 - Use CSR for account dashboard, etc.
