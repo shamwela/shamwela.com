@@ -26,7 +26,7 @@ const Home = () => {
       </div>
 
       <p>
-        I love building web and mobile apps. You can see my projects on{' '}
+        I love building web apps. You can see my projects on{' '}
         <a href='https://github.com/shamwela' target='_blank' rel='noreferrer'>
           GitHub
         </a>
