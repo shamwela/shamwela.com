@@ -1,7 +1,7 @@
 export type PostMeta = {
   title: string
   date: string
-  dateFormatted: string
+  formattedDate: string
   description: string
   slug?: any
   image?: string

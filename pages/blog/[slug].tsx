@@ -24,13 +24,13 @@ export const getStaticProps: GetStaticProps<Post> = async (context) => {
   return {
     props: {
       ...post,
-      dateFormatted: format(parseISO(post.meta.date), 'dd MMMM, yyyy'),
+      formattedDate: format(parseISO(post.meta.date), 'dd MMMM, yyyy'),
     },
   }
 }
 
 export default function PostPage({ meta, code }: Post) {
-  const { title, dateFormatted } = meta
+  const { title, formattedDate } = meta
 
   // This is a bit weird, but this is how mdx-bundler recommends it.
   const Component = React.useMemo(() => getMDXComponent(code), [code])
@@ -38,7 +38,7 @@ export default function PostPage({ meta, code }: Post) {
   return (
     <>
       <h1>{title}</h1>
-      <span>{dateFormatted}</span>
+      <span>{formattedDate}</span>
       <Component components={components as any} />
     </>
   )

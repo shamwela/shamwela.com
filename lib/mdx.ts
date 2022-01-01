@@ -28,12 +28,12 @@ export const getAllPostsMeta = () => {
         // Use gray-matter to extract the post meta from post content
         const data = matter(source).data as PostMeta
 
-        const dateFormatted = format(parseISO(data.date), 'dd MMMM, yyyy')
+        const formattedDate = format(parseISO(data.date), 'dd MMMM, yyyy')
 
         return {
           ...data,
           slug,
-          dateFormatted,
+          formattedDate,
         }
       })
 
@@ -64,11 +64,11 @@ export const getPostBySlug = async (slug: string) => {
     },
   })
 
-  const dateFormatted = format(parseISO(frontmatter.date), 'dd MMMM, yyyy')
+  const formattedDate = format(parseISO(frontmatter.date), 'dd MMMM, yyyy')
 
   const meta = {
     ...frontmatter,
-    dateFormatted,
+    formattedDate,
     slug,
   } as PostMeta
 
