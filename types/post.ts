@@ -4,7 +4,6 @@ export type PostMeta = {
   dateFormatted: string
   description: string
   slug?: any
-  category?: 'draft' | 'project' | 'post'
   image?: string
   source?: string
 }

@@ -1,5 +1,28 @@
-const Blog = () => <>Blog</>
+import { getAllPostsMeta } from 'lib/mdx'
+import type { PostMeta } from 'types/post'
+
+export function getStaticProps() {
+  const posts = getAllPostsMeta()
+  return { props: { posts } }
+}
+
+const Blog = ({ posts }: { posts: PostMeta[] }) => {
+  return (
+    <>
+      <h1>Blog</h1>
+      <div className='mt-12 space-y-10'>
+        {posts.map((post) => (
+          <div key={post.slug}>
+            <a href={`/blog/${post.slug}`}>{post.title}</a>
+          </div>
+        ))}
+      </div>
+    </>
+  )
+}
+
 export default Blog
+
 // import { InferGetStaticPropsType } from 'next'
 // import { allBlogs } from '.contentlayer/data'
 // import { pick } from 'lib/utils'

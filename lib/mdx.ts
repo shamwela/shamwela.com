@@ -11,7 +11,7 @@ import type { PostMeta } from 'types/post'
 const ROOT_PATH = process.cwd()
 export const POSTS_PATH = path.join(ROOT_PATH, 'posts')
 
-export const getAllPostsMeta = (category?: PostMeta['category']) => {
+export const getAllPostsMeta = () => {
   const PATH = path.join(POSTS_PATH)
 
   // Get all file paths in the posts folder (that end with .mdx)
@@ -35,14 +35,6 @@ export const getAllPostsMeta = (category?: PostMeta['category']) => {
           slug,
           dateFormatted,
         }
-      })
-
-      // filter post by category if specified
-      .filter((post) => {
-        // default to all posts
-        if (!category) return true
-
-        return post.category === category
       })
 
       // Sort posts by published date
