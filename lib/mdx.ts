@@ -4,8 +4,6 @@ import glob from 'glob'
 import grayMatter from 'gray-matter'
 import { bundleMDX } from 'mdx-bundler'
 import path from 'path'
-import gfmPlugin from 'remark-gfm'
-import slugPlugin from 'remark-slug'
 import type { BlogMeta } from 'types/blog'
 
 const ROOT_PATH = process.cwd()
@@ -49,12 +47,7 @@ export const getBlogBySlug = async (slug: string) => {
   const { code, frontmatter } = await bundleMDX({
     source,
     xdmOptions(options) {
-      options.remarkPlugins = [
-        ...(options?.remarkPlugins ?? []),
-        slugPlugin,
-        gfmPlugin,
-      ]
-
+      options.remarkPlugins = [...(options?.remarkPlugins ?? [])]
       return options
     },
     esbuildOptions(options) {
