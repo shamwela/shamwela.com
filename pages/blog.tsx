@@ -1,5 +1,5 @@
 import { getAllPostsMeta } from 'lib/mdx'
-import type { PostMeta } from 'types/post'
+import type { PostMeta } from 'types/blog'
 import Link from 'next/link'
 import Head from 'components/Head'
 import { useState } from 'react'

@@ -4,7 +4,7 @@ import { format, parseISO } from 'date-fns'
 import { getMDXComponent } from 'mdx-bundler/client'
 import { GetStaticProps } from 'next'
 import React from 'react'
-import type { Post } from 'types/post'
+import type { Post } from 'types/blog'
 
 export const getStaticPaths = () => {
   const posts = getAllPostsMeta()

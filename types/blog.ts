@@ -1,4 +1,4 @@
-export type PostMeta = {
+export type BlogMeta = {
   title: string
   date: string
   formattedDate: string
@@ -8,7 +8,7 @@ export type PostMeta = {
   source?: string
 }
 
-export type Post = {
-  meta: PostMeta
+export type Blog = {
+  meta: BlogMeta
   code?: any
 }
