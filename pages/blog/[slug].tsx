@@ -1,35 +1,30 @@
-import { getAllPostsMeta, getPostBySlug } from 'lib/mdx'
+import { getAllBlogsMeta, getBlogBySlug } from 'lib/mdx'
 import { components } from 'ui/MdxComponents'
 import { format, parseISO } from 'date-fns'
 import { getMDXComponent } from 'mdx-bundler/client'
 import { GetStaticProps } from 'next'
 import React from 'react'
-import type { Post } from 'types/blog'
+import type { Blog } from 'types/blog'
 
 export const getStaticPaths = () => {
-  const posts = getAllPostsMeta()
-  const paths = posts.map(({ slug }) => ({ params: { slug } }))
-
-  return {
-    paths: paths,
-    // Return 404 page if path is not returned by getStaticPaths
-    fallback: false,
-  }
+  const blogs = getAllBlogsMeta()
+  const paths = blogs.map(({ slug }) => ({ params: { slug } }))
+  return { paths, fallback: false }
 }
 
-export const getStaticProps: GetStaticProps<Post> = async (context) => {
+export const getStaticProps: GetStaticProps<Blog> = async (context) => {
   const slug = context.params?.slug as string
-  const post = await getPostBySlug(slug)
+  const blog = await getBlogBySlug(slug)
 
   return {
     props: {
-      ...post,
-      formattedDate: format(parseISO(post.meta.date), 'dd MMMM, yyyy'),
+      ...blog,
+      formattedDate: format(parseISO(blog.meta.date), 'dd MMMM, yyyy'),
     },
   }
 }
 
-export default function PostPage({ meta, code }: Post) {
+const BlogPage = ({ meta, code }: Blog) => {
   const { title, formattedDate } = meta
 
   // This is a bit weird, but this is how mdx-bundler recommends it.
@@ -43,3 +38,5 @@ export default function PostPage({ meta, code }: Post) {
     </>
   )
 }
+
+export default BlogPage

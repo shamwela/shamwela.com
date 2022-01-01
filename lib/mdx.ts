@@ -42,7 +42,7 @@ export const getAllBlogsMeta = () => {
 }
 
 // Get content of a specific blog
-export const getPostBySlug = async (slug: string) => {
+export const getBlogBySlug = async (slug: string) => {
   // Get the content of the file
   const source = fs.readFileSync(path.join(CONTENT_PATH, `${slug}.mdx`), 'utf8')
 
