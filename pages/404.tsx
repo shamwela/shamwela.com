@@ -7,7 +7,7 @@ const Custom404 = () => {
       <Head
         title='Page not found'
         description='Page not found'
-        image='/images/sha-mwe-la-open-graph.png'
+        imageUrl='/images/sha-mwe-la-open-graph.png'
         date='2021-12-20'
       />
 

@@ -1,19 +1,20 @@
 import Head from 'next/head'
-// import { useRouter } from 'next/router'
+import { useRouter } from 'next/router'
 
 const CustomHead = ({
   title,
   description,
-  image,
+  imageUrl,
   date,
 }: {
   title: string
   description: string
-  image: string
+  imageUrl: string
   date: string
 }) => {
   // const { pathname } = useRouter()
   // const ogUrl = `https://www.shamwela.com${pathname}`
+  const fullImageUrl = 'https://www.shamwela.com' + imageUrl
 
   return (
     <Head>
@@ -26,9 +27,9 @@ const CustomHead = ({
       <meta property='og:description' content={description} />
       <meta name='twitter:description' content={description} />
 
-      <meta name='image' content={image} />
-      <meta property='og:image' content={image} />
-      <meta name='twitter:image' content={image} />
+      <meta name='image' content={fullImageUrl} />
+      <meta property='og:image' content={fullImageUrl} />
+      <meta name='twitter:image' content={fullImageUrl} />
 
       <meta property='article:published_time' content={date} />
 

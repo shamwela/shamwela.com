@@ -20,7 +20,7 @@ const Blog = ({ blogs }: { blogs: BlogMeta[] }) => {
       <Head
         title="Sha Mwe La's Blog"
         description="Sha Mwe La's Blog"
-        image='/images/sha-mwe-la-open-graph.png'
+        imageUrl='/images/sha-mwe-la-open-graph.png'
         date='2021-12-20'
       />
       <h1>Blog</h1>
