@@ -5,6 +5,7 @@ import { getMDXComponent } from 'mdx-bundler/client'
 import { GetStaticProps } from 'next'
 import { useMemo } from 'react'
 import type { Blog } from 'types/blog'
+import Head from 'components/Head'
 
 export const getStaticPaths = () => {
   const blogs = getAllBlogsMeta()
@@ -25,15 +26,20 @@ export const getStaticProps: GetStaticProps<Blog> = async (context) => {
 }
 
 const BlogPage = ({ meta, code }: Blog) => {
-  const { title, formattedDate } = meta
+  const { title, description, imageUrl, date } = meta
 
   // This is a bit weird, but this is how mdx-bundler recommends it.
   const Component = useMemo(() => getMDXComponent(code), [code])
 
   return (
     <>
+      <Head
+        title={title}
+        description={description}
+        imageUrl={imageUrl}
+        date={date}
+      />
       <h1>{title}</h1>
-      <span>{formattedDate}</span>
       <Component components={components as any} />
     </>
   )

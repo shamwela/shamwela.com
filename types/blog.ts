@@ -4,7 +4,7 @@ export type BlogMeta = {
   formattedDate: string
   description: string
   slug?: any
-  image?: string
+  imageUrl?: string
   source?: string
 }
 
