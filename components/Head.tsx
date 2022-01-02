@@ -12,9 +12,10 @@ const CustomHead = ({
   imageUrl: string
   date: string
 }) => {
-  // const { pathname } = useRouter()
-  // const ogUrl = `https://www.shamwela.com${pathname}`
-  const fullImageUrl = 'https://www.shamwela.com' + imageUrl
+  const rootUrl = 'https://www.shamwela.com'
+  const { pathname } = useRouter()
+  const fullUrl = rootUrl + pathname
+  const fullImageUrl = rootUrl + imageUrl
 
   return (
     <Head>
@@ -33,7 +34,7 @@ const CustomHead = ({
 
       <meta property='article:published_time' content={date} />
 
-      {/* <meta property='og:url' content={ogUrl} /> */}
+      <meta property='og:url' content={fullUrl} />
 
       <meta name='twitter:card' content='summary_large_image' />
       <meta name='twitter:creator' content='@shamwela_' />
