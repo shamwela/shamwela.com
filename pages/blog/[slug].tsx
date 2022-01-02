@@ -1,5 +1,5 @@
 import { getAllBlogsMeta, getBlogBySlug } from 'lib/mdx'
-// import { components } from 'ui/MDXComponents'
+import { components } from 'ui/MDXComponents'
 import { format, parseISO } from 'date-fns'
 import { getMDXComponent } from 'mdx-bundler/client'
 import { GetStaticProps } from 'next'
@@ -40,7 +40,7 @@ const BlogPage = ({ meta, code }: Blog) => {
         date={date}
       />
       <h1>{title}</h1>
-      {/* <Component components={components as any} /> */}
+      <Component components={components as any} />
     </>
   )
 }
