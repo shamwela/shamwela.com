@@ -46,11 +46,7 @@ export const getBlogBySlug = async (slug: string) => {
 
   const { code, frontmatter } = await bundleMDX({
     source,
-    xdmOptions(options) {
-      options.remarkPlugins = [...(options?.remarkPlugins ?? [])]
-      return options
-    },
-    esbuildOptions(options) {
+    esbuildOptions: (options) => {
       options.target = 'esnext'
       return options
     },

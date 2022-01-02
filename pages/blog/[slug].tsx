@@ -28,7 +28,8 @@ export const getStaticProps: GetStaticProps<Blog> = async (context) => {
 const BlogPage = ({ meta, code }: Blog) => {
   const { title, description, imageUrl, date } = meta
 
-  // This is a bit weird, but this is how mdx-bundler recommends it.
+  // It's generally a good idea to memoize this function call to
+  // avoid re-creating the component every render
   const Component = useMemo(() => getMDXComponent(code), [code])
 
   return (
