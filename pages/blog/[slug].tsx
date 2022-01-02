@@ -3,7 +3,7 @@ import { components } from 'ui/MdxComponents'
 import { format, parseISO } from 'date-fns'
 import { getMDXComponent } from 'mdx-bundler/client'
 import { GetStaticProps } from 'next'
-import React from 'react'
+import { useMemo } from 'react'
 import type { Blog } from 'types/blog'
 
 export const getStaticPaths = () => {
@@ -28,7 +28,7 @@ const BlogPage = ({ meta, code }: Blog) => {
   const { title, formattedDate } = meta
 
   // This is a bit weird, but this is how mdx-bundler recommends it.
-  const Component = React.useMemo(() => getMDXComponent(code), [code])
+  const Component = useMemo(() => getMDXComponent(code), [code])
 
   return (
     <>
