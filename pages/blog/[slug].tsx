@@ -1,5 +1,5 @@
 import { getAllBlogsMeta, getBlogBySlug } from 'lib/mdx'
-import { components } from 'ui/MdxComponents'
+import { components } from 'ui/MDXComponents'
 import { format, parseISO } from 'date-fns'
 import { getMDXComponent } from 'mdx-bundler/client'
 import { GetStaticProps } from 'next'
