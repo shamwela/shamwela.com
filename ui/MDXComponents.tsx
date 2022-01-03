@@ -14,7 +14,7 @@ export const components = {
       </NextLink>
     )
   },
-  Image: (props) => {
-    return <NextImage {...props} />
+  img: (src: string, alt: string) => {
+    return <NextImage src={src} alt={alt} />
   },
 }

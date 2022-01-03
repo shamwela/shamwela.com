@@ -5,6 +5,7 @@ import grayMatter from 'gray-matter'
 import { bundleMDX } from 'mdx-bundler'
 import path from 'path'
 import type { BlogMeta } from 'types/blog'
+import rehypeImgSize from 'rehype-img-size'
 
 const ROOT_PATH = process.cwd()
 export const CONTENT_PATH = path.join(ROOT_PATH, 'content')
@@ -46,6 +47,14 @@ export const getBlogBySlug = async (slug: string) => {
 
   const { code, frontmatter } = await bundleMDX({
     source,
+    xdmOptions: (options) => {
+      // This looks weird but this is what mdx-bundler recommends
+      options.rehypePlugins = [
+        ...(options?.rehypePlugins ?? []),
+        [rehypeImgSize, { dir: 'public' }], // automatically add width and height to images
+      ]
+      return options
+    },
     esbuildOptions: (options) => {
       options.target = 'esnext'
       return options
