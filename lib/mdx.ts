@@ -51,7 +51,9 @@ export const getBlogBySlug = async (slug: string) => {
       // This looks weird but this is what mdx-bundler recommends
       options.rehypePlugins = [
         ...(options?.rehypePlugins ?? []),
-        [rehypeImgSize, { dir: 'public' }], // automatically add width and height to images
+        [rehypeImgSize, { dir: 'public' }],
+        // "rehypeImgSize" automatically adds width and height to images
+        // "dir" is the directory where the images are stored
       ]
       return options
     },
