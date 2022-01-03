@@ -15,14 +15,6 @@ export const components = {
     )
   },
   img: (props) => {
-    return (
-      <NextImage
-        {...props}
-        placeholder='blur'
-        blurDataURL='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTA1MCIgaGVpZ2h0PSIxMDUwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIvPg=='
-        // this blurDataURL is the blurDataURL of my photo on the home page
-        // I'm not even sure this will work lol
-      />
-    )
+    return <NextImage {...props} />
   },
 }
