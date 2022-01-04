@@ -29,7 +29,7 @@ export const getStaticProps: GetStaticProps<Blog> = async (context) => {
   const plaiceholderData = await Promise.all(
     paths.map(async (path) => {
       const { base64, img } = await getPlaiceholder(
-        path.replace('D:/Folders/01 Personal/code/shamwela.com/public', '') // should fix this later
+        path.replace(path.join(ROOT_PATH, 'public'), '') // should fix this later
       )
       const imageProps = {
         ...img,
@@ -67,15 +67,19 @@ const BlogPage = ({ meta, code, plaiceholderData }) => {
       <Component
         components={{
           img: (props) => {
+            const { src, alt, width, height } = props
             const blurDataURL = plaiceholderData.find(
               (path) => (path.src = props.src)
             )
             return (
+              // eslint-disable-next-line jsx-a11y/alt-text
               <Image
-                src={props.src}
+                src={src}
+                alt={alt}
+                width={width}
+                height={height}
                 placeholder='blur'
                 blurDataURL={blurDataURL}
-                alt={props.alt}
               />
             )
           },
