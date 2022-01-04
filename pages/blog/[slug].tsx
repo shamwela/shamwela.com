@@ -13,9 +13,7 @@ import Link from 'next/link'
 
 export const getStaticPaths = () => {
   const blogs = getAllBlogsMeta()
-  const paths: string[] = blogs.map(({ slug }: { slug: string }) => ({
-    params: { slug },
-  }))
+  const paths = blogs.map(({ slug }) => ({ params: { slug } }))
   return { paths, fallback: false }
 }
 

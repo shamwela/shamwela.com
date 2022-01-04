@@ -7,16 +7,14 @@ import path from 'path'
 import type { BlogMeta } from 'types/blog'
 
 const ROOT_PATH = process.cwd()
-export const CONTENT_PATH = path.join(ROOT_PATH, 'content')
+const CONTENT_FOLDER_PATH = path.join(ROOT_PATH, 'content')
 
 export const getAllBlogsMeta = () => {
-  const PATH = path.join(CONTENT_PATH)
-
-  // Get all file paths in the content folder (that end with .mdx)
-  const paths = glob.sync(`${PATH}/**/*.mdx`)
+  // Get all MDX file paths in the content folder
+  const mdxFilePaths: string[] = glob.sync(`${CONTENT_FOLDER_PATH}/**/*.mdx`)
 
   return (
-    paths
+    mdxFilePaths
       .map((filePath): BlogMeta => {
         // Get the content of the file
         const source = fs.readFileSync(path.join(filePath), 'utf8')
@@ -42,7 +40,10 @@ export const getAllBlogsMeta = () => {
 // Get content of a specific blog
 export const getBlogBySlug = async (slug: string) => {
   // Get the content of the file
-  const source = fs.readFileSync(path.join(CONTENT_PATH, `${slug}.mdx`), 'utf8')
+  const source = fs.readFileSync(
+    path.join(CONTENT_FOLDER_PATH, `${slug}.mdx`),
+    'utf8'
+  )
 
   const { code, frontmatter } = await bundleMDX({
     source,
