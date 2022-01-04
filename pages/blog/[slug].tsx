@@ -20,8 +20,13 @@ export const getStaticPaths = () => {
 const ROOT_PATH = process.cwd()
 const IMAGES_PATH = path.join(ROOT_PATH, 'public', 'images')
 const imagePaths = glob.sync(`${IMAGES_PATH}/**/*.png`) // should add other extensions here later
-const imageRelativePaths = imagePaths.map((imagePath) =>
-  imagePath.replace('D:/Folders/01 Personal/code/shamwela.com/public', '')
+
+const imageRelativePaths = imagePaths.map(
+  (imagePath) =>
+    // imagePath.replace('D:/Folders/01 Personal/code/shamwela.com/public', '')
+    imagePath.split('/public')[1]
+  // This is a hack to get the relative path
+  // Try to remove this hack as soon as possible
 )
 
 export const getStaticProps: GetStaticProps<Blog> = async (context) => {
