@@ -14,7 +14,7 @@ export const components = {
       </NextLink>
     )
   },
-  img: (props) => {
+  img: async (props) => {
     return <NextImage {...props} />
   },
 }
