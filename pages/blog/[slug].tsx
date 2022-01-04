@@ -19,12 +19,13 @@ export const getStaticPaths = () => {
 
 const ROOT_PATH = process.cwd()
 const IMAGES_PATH = path.join(ROOT_PATH, 'public', 'images')
-const imagePaths = glob.sync(`${IMAGES_PATH}/**/*.png`) // should add other extensions here later
+const imagePaths = glob.sync(`${IMAGES_PATH}/**/*`) // These are full paths
 
 const imageRelativePaths = imagePaths.map(
   (imagePath) =>
     // imagePath.replace('D:/Folders/01 Personal/code/shamwela.com/public', '')
     imagePath.split('/public')[1]
+  // get the relative image path
   // This is a hack to get the relative path
   // Try to remove this hack as soon as possible
 )
@@ -77,7 +78,14 @@ const BlogPage = ({ meta, code, images }) => {
             )
             const imageProps = images[index]
 
-            return <Image {...imageProps} placeholder='blur' alt={alt} />
+            return (
+              <Image
+                {...imageProps}
+                placeholder='blur'
+                alt={alt}
+                quality={100}
+              />
+            )
           },
         }}
       />
