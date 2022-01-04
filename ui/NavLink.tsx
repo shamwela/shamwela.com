@@ -24,8 +24,8 @@ const NavLink = ({
     <li>
       <Link href={href}>
         <a
-          className={`text-secondary px-6 py-2 rounded-full hover:no-underline ${
-            isActive && 'font-bold'
+          className={`text-secondary px-6 py-2 rounded-lg hover:no-underline ${
+            isActive && 'bg-light-primary font-bold'
           }`}
         >
           {text}
