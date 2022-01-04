@@ -18,6 +18,7 @@ export const getStaticPaths = () => {
 }
 
 const ROOT_PATH = process.cwd()
+const PUBLIC_PATH = path.join(ROOT_PATH, 'public')
 const IMAGE_PATH = path.join(ROOT_PATH, 'public', 'images')
 const PATH = path.join(IMAGE_PATH)
 const paths = glob.sync(`${PATH}/**/*.png`) // should add other extensions here later
@@ -29,7 +30,7 @@ export const getStaticProps: GetStaticProps<Blog> = async (context) => {
   const plaiceholderData = await Promise.all(
     paths.map(async (path) => {
       const { base64, img } = await getPlaiceholder(
-        path.replace(path.join(ROOT_PATH, 'public'), '') // should fix this later
+        path.replace(PUBLIC_PATH, '') // should improve this later
       )
       const imageProps = {
         ...img,
