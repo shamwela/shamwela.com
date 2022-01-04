@@ -10,6 +10,7 @@ import Image from 'next/image'
 import { getPlaiceholder } from 'plaiceholder'
 import path from 'path'
 import glob from 'glob'
+import Link from 'next/link'
 
 export const getStaticPaths = () => {
   const blogs = getAllBlogsMeta()
@@ -61,6 +62,28 @@ const BlogPage = ({ meta, code, images }) => {
   // avoid re-creating the component every render
   const Component = useMemo(() => getMDXComponent(code), [code])
 
+  const components = {
+    img: ({ src, alt }: { src: string; alt: string }) => {
+      const index = images.findIndex((imageProps) => imageProps.src === src)
+      const imageProps = images[index]
+
+      return (
+        <Image {...imageProps} placeholder='blur' alt={alt} quality={100} />
+      )
+    },
+    a: ({ href, ...props }: { href: string }) => {
+      if (href.startsWith('http')) {
+        return <a href={href} target='_blank' rel='noreferrer' {...props} />
+      }
+
+      return (
+        <Link href={href}>
+          <a {...props} />
+        </Link>
+      )
+    },
+  }
+
   return (
     <>
       <Head
@@ -70,25 +93,7 @@ const BlogPage = ({ meta, code, images }) => {
         date={date}
       />
       <h1>{title}</h1>
-      <Component
-        components={{
-          img: ({ src, alt }: { src: string; alt: string }) => {
-            const index = images.findIndex(
-              (imageProps) => imageProps.src === src
-            )
-            const imageProps = images[index]
-
-            return (
-              <Image
-                {...imageProps}
-                placeholder='blur'
-                alt={alt}
-                quality={100}
-              />
-            )
-          },
-        }}
-      />
+      <Component components={components} />
     </>
   )
 }
