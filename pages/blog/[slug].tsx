@@ -17,14 +17,14 @@ export const getStaticPaths = () => {
   return { paths, fallback: false }
 }
 
+const ROOT_PATH = process.cwd()
+const IMAGE_PATH = path.join(ROOT_PATH, 'public', 'images')
+const PATH = path.join(IMAGE_PATH)
+const paths = glob.sync(`${PATH}/**/*.png`) // should add other extensions here later
+
 export const getStaticProps: GetStaticProps<Blog> = async (context) => {
   const slug = context.params?.slug as string
   const blog = await getBlogBySlug(slug)
-
-  const ROOT_PATH = process.cwd()
-  const IMAGE_PATH = path.join(ROOT_PATH, 'public', 'images')
-  const PATH = path.join(IMAGE_PATH)
-  const paths = glob.sync(`${PATH}/**/*.png`) // should add other extensions here later
 
   const plaiceholderData = await Promise.all(
     paths.map(async (path) => {
@@ -72,7 +72,6 @@ const BlogPage = ({ meta, code, plaiceholderData }) => {
               (path) => (path.src = props.src)
             )
             return (
-              // eslint-disable-next-line jsx-a11y/alt-text
               <Image
                 src={src}
                 alt={alt}
