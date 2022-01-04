@@ -18,38 +18,37 @@ export const getStaticPaths = () => {
 }
 
 const ROOT_PATH = process.cwd()
-const PUBLIC_PATH = path.join(ROOT_PATH, 'public')
-const IMAGE_PATH = path.join(ROOT_PATH, 'public', 'images')
-const PATH = path.join(IMAGE_PATH)
-const paths = glob.sync(`${PATH}/**/*.png`) // should add other extensions here later
+const IMAGES_PATH = path.join(ROOT_PATH, 'public', 'images')
+const imagePaths = glob.sync(`${IMAGES_PATH}/**/*.png`) // should add other extensions here later
+const imageRelativePaths = imagePaths.map((imagePath) =>
+  imagePath.replace('D:/Folders/01 Personal/code/shamwela.com/public', '')
+)
 
 export const getStaticProps: GetStaticProps<Blog> = async (context) => {
   const slug = context.params?.slug as string
   const blog = await getBlogBySlug(slug)
 
-  const plaiceholderData = await Promise.all(
-    paths.map(async (path) => {
-      const { base64, img } = await getPlaiceholder(
-        path.replace(PUBLIC_PATH, '') // should improve this later
-      )
-      const imageProps = {
+  const images = await Promise.all(
+    imageRelativePaths.map(async (src) => {
+      const { base64, img } = await getPlaiceholder(src)
+
+      return {
         ...img,
         blurDataURL: base64,
       }
-      return imageProps
     })
-  )
+  ).then((values) => values)
 
   return {
     props: {
       ...blog,
       formattedDate: format(parseISO(blog.meta.date), 'dd MMMM, yyyy'),
-      plaiceholderData,
+      images,
     },
   }
 }
 
-const BlogPage = ({ meta, code, plaiceholderData }) => {
+const BlogPage = ({ meta, code, images }) => {
   const { title, description, imageUrl, date } = meta
 
   // It's generally a good idea to memoize this function call to
@@ -67,21 +66,13 @@ const BlogPage = ({ meta, code, plaiceholderData }) => {
       <h1>{title}</h1>
       <Component
         components={{
-          img: (props) => {
-            const { src, alt, width, height } = props
-            const blurDataURL = plaiceholderData.find(
-              (path) => (path.src = props.src)
+          img: ({ src, alt }: { src: string; alt: string }) => {
+            const index = images.findIndex(
+              (imageProps) => imageProps.src === src
             )
-            return (
-              <Image
-                src={src}
-                alt={alt}
-                width={width}
-                height={height}
-                placeholder='blur'
-                blurDataURL={blurDataURL}
-              />
-            )
+            const imageProps = images[index]
+
+            return <Image {...imageProps} placeholder='blur' alt={alt} />
           },
         }}
       />
