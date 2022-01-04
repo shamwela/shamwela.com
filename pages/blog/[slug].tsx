@@ -48,8 +48,22 @@ export const getStaticProps: GetStaticProps<Blog> = async (context) => {
   }
 }
 
-const BlogPage = ({ meta, code, images }) => {
-  const { title, description, imageUrl, date }: BlogMeta = meta
+const BlogPage = ({
+  meta,
+  code,
+  images,
+}: {
+  meta: BlogMeta
+  code: any
+  images: {
+    src: string
+    blurDataURL: string
+    width: number
+    height: number
+    type?: string
+  }[]
+}) => {
+  const { title, description, imageUrl, date, readingTime } = meta
 
   // It's generally a good idea to memoize this function call to
   // avoid re-creating the component every render
@@ -86,6 +100,7 @@ const BlogPage = ({ meta, code, images }) => {
         date={date}
       />
       <h1>{title}</h1>
+      <p>{readingTime}</p>
       <Component components={components} />
     </>
   )

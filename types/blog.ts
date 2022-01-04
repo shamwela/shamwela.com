@@ -6,6 +6,7 @@ export type BlogMeta = {
   formattedDate: string
   slug?: string
   source?: string
+  readingTime: string
 }
 
 export type Blog = {

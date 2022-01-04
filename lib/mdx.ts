@@ -5,6 +5,7 @@ import grayMatter from 'gray-matter'
 import { bundleMDX } from 'mdx-bundler'
 import path from 'path'
 import type { BlogMeta } from 'types/blog'
+import getReadingTime from 'reading-time'
 
 const ROOT_PATH = process.cwd()
 const CONTENT_FOLDER_PATH = path.join(ROOT_PATH, 'content')
@@ -54,11 +55,13 @@ export const getBlogBySlug = async (slug: string) => {
   })
 
   const formattedDate = format(parseISO(frontmatter.date), 'dd MMMM, yyyy')
+  const { text: readingTime } = getReadingTime(source)
 
   const meta = {
     ...frontmatter,
     formattedDate,
     slug,
+    readingTime,
   } as BlogMeta
 
   return {
