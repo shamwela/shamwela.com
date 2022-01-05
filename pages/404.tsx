@@ -8,7 +8,6 @@ const Custom404 = () => {
         title='Page not found'
         description='Page not found'
         imageUrl='/images/sha-mwe-la-open-graph.png'
-        date='2021-12-20'
       />
 
       <article className='flex flex-col items-center gap-y-4'>

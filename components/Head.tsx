@@ -2,25 +2,28 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 
 const CustomHead = ({
-  title,
-  description,
-  imageUrl,
+  title = 'Sha Mwe La',
+  description = "Sha Mwe La's website",
+  imageUrl = '/images/sha-mwe-la-open-graph.png',
   date,
 }: {
   title: string
   description: string
   imageUrl: string
-  date: string
+  date?: string
 }) => {
-  const fullImageUrl = 'https://www.shamwela.com' + imageUrl
-  const router = useRouter()
+  const baseUrl = 'https://www.shamwela.com'
+  const fullImageUrl = baseUrl + imageUrl
+
+  const { asPath } = useRouter()
+  const fullUrl = baseUrl + asPath
 
   return (
     <Head>
       <title>{title}</title>
+      <meta name='robots' content='follow, index' />
       <meta property='og:title' content={title} />
       <meta name='twitter:title' content={title} />
-      <meta name='twitter:alt' content={title} />
 
       <meta name='description' content={description} />
       <meta property='og:description' content={description} />
@@ -30,18 +33,21 @@ const CustomHead = ({
       <meta property='og:image' content={fullImageUrl} />
       <meta name='twitter:image' content={fullImageUrl} />
 
-      <meta property='article:published_time' content={date} />
+      {date && <meta property='article:published_time' content={date} />}
 
-      <meta
-        property='og:url'
-        content={'https://www.shamwela.com' + router.asPath}
-      />
+      <meta property='og:url' content={fullUrl} />
+      <link rel='canonical' href={fullUrl} />
 
       <meta name='twitter:card' content='summary_large_image' />
       <meta name='twitter:creator' content='@shamwela_' />
       <meta name='twitter:site' content='@shamwela_' />
 
-      <meta property='og:type' content='blog' />
+      {asPath.startsWith('/blog') ? (
+        <meta property='og:type' content='blog' />
+      ) : (
+        <meta property='og:type' content='website' />
+      )}
+      <meta property='og:site_name' content='Sha Mwe La' />
 
       {/* Favicons for different platforms */}
       <link
