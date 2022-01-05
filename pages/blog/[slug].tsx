@@ -88,10 +88,7 @@ const BlogPage = ({
     )
   }
 
-  const customComponents = {
-    img: CustomImage,
-    a: CustomLink,
-  }
+  const customComponents = { img: CustomImage, a: CustomLink }
 
   return (
     <>
