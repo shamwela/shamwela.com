@@ -31,7 +31,9 @@ const Blog = ({ blogs }: { blogs: BlogMeta[] }) => {
         value={searchValue}
         onChange={(event) => setSearchValue(event.currentTarget.value)}
       />
-      {filteredBlogs.length === 0 && <p>No blogs found.</p>}
+      {filteredBlogs.length === 0 && (
+        <p>No blogs found. Please search other stuffs.</p>
+      )}
       {filteredBlogs.map(({ slug, title }) => (
         <Link href={'/blog/' + slug} key={slug}>
           <a>{title}</a>
