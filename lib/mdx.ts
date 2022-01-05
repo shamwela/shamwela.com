@@ -27,11 +27,13 @@ export const getAllBlogsMeta = () => {
         const data = grayMatter(source).data as BlogMeta
 
         const formattedDate = format(parseISO(data.date), 'dd MMMM, yyyy')
+        const { text: readingTime } = getReadingTime(source)
 
         return {
           ...data,
           slug,
           formattedDate,
+          readingTime,
         }
       })
       // Sort blogs by published date
