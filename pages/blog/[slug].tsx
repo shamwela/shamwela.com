@@ -69,26 +69,28 @@ const BlogPage = ({
   // avoid re-creating the component every render
   const Component = useMemo(() => getMDXComponent(code), [code])
 
-  const components = {
-    img: ({ src, alt }: { src: string; alt: string }) => {
-      const index = images.findIndex((imageProps) => imageProps.src === src)
-      const imageProps = images[index]
+  const CustomImage = ({ src, alt }: { src: string; alt: string }) => {
+    const index = images.findIndex((imageProps) => imageProps.src === src)
+    const imageProps = images[index]
 
-      return (
-        <Image {...imageProps} placeholder='blur' alt={alt} quality={100} />
-      )
-    },
-    a: ({ href, ...props }: { href: string }) => {
-      if (href.startsWith('http')) {
-        return <a href={href} target='_blank' rel='noreferrer' {...props} />
-      }
+    return <Image {...imageProps} placeholder='blur' alt={alt} quality={100} />
+  }
 
-      return (
-        <Link href={href}>
-          <a {...props} />
-        </Link>
-      )
-    },
+  const CustomLink = ({ href, ...props }: { href: string }) => {
+    if (href.startsWith('http')) {
+      return <a href={href} target='_blank' rel='noreferrer' {...props} />
+    }
+
+    return (
+      <Link href={href}>
+        <a {...props} />
+      </Link>
+    )
+  }
+
+  const customComponents = {
+    img: CustomImage,
+    a: CustomLink,
   }
 
   return (
@@ -101,7 +103,7 @@ const BlogPage = ({
       />
       <h1>{title}</h1>
       <p>{readingTime}</p>
-      <Component components={components} />
+      <Component components={customComponents} />
     </>
   )
 }
