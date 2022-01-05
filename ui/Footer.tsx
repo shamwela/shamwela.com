@@ -33,6 +33,13 @@ const Footer = () => {
         >
           Twitter
         </a>
+        <a
+          href='https://www.facebook.com/shamwelaofficial'
+          target='_blank'
+          rel='noreferrer'
+        >
+          Facebook
+        </a>
       </div>
     </footer>
   )
