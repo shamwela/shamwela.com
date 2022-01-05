@@ -70,10 +70,13 @@ const BlogPage = ({
   const Component = useMemo(() => getMDXComponent(code), [code])
 
   const CustomImage = ({ src, alt }: { src: string; alt: string }) => {
-    const index = images.findIndex((imageProps) => imageProps.src === src)
-    const imageProps = images[index]
+    const imageProperties = images.find(
+      (imageProperties) => imageProperties.src === src
+    )
 
-    return <Image {...imageProps} placeholder='blur' alt={alt} quality={100} />
+    return (
+      <Image {...imageProperties} placeholder='blur' alt={alt} quality={100} />
+    )
   }
 
   const CustomLink = ({ href, ...props }: { href: string }) => {
