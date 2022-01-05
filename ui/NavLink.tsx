@@ -24,6 +24,7 @@ const NavLink = ({
     <li>
       <Link href={href}>
         <a
+          aria-current={isActive ? 'page' : false}
           className={`text-secondary px-6 py-2 rounded-lg hover:no-underline ${
             isActive && 'bg-light-primary font-bold'
           }`}
