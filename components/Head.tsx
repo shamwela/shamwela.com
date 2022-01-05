@@ -69,6 +69,29 @@ const CustomHead = ({
       />
       <meta name='msapplication-TileColor' content='#da532c' />
       <meta name='theme-color' content='#ffffff' />
+
+      {/* Download and cache the font files as soon as possible */}
+      <link
+        rel='preload'
+        href='/fonts/Roboto-Regular.woff2'
+        as='font'
+        type='font/woff2'
+        crossOrigin='anonymous'
+      />
+      <link
+        rel='preload'
+        href='/fonts/Roboto-Bold.woff2'
+        as='font'
+        type='font/woff2'
+        crossOrigin='anonymous'
+      />
+      <link
+        rel='preload'
+        href='/fonts/Roboto-Mono-Regular.woff2'
+        as='font'
+        type='font/woff2'
+        crossOrigin='anonymous'
+      />
     </Head>
   )
 }
