@@ -6,6 +6,7 @@ import { bundleMDX } from 'mdx-bundler'
 import path from 'path'
 import type { BlogMeta } from 'types/blog'
 import getReadingTime from 'reading-time'
+import rehypePrismPlus from 'rehype-prism-plus'
 
 const ROOT_PATH = process.cwd()
 const CONTENT_FOLDER_PATH = path.join(ROOT_PATH, 'content')
@@ -48,8 +49,14 @@ export const getBlogBySlug = async (slug: string) => {
 
   const { code, frontmatter } = await bundleMDX({
     source,
-    esbuildOptions: (options) => {
-      options.target = 'esnext'
+    xdmOptions: (options) => {
+      // This is how mdx-bundler recommends to add custom remark/rehype plugins.
+      // The syntax might look weird, but it protects you in case mdx-bundler add or remove
+      // plugins in the future.
+      options.rehypePlugins = [
+        ...(options.rehypePlugins ?? []),
+        rehypePrismPlus,
+      ]
       return options
     },
   })
