@@ -11,7 +11,7 @@ const Home = () => {
         imageUrl='/images/sha-mwe-la-open-graph.png'
       />
 
-      <h1>Hi, I&apos;m Sha Mwe La.</h1>
+      <h1>Hi, I'm Sha Mwe La.</h1>
 
       <div className='w-20 md:w-32'>
         <Image
@@ -29,9 +29,8 @@ const Home = () => {
         <a href='https://github.com/shamwela' target='_blank' rel='noreferrer'>
           GitHub
         </a>
-        . I also blog to help beginners and share my opinions. I&apos;m also
-        learning Software Engineering at GUSTO University. I live in Yangon,
-        Myanmar.
+        . I also blog to help beginners and share my opinions. I'm also learning
+        Software Engineering at GUSTO University. I live in Yangon, Myanmar.
       </p>
     </>
   )
