@@ -2,15 +2,15 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 
 const CustomHead = ({
-  title = 'Sha Mwe La',
+  date,
   description = "Sha Mwe La's website",
   imageUrl = '/images/sha-mwe-la-open-graph.png',
-  date,
+  title = 'Sha Mwe La',
 }: {
-  title: string
+  date?: string
   description: string
   imageUrl: string
-  date?: string
+  title: string
 }) => {
   const baseUrl = 'https://www.shamwela.com'
   const fullImageUrl = baseUrl + imageUrl
