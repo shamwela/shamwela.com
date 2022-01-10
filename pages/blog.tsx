@@ -18,8 +18,8 @@ const Blog = ({ blogs }: { blogs: BlogMeta[] }) => {
   return (
     <>
       <Head
-        title="Sha Mwe La's Blog"
-        description="Sha Mwe La's Blog"
+        title="Sha Mwe La's blog"
+        description="Sha Mwe La's blog"
         imageUrl='/images/sha-mwe-la-open-graph.png'
       />
       <h1>Blog</h1>
