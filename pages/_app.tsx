@@ -1,6 +1,7 @@
-import Navigation from 'ui/Navigation'
-import Footer from 'ui/Footer'
 import 'styles/globals.css'
+
+import Footer from 'ui/Footer'
+import Navigation from 'ui/Navigation'
 
 const App = ({ Component, pageProps }) => {
   return (
