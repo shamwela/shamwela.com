@@ -1,20 +1,20 @@
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 
-const NavLink = ({
+const NavigationLink = ({
   text,
   href,
   hasNestedRoutes = false,
 }: {
   text: string
   href: string
-  hasNestedRoutes?: boolean
+  hasNestedRoutes: boolean
 }) => {
   const { pathname } = useRouter()
   let isActive: boolean
 
   if (hasNestedRoutes) {
-    // For example, /blog, /blog/1, /blog/2
+    // For example, /blog, /blog/my-blog-1, /blog/my-blog-2
     isActive = pathname.startsWith(href)
   } else {
     isActive = pathname === href
@@ -36,4 +36,4 @@ const NavLink = ({
   )
 }
 
-export default NavLink
+export default NavigationLink
