@@ -72,6 +72,37 @@ const ShaMweLaDotCom = () => {
         I usually share my blogs with my friends. They read them to learn about
         web development. They say they like my website 😅.
       </p>
+      <h2>Lessons learned</h2>
+      <p>
+        I learned how to use Husky to add pre-commit git hooks. I check
+        formatting using Prettier, linting using ESLint, and check TypeScript
+        errors using the TypeScript compiler.
+      </p>
+      <p>
+        I also learned about the Open Graph protocol and Twitter Card Tags.
+        These two are important for Search Engine Optimization.
+      </p>
+      <p>
+        Another thing is preloading font files. Preloading is downloading and
+        caching as soon as possible. In <code>vercel.json</code>, I cached my
+        font files for a year.
+      </p>
+      <p>
+        Next.js is great. I used Static Site Generation to make this website
+        fast. Next.js also provides image optimization, file-based routing, and
+        much more.
+      </p>
+      <p>
+        I used to make silly type errors with JavaScript. TypeScript helped me
+        with type checking, autocompletion, and confidence with my code.
+      </p>
+      <p>
+        For accessibility, I used <code>aria-current='page'</code> for the
+        active navigation link. I also added <code>alt</code> in every image. I
+        tested my website using Screen Reader extension and made sure everything
+        is easy to use. I also tested using only keyboard to navigate and it
+        works fine.
+      </p>
     </>
   )
 }
