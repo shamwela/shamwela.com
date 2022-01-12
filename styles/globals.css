@@ -24,8 +24,8 @@
   }
 
   *,
-  *::before,
-  *::after {
+  ::before,
+  ::after {
     @apply text-secondary;
   }
 
@@ -106,7 +106,7 @@
   }
 
   input {
-    @apply bg-light-primary px-4 py-2 focus:outline-none ring-accent focus:ring-1;
+    @apply px-4 py-2 bg-light-primary focus:outline-none ring-accent focus:ring-1;
   }
 
   /* The following CSS is for rehype-prism-plus */
