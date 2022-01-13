@@ -25,7 +25,7 @@ export const getStaticProps: GetStaticProps<Project> = async (context) => {
 }
 
 const ProjectPage = ({ meta, code }: { meta: ProjectMeta; code: string }) => {
-  const { title, description, imageUrl, readingTime } = meta
+  const { title, description, imageUrl, date, readingTime } = meta
 
   // It's generally a good idea to memoize this function call to
   // avoid re-creating the component every render
@@ -57,7 +57,12 @@ const ProjectPage = ({ meta, code }: { meta: ProjectMeta; code: string }) => {
 
   return (
     <>
-      <Head title={title} description={description} imageUrl={imageUrl} />
+      <Head
+        title={title}
+        description={description}
+        imageUrl={imageUrl}
+        date={date}
+      />
       <h1>{title}</h1>
       <p>{readingTime}</p>
       <MDXComponent components={customComponents} />
