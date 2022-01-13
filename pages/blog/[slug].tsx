@@ -1,5 +1,4 @@
 import type { Blog, BlogMeta } from 'types/blog'
-import { format, parseISO } from 'date-fns'
 import { getAllBlogsMeta, getBlogBySlug } from 'lib/mdx'
 
 import { GetStaticProps } from 'next'
@@ -30,13 +29,14 @@ export const getStaticProps: GetStaticProps<Blog> = async (context) => {
   const slug = context.params?.slug as string
   const blog = await getBlogBySlug(slug)
 
-  const images = await Promise.all(
-    relativeImagePaths.map(async (src) => {
-      const { base64, img } = await getPlaiceholder(src)
+  const imagesProperties = await Promise.all(
+    relativeImagePaths.map(async (relativeImagePath) => {
+      const { img: imageProperties, base64: blurDataURL } =
+        await getPlaiceholder(relativeImagePath)
 
       return {
-        ...img,
-        blurDataURL: base64,
+        ...imageProperties,
+        blurDataURL,
       }
     })
   ).then((values) => values)
@@ -44,8 +44,7 @@ export const getStaticProps: GetStaticProps<Blog> = async (context) => {
   return {
     props: {
       ...blog,
-      formattedDate: format(parseISO(blog.meta.date), 'dd MMMM, yyyy'),
-      images,
+      imagesProperties,
     },
   }
 }
@@ -53,11 +52,11 @@ export const getStaticProps: GetStaticProps<Blog> = async (context) => {
 const BlogPage = ({
   meta,
   code,
-  images,
+  imagesProperties,
 }: {
   meta: BlogMeta
-  code: any
-  images: {
+  code: string
+  imagesProperties: {
     src: string
     blurDataURL: string
     width: number
@@ -69,10 +68,10 @@ const BlogPage = ({
 
   // It's generally a good idea to memoize this function call to
   // avoid re-creating the component every render
-  const Component = useMemo(() => getMDXComponent(code), [code])
+  const MDXComponent = useMemo(() => getMDXComponent(code), [code])
 
   const CustomImage = ({ src, alt }: { src: string; alt: string }) => {
-    const imageProperties = images.find(
+    const imageProperties = imagesProperties.find(
       (imageProperties) => imageProperties.src === src
     )
 
@@ -105,7 +104,7 @@ const BlogPage = ({
       />
       <h1>{title}</h1>
       <p>{readingTime}</p>
-      <Component components={customComponents} />
+      <MDXComponent components={customComponents} />
     </>
   )
 }

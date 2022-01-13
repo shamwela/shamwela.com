@@ -20,5 +20,5 @@ export type BlogMeta = {
 
 export type Blog = {
   meta: BlogMeta
-  code?: any
+  code: string
 }

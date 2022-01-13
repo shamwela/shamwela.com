@@ -13,7 +13,6 @@ const ROOT_PATH = process.cwd()
 const BLOG_FOLDER_PATH = path.join(ROOT_PATH, 'content', 'blog')
 
 const getFormattedDate = (date: string) => {
-  // For example, 1 January, 2022
   return format(parseISO(date), 'd MMMM, yyyy')
 }
 
@@ -25,7 +24,6 @@ export const getAllBlogsMeta = () => {
       .map((mdxFullPath): BlogMeta => {
         const mdxFileName = path.basename(mdxFullPath)
         const slug = mdxFileName.replace('.mdx', '')
-
         const content = fs.readFileSync(mdxFullPath, 'utf8')
 
         // Extract the blog meta from the content
@@ -46,20 +44,16 @@ export const getAllBlogsMeta = () => {
   )
 }
 
-// Get content of a specific blog
+// Get the content of a specific blog
 export const getBlogBySlug = async (slug: string) => {
-  // Get the content of the file
-  const source = fs.readFileSync(
-    path.join(BLOG_FOLDER_PATH, `${slug}.mdx`),
-    'utf8'
-  )
+  const mdxFileName = slug + '.mdx'
+  const mdxFullPath = path.join(BLOG_FOLDER_PATH, mdxFileName)
+  const content = fs.readFileSync(mdxFullPath, 'utf8')
 
   const { code, frontmatter } = await bundleMDX({
-    source,
+    source: content,
     xdmOptions: (options) => {
-      // This is how mdx-bundler recommends to add custom remark/rehype plugins.
-      // The syntax might look weird, but it protects you in case mdx-bundler add or remove
-      // plugins in the future.
+      // This syntax looks weird, but it protects you in case mdx-bundler add or remove plugins in the future.
       options.rehypePlugins = [
         ...(options.rehypePlugins ?? []),
         rehypePrismPlus,
@@ -69,7 +63,7 @@ export const getBlogBySlug = async (slug: string) => {
   })
 
   const formattedDate = getFormattedDate(frontmatter.date)
-  const { text: readingTime } = getReadingTime(source)
+  const { text: readingTime } = getReadingTime(content)
 
   const meta = {
     ...frontmatter,
