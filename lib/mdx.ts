@@ -11,41 +11,23 @@ import path from 'path'
 import rehypePrismPlus from 'rehype-prism-plus'
 
 const ROOT_PATH = process.cwd()
-const BLOG_FOLDER_PATH = path.join(ROOT_PATH, 'content', 'blog')
 const PROJECTS_FOLDER_PATH = path.join(ROOT_PATH, 'content', 'projects')
+const BLOG_FOLDER_PATH = path.join(ROOT_PATH, 'content', 'blog')
 
 const getFormattedDate = (date: string) => {
   return format(parseISO(date), 'd MMMM, yyyy')
 }
 
-export const getAllProjectsMeta = () => {
-  const mdxFullPaths = glob.sync(`${PROJECTS_FOLDER_PATH}/**/*.mdx`)
-
-  return mdxFullPaths.map((mdxFullPath): ProjectMeta => {
-    const mdxFileName = path.basename(mdxFullPath)
-    const slug = mdxFileName.replace('.mdx', '')
-    const content = fs.readFileSync(mdxFullPath, 'utf8')
-    const data = grayMatter(content).data as ProjectMeta
-    const { text: readingTime } = getReadingTime(content)
-
-    return {
-      ...data,
-      slug,
-      readingTime,
-    }
-  })
-}
-
-export const getAllBlogsMeta = () => {
-  const mdxFullPaths = glob.sync(`${BLOG_FOLDER_PATH}/**/*.mdx`)
+const getAllMeta = (FOLDER_PATH: string) => {
+  const mdxFullPaths = glob.sync(`${FOLDER_PATH}/**/*.mdx`)
 
   return (
     mdxFullPaths
-      .map((mdxFullPath): BlogMeta => {
+      .map((mdxFullPath) => {
         const mdxFileName = path.basename(mdxFullPath)
         const slug = mdxFileName.replace('.mdx', '')
         const content = fs.readFileSync(mdxFullPath, 'utf8')
-        const data = grayMatter(content).data as BlogMeta
+        const data = grayMatter(content).data
         const formattedDate = getFormattedDate(data.date)
         const { text: readingTime } = getReadingTime(content)
 
@@ -54,11 +36,19 @@ export const getAllBlogsMeta = () => {
           slug,
           formattedDate,
           readingTime,
-        }
+        } as ProjectMeta // Since ProjectMeta and BlogMeta are the same
       })
-      // Sort blogs by published date
+      // Sort by published date
       .sort((a, b) => Number(new Date(b.date)) - Number(new Date(a.date)))
   )
+}
+
+export const getAllProjectsMeta = () => {
+  return getAllMeta(PROJECTS_FOLDER_PATH)
+}
+
+export const getAllBlogsMeta = () => {
+  return getAllMeta(BLOG_FOLDER_PATH)
 }
 
 export const getProjectBySlug = async (slug: string) => {
