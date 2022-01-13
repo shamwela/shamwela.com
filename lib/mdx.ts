@@ -1,6 +1,5 @@
 import { format, parseISO } from 'date-fns'
 
-import type { BlogMeta } from 'types/blog'
 import type { ProjectMeta } from 'types/project'
 import { bundleMDX } from 'mdx-bundler'
 import fs from 'fs'
@@ -51,37 +50,9 @@ export const getAllBlogsMeta = () => {
   return getAllMeta(BLOG_FOLDER_PATH)
 }
 
-export const getProjectBySlug = async (slug: string) => {
+const getDataBySlug = async (slug: string, FOLDER_PATH: string) => {
   const mdxFileName = slug + '.mdx'
-  const mdxFullPath = path.join(PROJECTS_FOLDER_PATH, mdxFileName)
-  const content = fs.readFileSync(mdxFullPath, 'utf8')
-
-  const { code, frontmatter } = await bundleMDX({
-    source: content,
-    xdmOptions: (options) => {
-      // This syntax looks weird, but it protects you in case mdx-bundler add or remove plugins in the future.
-      options.rehypePlugins = [
-        ...(options.rehypePlugins ?? []),
-        rehypePrismPlus,
-      ]
-      return options
-    },
-  })
-
-  const { text: readingTime } = getReadingTime(content)
-
-  const meta = {
-    ...frontmatter,
-    slug,
-    readingTime,
-  } as BlogMeta
-
-  return { meta, code }
-}
-
-export const getBlogBySlug = async (slug: string) => {
-  const mdxFileName = slug + '.mdx'
-  const mdxFullPath = path.join(BLOG_FOLDER_PATH, mdxFileName)
+  const mdxFullPath = path.join(FOLDER_PATH, mdxFileName)
   const content = fs.readFileSync(mdxFullPath, 'utf8')
 
   const { code, frontmatter } = await bundleMDX({
@@ -104,7 +75,15 @@ export const getBlogBySlug = async (slug: string) => {
     formattedDate,
     slug,
     readingTime,
-  } as BlogMeta
+  } as ProjectMeta // Since ProjectMeta and BlogMeta are the same
 
   return { meta, code }
+}
+
+export const getProjectBySlug = async (slug: string) => {
+  return getDataBySlug(slug, PROJECTS_FOLDER_PATH)
+}
+
+export const getBlogBySlug = async (slug: string) => {
+  return getDataBySlug(slug, BLOG_FOLDER_PATH)
 }
