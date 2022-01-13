@@ -1,19 +1,20 @@
 import { format, parseISO } from 'date-fns'
+
+import type { BlogMeta } from 'types/blog'
+import { bundleMDX } from 'mdx-bundler'
 import fs from 'fs'
+import getReadingTime from 'reading-time'
 import glob from 'glob'
 import grayMatter from 'gray-matter'
-import { bundleMDX } from 'mdx-bundler'
 import path from 'path'
-import type { BlogMeta } from 'types/blog'
-import getReadingTime from 'reading-time'
 import rehypePrismPlus from 'rehype-prism-plus'
 
 const ROOT_PATH = process.cwd()
-const CONTENT_FOLDER_PATH = path.join(ROOT_PATH, 'content')
+const BLOG_FOLDER_PATH = path.join(ROOT_PATH, 'content', 'blog')
 
 export const getAllBlogsMeta = () => {
   // Get all MDX file paths in the content folder
-  const mdxFilePaths: string[] = glob.sync(`${CONTENT_FOLDER_PATH}/**/*.mdx`)
+  const mdxFilePaths: string[] = glob.sync(`${BLOG_FOLDER_PATH}/**/*.mdx`)
 
   return (
     mdxFilePaths
@@ -45,7 +46,7 @@ export const getAllBlogsMeta = () => {
 export const getBlogBySlug = async (slug: string) => {
   // Get the content of the file
   const source = fs.readFileSync(
-    path.join(CONTENT_FOLDER_PATH, `${slug}.mdx`),
+    path.join(BLOG_FOLDER_PATH, `${slug}.mdx`),
     'utf8'
   )
 

@@ -1,3 +1,12 @@
+export type Project = {
+  title: string
+  description: string
+  imageUrl: string
+  slug?: string
+  source?: string
+  readingTime: string
+}
+
 export type BlogMeta = {
   title: string
   description: string
