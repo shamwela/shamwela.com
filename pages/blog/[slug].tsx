@@ -1,15 +1,16 @@
-import { getAllBlogsMeta, getBlogBySlug } from 'lib/mdx'
+import type { Blog, BlogMeta } from 'types/blog'
 import { format, parseISO } from 'date-fns'
-import { getMDXComponent } from 'mdx-bundler/client'
+import { getAllBlogsMeta, getBlogBySlug } from 'lib/mdx'
+
 import { GetStaticProps } from 'next'
-import { useMemo } from 'react'
-import type { BlogMeta, Blog } from 'types/blog'
 import Head from 'components/Head'
 import Image from 'next/image'
-import { getPlaiceholder } from 'plaiceholder'
-import path from 'path'
-import glob from 'glob'
 import Link from 'next/link'
+import { getMDXComponent } from 'mdx-bundler/client'
+import { getPlaiceholder } from 'plaiceholder'
+import glob from 'glob'
+import path from 'path'
+import { useMemo } from 'react'
 
 export const getStaticPaths = () => {
   const blogs = getAllBlogsMeta()
@@ -20,9 +21,10 @@ export const getStaticPaths = () => {
 const ROOT_PATH = process.cwd()
 const IMAGES_FOLDER_PATH = path.join(ROOT_PATH, 'public', 'images')
 const fullImagePaths: string[] = glob.sync(`${IMAGES_FOLDER_PATH}/**/*`)
-const relativeImagePaths = fullImagePaths.map(
-  (imagePath: string) => imagePath.split('/public')[1]
-)
+const relativeImagePaths = fullImagePaths.map((fullImagePath) => {
+  const imageName = path.basename(fullImagePath) // For example, 'my-image.png'
+  return '/images/' + imageName
+})
 
 export const getStaticProps: GetStaticProps<Blog> = async (context) => {
   const slug = context.params?.slug as string

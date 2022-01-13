@@ -12,23 +12,27 @@ import rehypePrismPlus from 'rehype-prism-plus'
 const ROOT_PATH = process.cwd()
 const BLOG_FOLDER_PATH = path.join(ROOT_PATH, 'content', 'blog')
 
+const getFormattedDate = (date: string) => {
+  // For example, 1 January, 2022
+  return format(parseISO(date), 'd MMMM, yyyy')
+}
+
 export const getAllBlogsMeta = () => {
-  // Get all MDX file paths in the content folder
-  const mdxFilePaths: string[] = glob.sync(`${BLOG_FOLDER_PATH}/**/*.mdx`)
+  const mdxFullPaths = glob.sync(`${BLOG_FOLDER_PATH}/**/*.mdx`)
 
   return (
-    mdxFilePaths
-      .map((filePath): BlogMeta => {
-        // Get the content of the file
-        const source = fs.readFileSync(path.join(filePath), 'utf8')
+    mdxFullPaths
+      .map((mdxFullPath): BlogMeta => {
+        const mdxFileName = path.basename(mdxFullPath)
+        const slug = mdxFileName.replace('.mdx', '')
 
-        // Get the file name without .mdx
-        const slug = path.basename(filePath).replace('.mdx', '')
-        // Use gray-matter to extract the blog meta from blog content
-        const data = grayMatter(source).data as BlogMeta
+        const content = fs.readFileSync(mdxFullPath, 'utf8')
 
-        const formattedDate = format(parseISO(data.date), 'dd MMMM, yyyy')
-        const { text: readingTime } = getReadingTime(source)
+        // Extract the blog meta from the content
+        const data = grayMatter(content).data as BlogMeta
+
+        const formattedDate = getFormattedDate(data.date)
+        const { text: readingTime } = getReadingTime(content)
 
         return {
           ...data,
@@ -64,7 +68,7 @@ export const getBlogBySlug = async (slug: string) => {
     },
   })
 
-  const formattedDate = format(parseISO(frontmatter.date), 'dd MMMM, yyyy')
+  const formattedDate = getFormattedDate(frontmatter.date)
   const { text: readingTime } = getReadingTime(source)
 
   const meta = {
@@ -74,8 +78,5 @@ export const getBlogBySlug = async (slug: string) => {
     readingTime,
   } as BlogMeta
 
-  return {
-    meta,
-    code,
-  }
+  return { meta, code }
 }
