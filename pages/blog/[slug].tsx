@@ -3,12 +3,9 @@ import { getAllBlogsMeta, getBlogBySlug } from 'functions/mdx'
 
 import { GetStaticProps } from 'next'
 import Head from 'components/Head'
-import Image from 'next/image'
-import Link from 'next/link'
+import { getCustomMDXComponents } from 'functions/MDXComponents'
+import { getImagesProperties } from 'functions/plaiceholder'
 import { getMDXComponent } from 'mdx-bundler/client'
-import { getPlaiceholder } from 'plaiceholder'
-import glob from 'glob'
-import path from 'path'
 import { useMemo } from 'react'
 
 export const getStaticPaths = () => {
@@ -17,29 +14,10 @@ export const getStaticPaths = () => {
   return { paths, fallback: false }
 }
 
-const ROOT_PATH = process.cwd()
-const IMAGES_FOLDER_PATH = path.join(ROOT_PATH, 'public', 'images')
-const fullImagePaths = glob.sync(`${IMAGES_FOLDER_PATH}/**/*`)
-const relativeImagePaths = fullImagePaths.map((fullImagePath) => {
-  const imageName = path.basename(fullImagePath)
-  return '/images/' + imageName
-})
-
 export const getStaticProps: GetStaticProps<Blog> = async (context) => {
   const slug = context.params?.slug as string
   const blog = await getBlogBySlug(slug)
-
-  const imagesProperties = await Promise.all(
-    relativeImagePaths.map(async (relativeImagePath) => {
-      const { img: imageProperties, base64: blurDataURL } =
-        await getPlaiceholder(relativeImagePath)
-
-      return {
-        ...imageProperties,
-        blurDataURL,
-      }
-    })
-  )
+  const imagesProperties = await getImagesProperties()
 
   return {
     props: {
@@ -69,30 +47,7 @@ const BlogPage = ({
   // It's generally a good idea to memoize this function call to
   // avoid re-creating the component every render
   const MDXComponent = useMemo(() => getMDXComponent(code), [code])
-
-  const CustomImage = ({ src, alt }: { src: string; alt: string }) => {
-    const imageProperties = imagesProperties.find(
-      (imageProperties) => imageProperties.src === src
-    )
-
-    return (
-      <Image {...imageProperties} placeholder='blur' alt={alt} quality={100} />
-    )
-  }
-
-  const CustomLink = ({ href, ...props }: { href: string }) => {
-    if (href.startsWith('http')) {
-      return <a href={href} target='_blank' rel='noreferrer' {...props} />
-    }
-
-    return (
-      <Link href={href}>
-        <a {...props} />
-      </Link>
-    )
-  }
-
-  const customComponents = { img: CustomImage, a: CustomLink }
+  const customMDXComponents = getCustomMDXComponents(imagesProperties)
 
   return (
     <>
@@ -104,7 +59,7 @@ const BlogPage = ({
       />
       <h1>{title}</h1>
       <p>{readingTime}</p>
-      <MDXComponent components={customComponents} />
+      <MDXComponent components={customMDXComponents} />
     </>
   )
 }
