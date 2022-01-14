@@ -3,57 +3,46 @@ import { getAllProjectsMeta, getProjectBySlug } from 'functions/MDX'
 
 import { GetStaticProps } from 'next'
 import Head from 'components/Head'
-import Link from 'next/link'
+import { getCustomMDXComponents } from 'functions/CustomMDXComponents'
+import { getImagesProperties } from 'functions/plaiceholder'
 import { getMDXComponent } from 'mdx-bundler/client'
+import type { imagesProperties } from 'types/imagesProperties'
 import { useMemo } from 'react'
 
 export const getStaticPaths = () => {
-  const blogs = getAllProjectsMeta()
-  const paths = blogs.map(({ slug }) => ({ params: { slug } }))
+  const projects = getAllProjectsMeta()
+  const paths = projects.map(({ slug }) => ({ params: { slug } }))
   return { paths, fallback: false }
 }
 
 export const getStaticProps: GetStaticProps<Project> = async (context) => {
   const slug = context.params?.slug as string
-  const blog = await getProjectBySlug(slug)
+  const project = await getProjectBySlug(slug)
+  const imagesProperties = await getImagesProperties()
 
   return {
     props: {
-      ...blog,
+      ...project,
+      imagesProperties,
     },
   }
 }
 
-const ProjectPage = ({ meta, code }: { meta: ProjectMeta; code: string }) => {
+const ProjectPage = ({
+  meta,
+  code,
+  imagesProperties,
+}: {
+  meta: ProjectMeta
+  code: string
+  imagesProperties: imagesProperties
+}) => {
   const { title, description, imageUrl, date, readingTime } = meta
 
   // It's generally a good idea to memoize this function call to
   // avoid re-creating the component every render
   const MDXComponent = useMemo(() => getMDXComponent(code), [code])
-
-  // const CustomImage = ({ src, alt }: { src: string; alt: string }) => {
-  //   const imageProperties = imagesProperties.find(
-  //     (imageProperties) => imageProperties.src === src
-  //   )
-
-  //   return (
-  //     <Image {...imageProperties} placeholder='blur' alt={alt} quality={100} />
-  //   )
-  // }
-
-  const CustomLink = ({ href, ...props }: { href: string }) => {
-    if (href.startsWith('http')) {
-      return <a href={href} target='_blank' rel='noreferrer' {...props} />
-    }
-
-    return (
-      <Link href={href}>
-        <a {...props} />
-      </Link>
-    )
-  }
-
-  const customComponents = { a: CustomLink }
+  const customMDXComponents = getCustomMDXComponents(imagesProperties)
 
   return (
     <>
@@ -65,7 +54,7 @@ const ProjectPage = ({ meta, code }: { meta: ProjectMeta; code: string }) => {
       />
       <h1>{title}</h1>
       <p>{readingTime}</p>
-      <MDXComponent components={customComponents} />
+      <MDXComponent components={customMDXComponents} />
     </>
   )
 }
