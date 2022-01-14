@@ -39,7 +39,7 @@ export const getStaticProps: GetStaticProps<Blog> = async (context) => {
         blurDataURL,
       }
     })
-  ).then((values) => values)
+  )
 
   return {
     props: {
