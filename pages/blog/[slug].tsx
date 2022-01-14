@@ -1,11 +1,12 @@
 import type { Blog, BlogMeta } from 'types/blog'
-import { getAllBlogsMeta, getBlogBySlug } from 'functions/mdx'
+import { getAllBlogsMeta, getBlogBySlug } from 'functions/MDX'
 
 import { GetStaticProps } from 'next'
 import Head from 'components/Head'
-import { getCustomMDXComponents } from 'functions/MDXComponents'
+import { getCustomMDXComponents } from 'functions/CustomMDXComponents'
 import { getImagesProperties } from 'functions/plaiceholder'
 import { getMDXComponent } from 'mdx-bundler/client'
+import type { imagesProperties } from 'types/imagesProperties'
 import { useMemo } from 'react'
 
 export const getStaticPaths = () => {
@@ -34,13 +35,7 @@ const BlogPage = ({
 }: {
   meta: BlogMeta
   code: string
-  imagesProperties: {
-    src: string
-    blurDataURL: string
-    width: number
-    height: number
-    type?: string
-  }[]
+  imagesProperties: imagesProperties
 }) => {
   const { title, description, imageUrl, date, readingTime } = meta
 

@@ -1,7 +1,7 @@
 import type { BlogMeta } from 'types/blog'
 import Head from 'components/Head'
 import Link from 'next/link'
-import { getAllBlogsMeta } from 'functions/mdx'
+import { getAllBlogsMeta } from 'functions/MDX'
 import { useState } from 'react'
 
 export const getStaticProps = async () => {
