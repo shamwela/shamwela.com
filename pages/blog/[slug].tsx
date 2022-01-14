@@ -1,5 +1,5 @@
 import type { Blog, BlogMeta } from 'types/blog'
-import { getAllBlogsMeta, getBlogBySlug } from 'lib/mdx'
+import { getAllBlogsMeta, getBlogBySlug } from 'functions/mdx'
 
 import { GetStaticProps } from 'next'
 import Head from 'components/Head'
@@ -19,9 +19,9 @@ export const getStaticPaths = () => {
 
 const ROOT_PATH = process.cwd()
 const IMAGES_FOLDER_PATH = path.join(ROOT_PATH, 'public', 'images')
-const fullImagePaths: string[] = glob.sync(`${IMAGES_FOLDER_PATH}/**/*`)
+const fullImagePaths = glob.sync(`${IMAGES_FOLDER_PATH}/**/*`)
 const relativeImagePaths = fullImagePaths.map((fullImagePath) => {
-  const imageName = path.basename(fullImagePath) // For example, 'my-image.png'
+  const imageName = path.basename(fullImagePath)
   return '/images/' + imageName
 })
 

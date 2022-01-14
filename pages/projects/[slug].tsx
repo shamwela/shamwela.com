@@ -1,5 +1,5 @@
 import { Project, ProjectMeta } from 'types/project'
-import { getAllProjectsMeta, getProjectBySlug } from 'lib/mdx'
+import { getAllProjectsMeta, getProjectBySlug } from 'functions/mdx'
 
 import { GetStaticProps } from 'next'
 import Head from 'components/Head'
