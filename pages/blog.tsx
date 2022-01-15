@@ -34,14 +34,14 @@ const Blog = ({ blogs }: { blogs: BlogMeta[] }) => {
         <p>No blogs found. Please search other stuffs.</p>
       )}
       {filteredBlogs.map(({ slug, title, readingTime }) => (
-        <Link href={'/blog/' + slug} key={slug}>
-          <a>
-            <article className='flex flex-col'>
+        <article key={slug} className='flex flex-col'>
+          <Link href={'/blog/' + slug}>
+            <a>
               <span className='font-bold'>{title}</span>
-              <span>{readingTime}</span>
-            </article>
-          </a>
-        </Link>
+            </a>
+          </Link>
+          <span>{readingTime}</span>
+        </article>
       ))}
     </>
   )

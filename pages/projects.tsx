@@ -18,14 +18,14 @@ const Projects = ({ projects }: { projects: ProjectMeta[] }) => {
       />
       <h1>Projects</h1>
       {projects.map(({ slug, title, readingTime }) => (
-        <Link href={'/projects/' + slug} key={slug}>
-          <a>
-            <article className='flex flex-col'>
+        <article key={slug} className='flex flex-col'>
+          <Link href={'/projects/' + slug}>
+            <a>
               <span className='font-bold'>{title}</span>
-              <span>{readingTime}</span>
-            </article>
-          </a>
-        </Link>
+            </a>
+          </Link>
+          <span>{readingTime}</span>
+        </article>
       ))}
       <p>
         See more projects on my{' '}
