@@ -17,12 +17,12 @@ export const getStaticPaths = () => {
 
 export const getStaticProps: GetStaticProps<Project> = async (context) => {
   const slug = context.params?.slug as string
-  const project = await getProjectBySlug(slug)
+  const projectData = await getProjectBySlug(slug)
   const imagesProperties = await getImagesProperties()
 
   return {
     props: {
-      ...project,
+      ...projectData,
       imagesProperties,
     },
   }
