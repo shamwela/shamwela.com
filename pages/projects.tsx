@@ -27,6 +27,13 @@ const Projects = ({ projects }: { projects: ProjectMeta[] }) => {
           </a>
         </Link>
       ))}
+      <p>
+        See more projects on my{' '}
+        <a href='https://github.com/shamwela' target='_blank' rel='noreferrer'>
+          GitHub
+        </a>
+        .
+      </p>
     </>
   )
 }
