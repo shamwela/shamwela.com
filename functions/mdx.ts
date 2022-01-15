@@ -10,8 +10,9 @@ import path from 'path'
 import rehypePrismPlus from 'rehype-prism-plus'
 
 const ROOT_PATH = process.cwd()
-const PROJECTS_FOLDER_PATH = path.join(ROOT_PATH, 'content', 'projects')
-const BLOG_FOLDER_PATH = path.join(ROOT_PATH, 'content', 'blog')
+const CONTENT_FOLDER_PATH = path.join(ROOT_PATH, 'content')
+const PROJECTS_FOLDER_PATH = path.join(CONTENT_FOLDER_PATH, 'projects')
+const BLOG_FOLDER_PATH = path.join(CONTENT_FOLDER_PATH, 'blog')
 
 const getFormattedDate = (date: string) => {
   return format(parseISO(date), 'd MMMM, yyyy')
@@ -50,7 +51,7 @@ export const getAllBlogsMeta = () => {
   return getAllMeta(BLOG_FOLDER_PATH)
 }
 
-const getDataBySlug = async (slug: string, FOLDER_PATH: string) => {
+const getDataBySlug = async (FOLDER_PATH: string, slug: string) => {
   const mdxFileName = slug + '.mdx'
   const mdxFullPath = path.join(FOLDER_PATH, mdxFileName)
   const content = fs.readFileSync(mdxFullPath, 'utf8')
@@ -80,10 +81,14 @@ const getDataBySlug = async (slug: string, FOLDER_PATH: string) => {
   return { meta, code }
 }
 
+export const getAboutData = async () => {
+  return getDataBySlug(CONTENT_FOLDER_PATH, 'about')
+}
+
 export const getProjectBySlug = async (slug: string) => {
-  return getDataBySlug(slug, PROJECTS_FOLDER_PATH)
+  return getDataBySlug(PROJECTS_FOLDER_PATH, slug)
 }
 
 export const getBlogBySlug = async (slug: string) => {
-  return getDataBySlug(slug, BLOG_FOLDER_PATH)
+  return getDataBySlug(BLOG_FOLDER_PATH, slug)
 }

@@ -1,37 +1,57 @@
 import Head from 'components/Head'
+import { getAboutData } from 'functions/MDX'
+import { getCustomMDXComponents } from 'functions/CustomMDXComponents'
+import { getImagesProperties } from 'functions/plaiceholder'
+import { getMDXComponent } from 'mdx-bundler/client'
+import type { imagesProperties } from 'types/imagesProperties'
+import { useMemo } from 'react'
 import Image from 'next/image'
 import ShaMweLaPhoto from 'public/images/sha-mwe-la-photo.jpg'
 
-const Home = () => {
+export const getStaticProps = async () => {
+  const aboutData = await getAboutData()
+  const imagesProperties = await getImagesProperties()
+
+  return { props: { ...aboutData, imagesProperties } }
+}
+
+const Home = ({
+  meta,
+  code,
+  imagesProperties,
+}: {
+  meta
+  code: string
+  imagesProperties: imagesProperties
+}) => {
+  const { title, description, imageUrl, date } = meta
+
+  // It's generally a good idea to memoize this function call to
+  // avoid re-creating the component every render
+  const MDXComponent = useMemo(() => getMDXComponent(code), [code])
+  const customMDXComponents = getCustomMDXComponents(imagesProperties)
+  const ShaMweLaImage = () => (
+    <div className='w-20 md:w-32'>
+      <Image
+        src={ShaMweLaPhoto}
+        alt='Sha Mwe La'
+        quality={100}
+        placeholder='blur'
+        priority
+        className='rounded-full'
+      />
+    </div>
+  )
+
   return (
     <>
       <Head
-        title='About Sha Mwe La'
-        description='Get to know Sha Mwe La'
-        imageUrl='/images/sha-mwe-la-open-graph.png'
+        title={title}
+        description={description}
+        imageUrl={imageUrl}
+        date={date}
       />
-
-      <h1>Hi, I'm Sha Mwe La.</h1>
-
-      <div className='w-20 md:w-32'>
-        <Image
-          src={ShaMweLaPhoto}
-          alt='Sha Mwe La'
-          quality={100}
-          placeholder='blur'
-          priority
-          className='rounded-full'
-        />
-      </div>
-
-      <p>
-        I love building web apps. You can see my projects on{' '}
-        <a href='https://github.com/shamwela' target='_blank' rel='noreferrer'>
-          GitHub
-        </a>
-        . I also blog to help beginners and share my opinions. I'm also learning
-        Software Engineering at GUSTO University. I live in Yangon, Myanmar.
-      </p>
+      <MDXComponent components={{ ...customMDXComponents, ShaMweLaImage }} />
     </>
   )
 }
