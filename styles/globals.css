@@ -102,7 +102,7 @@
   }
 
   code {
-    @apply p-[0.1em] rounded;
+    @apply px-1 py-px rounded-md;
   }
 
   pre > code {
