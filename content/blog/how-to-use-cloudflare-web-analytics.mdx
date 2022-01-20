@@ -1,0 +1,44 @@
+---
+title: 'How to use Cloudflare Web Analytics'
+description: 'How to use Cloudflare Web Analytics'
+imageUrl: '/images/sha-mwe-la-open-graph.png'
+date: '2022-01-20'
+---
+
+## Why Cloudflare Web Analytics?
+
+Cloudflare Web Analytics is lighter than Google Analytics. It's privacy-focused, easy-to-use, and free. It also tracks Core Web Vitals such as Largest Contentful Paint (LCP), First Input Delay (FID), and Cumulative Layout Shift (CLS).
+
+## How to use
+
+1. [Create a Cloudflare account](http://dash.cloudflare.com/sign-up/web-analytics).
+2. Verify your email address.
+3. Go to [Cloudflare Dashboard](https://dash.cloudflare.com).
+4. From the left navigaiton bar, select **Web Analytics**.
+5. Enter your hostname. For example, `example.com`.
+6. Click **Done**.
+7. Copy the JavaScript Snippet.
+8. Paste the snippet into every page of your website. In Next.js, you can create `_document.jsx` file in the `pages` folder.
+
+```tsx
+import Document, { Head, Html, Main, NextScript } from 'next/document'
+
+export default class MyDocument extends Document {
+  render() {
+    return (
+      <Html lang='en'>
+        <Head />
+        <body>
+          <Main />
+          <NextScript />
+          <script
+            defer
+            src='https://static.cloudflareinsights.com/beacon.min.js'
+            data-cf-beacon='{"token": "your-cloudflare-website-token"}'
+          ></script>
+        </body>
+      </Html>
+    )
+  }
+}
+```
