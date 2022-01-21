@@ -18,9 +18,31 @@ Cloudflare Web Analytics is lighter than Google Analytics. It's privacy-focused,
 5. Enter your hostname. For example, `example.com`.
 6. Click **Done**.
 7. Copy the JavaScript Snippet.
-8. Paste the snippet into every page of your website. In Next.js, you can create `_document.jsx` file in the `pages` folder.
+8. In every page of your website, paste the JavaScript Snippet before the closing `</body>` tag.
+
+For Next.js projects, you can create `_document.jsx` file in the `pages` folder. Paste in the following code.
 
 ```tsx
+import Document, { Head, Html, Main, NextScript } from 'next/document'
+
+export default class MyDocument extends Document {
+  render() {
+    return (
+      <Html lang='en'>
+        <Head />
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    )
+  }
+}
+```
+
+Paste the Cloudflare's JavaScript Snippet before the closing `</body>` tag.
+
+```tsx {11-15}
 import Document, { Head, Html, Main, NextScript } from 'next/document'
 
 export default class MyDocument extends Document {
@@ -34,7 +56,7 @@ export default class MyDocument extends Document {
           <script
             defer
             src='https://static.cloudflareinsights.com/beacon.min.js'
-            data-cf-beacon='{"token": "your-cloudflare-website-token"}'
+            data-cf-beacon='{"token": "your-cloudflare-token"}'
           ></script>
         </body>
       </Html>
