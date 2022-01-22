@@ -72,7 +72,7 @@ const Blog = ({
         description="Sha Mwe La's blog"
         imageUrl='/images/sha-mwe-la-open-graph.png'
       />
-      <h1>Blog</h1>
+
       {/* <input
         placeholder='Search'
         aria-label='Search'
@@ -80,39 +80,34 @@ const Blog = ({
         value={searchValue}
         onChange={(event) => setSearchValue(event.currentTarget.value)}
       /> */}
-      <h2>Search blog by topics</h2>
-      {/* <label>
-        <input
-          onChange={handleTopicsChange}
-          type='checkbox'
-          value='typescript'
-          // aria-checked='false'
-        />
-        <span>typescript</span>
-      </label>
 
-      <label>
-        <input
-          onChange={handleTopicsChange}
-          type='checkbox'
-          value='react'
-          // aria-checked='false'
-        />
-        <span>react</span>
-      </label> */}
-      {uniqueTopics.map((topic) => (
-        <label key={topic}>
-          <input
-            onChange={handleTopicsChange}
-            type='checkbox'
-            value={topic}
+      <h1>Search blog by topics</h1>
 
-            // Implement this later
-            // aria-checked='false'
-          />
-          <span>{topic}</span>
-        </label>
-      ))}
+      <section className='flex flex-wrap gap-x-4'>
+        {uniqueTopics.map((topic) => (
+          // <label key={topic}>
+          // <input
+          //   onChange={handleTopicsChange}
+          //   type='checkbox'
+          //   value={topic}
+          //   // Implement this later
+          //   // aria-checked='false'
+          // />
+          //   <span>{topic}</span>
+          // </label>
+          <span key={topic}>
+            <input
+              id={topic}
+              value={topic}
+              onChange={handleTopicsChange}
+              type='checkbox'
+              // Implement this later
+              // aria-checked='false'
+            />
+            <label htmlFor={topic}>{topic}</label>
+          </span>
+        ))}
+      </section>
 
       {filteredBlogs.length === 0 && (
         <p>No blogs found. Please search other stuffs.</p>
