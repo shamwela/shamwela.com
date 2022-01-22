@@ -6,10 +6,25 @@ import { useState } from 'react'
 
 export const getStaticProps = async () => {
   const blogs = getAllBlogsMeta()
-  return { props: { blogs } }
+
+  let topics: string[] = []
+
+  blogs.forEach((blog) => (topics = [...topics, ...blog.topics]))
+
+  const uniqueTopics = topics.filter(
+    (value, index, array) => array.indexOf(value) === index
+  )
+
+  return { props: { blogs, uniqueTopics } }
 }
 
-const Blog = ({ blogs }: { blogs: BlogMeta[] }) => {
+const Blog = ({
+  blogs,
+  uniqueTopics,
+}: {
+  blogs: BlogMeta[]
+  uniqueTopics: string[]
+}) => {
   // const [searchValue, setSearchValue] = useState('')
   const [selectedTopics, setSelectedTopics] = useState([])
 
@@ -17,15 +32,17 @@ const Blog = ({ blogs }: { blogs: BlogMeta[] }) => {
   //   blog.title.toLowerCase().includes(searchValue.toLowerCase())
   // )
 
-  const filteredBlogs = blogs.filter((blog) => {
-    // Only return blogs with selected topics
-    if (selectedTopics.length > 0) {
+  let filteredBlogs: BlogMeta[]
+
+  // If no topics are selected, return all blogs
+  if (selectedTopics.length === 0) {
+    filteredBlogs = blogs
+  } else {
+    filteredBlogs = blogs.filter((blog) => {
+      // Only return blogs with the selected topics
       return blog.topics.some((topic) => selectedTopics.includes(topic))
-    } else {
-      // If no topics are selected, return all blogs
-      return blog
-    }
-  })
+    })
+  }
 
   const handleTopicsChange = (event) => {
     if (event.target.checked) {
@@ -63,10 +80,8 @@ const Blog = ({ blogs }: { blogs: BlogMeta[] }) => {
         value={searchValue}
         onChange={(event) => setSearchValue(event.currentTarget.value)}
       /> */}
-
       <h2>Search blog by topics</h2>
-
-      <label>
+      {/* <label>
         <input
           onChange={handleTopicsChange}
           type='checkbox'
@@ -84,7 +99,20 @@ const Blog = ({ blogs }: { blogs: BlogMeta[] }) => {
           // aria-checked='false'
         />
         <span>react</span>
-      </label>
+      </label> */}
+      {uniqueTopics.map((topic) => (
+        <label key={topic}>
+          <input
+            onChange={handleTopicsChange}
+            type='checkbox'
+            value={topic}
+
+            // Implement this later
+            // aria-checked='false'
+          />
+          <span>{topic}</span>
+        </label>
+      ))}
 
       {filteredBlogs.length === 0 && (
         <p>No blogs found. Please search other stuffs.</p>

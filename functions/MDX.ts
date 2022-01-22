@@ -1,5 +1,6 @@
 import { format, parseISO } from 'date-fns'
 
+import type { BlogMeta } from 'types/blog'
 import type { ProjectMeta } from 'types/project'
 import { bundleMDX } from 'mdx-bundler'
 import fs from 'fs'
@@ -36,7 +37,7 @@ const getAllMeta = (FOLDER_PATH: string) => {
         slug,
         formattedDate,
         readingTime,
-      } as ProjectMeta // Since ProjectMeta and BlogMeta are the same
+      } as BlogMeta // Since ProjectMeta and BlogMeta are the same
     })
     .sort((a, b) => Number(new Date(b.date)) - Number(new Date(a.date)))
 }
