@@ -3,6 +3,7 @@ export type BlogMeta = {
   description: string
   imageUrl: string
   date: string
+  topics: string[]
   formattedDate: string
   slug: string
   content: string

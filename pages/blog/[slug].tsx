@@ -1,7 +1,6 @@
-import type { Blog, BlogMeta } from 'types/blog'
 import { getAllBlogsMeta, getBlogBySlug } from 'functions/MDX'
 
-import { GetStaticProps } from 'next'
+import type { BlogMeta } from 'types/blog'
 import Head from 'components/Head'
 import { getCustomMDXComponents } from 'functions/CustomMDXComponents'
 import { getImagesProperties } from 'functions/plaiceholder'
@@ -15,7 +14,7 @@ export const getStaticPaths = () => {
   return { paths, fallback: false }
 }
 
-export const getStaticProps: GetStaticProps<Blog> = async (context) => {
+export const getStaticProps = async (context) => {
   const slug = context.params?.slug as string
   const blogData = await getBlogBySlug(slug)
   const imagesProperties = await getImagesProperties()
