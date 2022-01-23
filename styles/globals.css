@@ -455,7 +455,7 @@ pre {
 }
 
 .rehype-code-title {
-  @apply px-5 py-3 rounded-t-lg bg-light-primary;
+  @apply px-5 py-3 font-mono rounded-t-lg bg-light-primary;
 }
 
 .rehype-code-title + pre {
