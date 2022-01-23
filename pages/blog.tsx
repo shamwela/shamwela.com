@@ -76,6 +76,7 @@ const Blog = ({ blogs, topics }: { blogs: BlogMeta[]; topics: string[] }) => {
         placeholder='Search blogs'
         aria-label='Search blogs'
         type='search'
+        inputMode='search'
         value={query}
         onChange={(event) => setQuery(event.target.value)}
       />
