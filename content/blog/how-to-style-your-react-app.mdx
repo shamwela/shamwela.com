@@ -22,7 +22,7 @@ I explained and compared all of them here. If you want to avoid decision fatigue
 
 This category includes Tailwind CSS, Tachyons, Shed.css, and more. I'll talk about Tailwind CSS here.
 
-```jsx
+```jsx:Button.jsx
 const Button = () => <button className='bg-blue-500 text-white'>Buy</button>
 
 export default Button
@@ -42,7 +42,7 @@ export default Button
 
 ## Inline CSS
 
-```jsx
+```jsx:Button.jsx
 const Button = () => (
   <button
     style={{
@@ -76,7 +76,7 @@ You add an object with CSS properties to the style attribute. Use camelCase. For
 
 ## Normal CSS
 
-```css
+```css:Button.css
 button {
   background-color: blue;
   color: white;
@@ -85,7 +85,7 @@ button {
 
 Write your CSS in a `.css` file and import it into your component file.
 
-```jsx
+```jsx:Button.jsx
 import './Button.css'
 
 const Button = () => <button>Buy</button>
@@ -108,13 +108,13 @@ export default Button
 
 This type includes Sass, LESS, Stylus, PostCSS, and more. These are similar to normal CSS, but they have more features like extending styles, and nesting. Sass is the most popular in this category so I'll talk about it here. First, install Sass using npm.
 
-```shell
+```shell:Terminal
 npm i sass
 ```
 
 Don't use `node-sass` because [it's deprecated](https://sass-lang.com/blog/libsass-is-deprecated). You can use `.sass` or `.scss` extensions for your files. `.scss` has the same syntax as normal CSS. `.sass` doesn't require curly braces and semicolons.
 
-```sass
+```sass:Button.sass
 button
   background-color: blue
   color: white
@@ -134,9 +134,7 @@ button
 
 If you want to use CSS Modules, use the `[name].module.css` file naming convention. If you want to use CSS Modules with Sass, use the file extension `[name].module.sass` or `[name].module.scss`.
 
-```css
-/* Button.module.css */
-
+```css:Button.module.css
 .button {
   background-color: blue;
   color: white;
@@ -145,7 +143,7 @@ If you want to use CSS Modules, use the `[name].module.css` file naming conventi
 
 In your component file, import the CSS modules and reference as a JavaScript object.
 
-```jsx
+```jsx:Button.jsx
 import styles from './Button.module.css'
 
 const Button = () => <button className={styles.button}>Buy</button>
@@ -167,13 +165,13 @@ export default Button
 
 This category includes styled-components, Emotion, styled-jsx, and more. styled-components is the most popular in this category so I'll talk about it here. First, install styled-components using npm.
 
-```shell
+```shell:Terminal
 npm i styled-components
 ```
 
 The syntax looks like this:
 
-```jsx
+```jsx:Button.jsx
 import styled from 'styled-components'
 
 const StyledButton = styled.button`
@@ -202,7 +200,7 @@ Most CSS-in-JS use a special type of JavaScript function called a tagged templat
 
 This category includes Bootstrap, Materialize, Semantic UI, and more. I'll talk about Bootstrap here.
 
-```jsx
+```jsx:Button.jsx
 const Button = () => <button className='btn btn-primary'>Buy</button>
 
 export default Button
