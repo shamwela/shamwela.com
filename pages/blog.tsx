@@ -15,42 +15,49 @@ export const getStaticProps = async () => {
 }
 
 const Blog = ({ blogs, topics }: { blogs: BlogMeta[]; topics: string[] }) => {
-  const [query, setQuery] = useState('')
+  const [query, setQuery] = useState<string>(undefined)
   const [selectedTopics, setSelectedTopics] = useState<string[]>([])
   const [filteredBlogs, setFilteredBlogs] = useState(blogs)
 
   useEffect(() => {
-    if (selectedTopics.length === 0) {
+    const noQuery = !query
+    const noSelectedTopics = selectedTopics.length === 0
+
+    if (noQuery && noSelectedTopics) {
       setFilteredBlogs(blogs)
     } else {
-      const filteredBlogs = blogs.filter(
-        (blog) =>
-          blog.title.toLowerCase().includes(query.toLowerCase()) &&
-          blog.topics.some((topic) => selectedTopics.includes(topic))
-      )
+      const filteredBlogs = blogs.filter(({ title, topics }) => {
+        let matchesTitle = false
+        if (query) {
+          matchesTitle = title.toLowerCase().includes(query.toLowerCase())
+        }
+
+        const matchesTopics = topics.some((topic) =>
+          selectedTopics.includes(topic)
+        )
+
+        return matchesTitle || matchesTopics
+      })
 
       setFilteredBlogs(filteredBlogs)
     }
   }, [blogs, query, selectedTopics])
 
-  const handleTopicsChange = (event) => {
-    if (event.target.checked) {
-      const { value } = event.target
+  const handleTopicsChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { checked, value: newSelectedTopic } = event.target
 
-      setSelectedTopics((previousTopics) => {
-        const topics = [...previousTopics, value]
-        const uniqueTopics = topics.filter(
-          (value, index, array) => array.indexOf(value) === index
-        )
-        return uniqueTopics
-      })
+    if (checked) {
+      setSelectedTopics((previousSelectedTopics) => [
+        ...previousSelectedTopics,
+        newSelectedTopic,
+      ])
     } else {
-      const { value } = event.target
-
-      setSelectedTopics((previousTopics) => {
-        const topics = previousTopics.filter((topic) => topic !== value)
-        return topics
-      })
+      // If the user unchecked a topic, remove it from the selectedTopics array
+      setSelectedTopics((previousSelectedTopics) =>
+        previousSelectedTopics.filter(
+          (previousSelectedTopic) => previousSelectedTopic !== newSelectedTopic
+        )
+      )
     }
   }
 
