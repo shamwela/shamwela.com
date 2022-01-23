@@ -2,47 +2,36 @@ import type { BlogMeta } from 'types/blog'
 import Head from 'components/Head'
 import Link from 'next/link'
 import { getAllBlogsMeta } from 'functions/MDX'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export const getStaticProps = async () => {
   const blogs = getAllBlogsMeta()
 
-  let topics: string[] = []
+  const nestedAndDuplicatedTopics = blogs.map(({ topics }) => topics)
+  const duplicatedTopics = nestedAndDuplicatedTopics.flat()
+  const topics = [...new Set(duplicatedTopics)]
 
-  blogs.forEach((blog) => (topics = [...topics, ...blog.topics]))
-
-  const uniqueTopics = topics.filter(
-    (value, index, array) => array.indexOf(value) === index
-  )
-
-  return { props: { blogs, uniqueTopics } }
+  return { props: { blogs, topics } }
 }
 
-const Blog = ({
-  blogs,
-  uniqueTopics,
-}: {
-  blogs: BlogMeta[]
-  uniqueTopics: string[]
-}) => {
-  // const [searchValue, setSearchValue] = useState('')
-  const [selectedTopics, setSelectedTopics] = useState([])
+const Blog = ({ blogs, topics }: { blogs: BlogMeta[]; topics: string[] }) => {
+  const [query, setQuery] = useState('')
+  const [selectedTopics, setSelectedTopics] = useState<string[]>([])
+  const [filteredBlogs, setFilteredBlogs] = useState(blogs)
 
-  // const filteredBlogs = blogs.filter((blog) =>
-  //   blog.title.toLowerCase().includes(searchValue.toLowerCase())
-  // )
+  useEffect(() => {
+    if (selectedTopics.length === 0) {
+      setFilteredBlogs(blogs)
+    } else {
+      const filteredBlogs = blogs.filter(
+        (blog) =>
+          blog.title.toLowerCase().includes(query.toLowerCase()) &&
+          blog.topics.some((topic) => selectedTopics.includes(topic))
+      )
 
-  let filteredBlogs: BlogMeta[]
-
-  // If no topics are selected, return all blogs
-  if (selectedTopics.length === 0) {
-    filteredBlogs = blogs
-  } else {
-    filteredBlogs = blogs.filter((blog) => {
-      // Only return blogs with the selected topics
-      return blog.topics.some((topic) => selectedTopics.includes(topic))
-    })
-  }
+      setFilteredBlogs(filteredBlogs)
+    }
+  }, [blogs, query, selectedTopics])
 
   const handleTopicsChange = (event) => {
     if (event.target.checked) {
@@ -73,18 +62,20 @@ const Blog = ({
         imageUrl='/images/sha-mwe-la-open-graph.png'
       />
 
-      {/* <input
-        placeholder='Search'
-        aria-label='Search'
-        type='search'
-        value={searchValue}
-        onChange={(event) => setSearchValue(event.currentTarget.value)}
-      /> */}
+      <h1>Blog</h1>
 
-      <h1>Search blog by topics</h1>
+      <input
+        placeholder='Search blogs'
+        aria-label='Search blogs'
+        type='search'
+        value={query}
+        onChange={(event) => setQuery(event.target.value)}
+      />
+
+      <h2>Search blog by topics</h2>
 
       <section className='flex flex-wrap gap-x-4'>
-        {uniqueTopics.map((topic) => (
+        {topics.map((topic) => (
           <span key={topic}>
             <input
               id={topic}
