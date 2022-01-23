@@ -1,6 +1,6 @@
 import { getAllBlogsMeta, getBlogBySlug } from 'functions/MDX'
 
-import type { BlogMeta } from 'types/blog'
+import type { BlogData } from 'types/blog'
 import Head from 'components/Head'
 import { getCustomMDXComponents } from 'functions/CustomMDXComponents'
 import { getImagesProperties } from 'functions/plaiceholder'
@@ -32,7 +32,7 @@ const BlogPage = ({
   code,
   imagesProperties,
 }: {
-  meta: BlogMeta
+  meta: BlogData
   code: string
   imagesProperties: imagesProperties
 }) => {

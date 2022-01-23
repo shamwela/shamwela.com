@@ -1,8 +1,9 @@
-import type { BlogMeta } from 'types/blog'
+import { useEffect, useState } from 'react'
+
+import type { BlogData } from 'types/blog'
 import Head from 'components/Head'
 import Link from 'next/link'
 import { getAllBlogsMeta } from 'functions/MDX'
-import { useEffect, useState } from 'react'
 
 export const getStaticProps = async () => {
   const blogs = getAllBlogsMeta()
@@ -15,7 +16,7 @@ export const getStaticProps = async () => {
   return { props: { blogs, topics } }
 }
 
-const Blog = ({ blogs, topics }: { blogs: BlogMeta[]; topics: string[] }) => {
+const Blog = ({ blogs, topics }: { blogs: BlogData[]; topics: string[] }) => {
   const [query, setQuery] = useState<string | undefined>(undefined)
   const [selectedTopics, setSelectedTopics] = useState<string[]>([])
   const [filteredBlogs, setFilteredBlogs] = useState(blogs)

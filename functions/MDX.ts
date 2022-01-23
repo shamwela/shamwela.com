@@ -1,6 +1,6 @@
 import { format, parseISO } from 'date-fns'
 
-import type { BlogMeta } from 'types/blog'
+import type { BlogData } from 'types/blog'
 import type { ProjectMeta } from 'types/project'
 import { bundleMDX } from 'mdx-bundler'
 import fs from 'fs'
@@ -38,7 +38,7 @@ const getAllMeta = (FOLDER_PATH: string) => {
         slug,
         formattedDate,
         readingTime,
-      } as BlogMeta // Since ProjectMeta and BlogMeta are the same
+      } as BlogData // Since ProjectMeta and BlogData are the same
     })
     .sort((a, b) => Number(new Date(b.date)) - Number(new Date(a.date)))
 }
@@ -79,7 +79,7 @@ const getDataBySlug = async (FOLDER_PATH: string, slug: string) => {
     formattedDate,
     slug,
     readingTime,
-  } as ProjectMeta // Since ProjectMeta and BlogMeta are the same
+  } as ProjectMeta // Since ProjectMeta and BlogData are the same
 
   return { meta, code }
 }

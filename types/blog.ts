@@ -1,4 +1,4 @@
-export type BlogMeta = {
+export type BlogData = {
   title: string
   description: string
   imageUrl: string
@@ -8,9 +8,5 @@ export type BlogMeta = {
   slug: string
   content: string
   readingTime: string
-}
-
-export type Blog = {
-  meta: BlogMeta
   code: string
 }
