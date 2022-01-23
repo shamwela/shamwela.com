@@ -9,7 +9,8 @@ export const getStaticProps = async () => {
 
   const nestedAndDuplicatedTopics = blogs.map(({ topics }) => topics)
   const duplicatedTopics = nestedAndDuplicatedTopics.flat()
-  const topics = [...new Set(duplicatedTopics)]
+  const uniqueTopics = [...new Set(duplicatedTopics)]
+  const topics = uniqueTopics.sort()
 
   return { props: { blogs, topics } }
 }
