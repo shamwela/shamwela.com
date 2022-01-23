@@ -1,8 +1,7 @@
-import { Project, ProjectMeta } from 'types/project'
 import { getAllProjectsMeta, getProjectBySlug } from 'functions/MDX'
 
-import { GetStaticProps } from 'next'
 import Head from 'components/Head'
+import { ProjectData } from 'types/project'
 import { getCustomMDXComponents } from 'functions/CustomMDXComponents'
 import { getImagesProperties } from 'functions/plaiceholder'
 import { getMDXComponent } from 'mdx-bundler/client'
@@ -15,7 +14,7 @@ export const getStaticPaths = () => {
   return { paths, fallback: false }
 }
 
-export const getStaticProps: GetStaticProps<Project> = async (context) => {
+export const getStaticProps = async (context: { params: { slug: string } }) => {
   const slug = context.params?.slug as string
   const projectData = await getProjectBySlug(slug)
   const imagesProperties = await getImagesProperties()
@@ -33,7 +32,7 @@ const ProjectPage = ({
   code,
   imagesProperties,
 }: {
-  meta: ProjectMeta
+  meta: ProjectData
   code: string
   imagesProperties: imagesProperties
 }) => {

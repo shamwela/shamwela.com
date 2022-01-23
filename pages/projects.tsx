@@ -1,6 +1,6 @@
 import Head from 'components/Head'
 import Link from 'next/link'
-import type { ProjectMeta } from 'types/project'
+import type { ProjectData } from 'types/project'
 import { getAllProjectsMeta } from 'functions/MDX'
 
 export const getStaticProps = async () => {
@@ -8,7 +8,7 @@ export const getStaticProps = async () => {
   return { props: { projects } }
 }
 
-const Projects = ({ projects }: { projects: ProjectMeta[] }) => {
+const Projects = ({ projects }: { projects: ProjectData[] }) => {
   return (
     <>
       <Head

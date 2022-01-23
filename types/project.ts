@@ -1,4 +1,4 @@
-export type ProjectMeta = {
+export type ProjectData = {
   title: string
   description: string
   imageUrl: string
@@ -7,9 +7,5 @@ export type ProjectMeta = {
   slug: string
   content: string
   readingTime: string
-}
-
-export type Project = {
-  meta: ProjectMeta
   code: string
 }
