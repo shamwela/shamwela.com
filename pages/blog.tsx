@@ -85,16 +85,6 @@ const Blog = ({
 
       <section className='flex flex-wrap gap-x-4'>
         {uniqueTopics.map((topic) => (
-          // <label key={topic}>
-          // <input
-          //   onChange={handleTopicsChange}
-          //   type='checkbox'
-          //   value={topic}
-          //   // Implement this later
-          //   // aria-checked='false'
-          // />
-          //   <span>{topic}</span>
-          // </label>
           <span key={topic}>
             <input
               id={topic}
@@ -103,8 +93,11 @@ const Blog = ({
               type='checkbox'
               // Implement this later
               // aria-checked='false'
+              className='cursor-pointer'
             />
-            <label htmlFor={topic}>{topic}</label>
+            <label htmlFor={topic} className='cursor-pointer'>
+              {topic}
+            </label>
           </span>
         ))}
       </section>
