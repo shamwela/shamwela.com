@@ -16,7 +16,7 @@ export const getStaticProps = async () => {
 }
 
 const Blog = ({ blogs, topics }: { blogs: BlogMeta[]; topics: string[] }) => {
-  const [query, setQuery] = useState<string>(undefined)
+  const [query, setQuery] = useState<string | undefined>(undefined)
   const [selectedTopics, setSelectedTopics] = useState<string[]>([])
   const [filteredBlogs, setFilteredBlogs] = useState(blogs)
 

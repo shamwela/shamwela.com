@@ -14,7 +14,7 @@ export const getStaticPaths = () => {
   return { paths, fallback: false }
 }
 
-export const getStaticProps = async (context) => {
+export const getStaticProps = async (context: { params: { slug: string } }) => {
   const slug = context.params?.slug as string
   const blogData = await getBlogBySlug(slug)
   const imagesProperties = await getImagesProperties()

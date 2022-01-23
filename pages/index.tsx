@@ -7,6 +7,7 @@ import type { imagesProperties } from 'types/imagesProperties'
 import { useMemo } from 'react'
 import Image from 'next/image'
 import ShaMweLaPhoto from 'public/images/sha-mwe-la-photo.jpg'
+import type { AboutData } from 'types/about'
 
 export const getStaticProps = async () => {
   const aboutData = await getAboutData()
@@ -20,7 +21,7 @@ const Home = ({
   code,
   imagesProperties,
 }: {
-  meta
+  meta: AboutData
   code: string
   imagesProperties: imagesProperties
 }) => {
