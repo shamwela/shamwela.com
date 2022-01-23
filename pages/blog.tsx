@@ -89,8 +89,6 @@ const Blog = ({ blogs, topics }: { blogs: BlogMeta[]; topics: string[] }) => {
               value={topic}
               onChange={handleTopicsChange}
               type='checkbox'
-              // Implement this later
-              // aria-checked='false'
               className='cursor-pointer'
             />
             <label htmlFor={topic} className='cursor-pointer'>

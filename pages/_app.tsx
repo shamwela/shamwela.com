@@ -7,7 +7,7 @@ const App = ({ Component, pageProps }) => {
   return (
     <>
       <Navigation />
-      <main className='max-w-[70ch] flex flex-col p-5 mx-auto gap-y-5'>
+      <main className='max-w-[70ch] flex flex-col p-5 mx-auto'>
         <Component {...pageProps} />
       </main>
       <Footer />

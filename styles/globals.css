@@ -67,6 +67,10 @@
     @apply bg-primary;
   }
 
+  main > * {
+    @apply mt-5;
+  }
+
   h1,
   h2,
   h3 {
@@ -96,9 +100,16 @@
     @apply rounded-lg; /* All border radius should be the same */
   }
 
-  pre,
   code {
     @apply bg-light-primary;
+  }
+
+  pre > code {
+    @apply bg-primary;
+  }
+
+  pre {
+    @apply border-2 border-light-primary;
   }
 
   code {
@@ -117,6 +128,8 @@
     @apply px-4 py-2 bg-light-primary focus:outline-none ring-accent focus:ring-1;
   }
 }
+
+/* All following CSS don't work inside the Tailwind CSS base layer */
 
 /* The following code is for "prism-vsc-dark-plus" theme */
 pre[class*='language-'],
@@ -439,4 +452,12 @@ pre {
   margin-left: -8px;
   color: rgb(156, 163, 175); /* Line number color */
   content: attr(line);
+}
+
+.rehype-code-title {
+  @apply px-5 py-3 rounded-t-lg bg-light-primary;
+}
+
+.rehype-code-title + pre {
+  @apply mt-0 rounded-t-none;
 }

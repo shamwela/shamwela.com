@@ -8,6 +8,7 @@ import getReadingTime from 'reading-time'
 import glob from 'glob'
 import grayMatter from 'gray-matter'
 import path from 'path'
+import rehypeCodeTitles from 'rehype-code-titles'
 import rehypePrismPlus from 'rehype-prism-plus'
 
 const ROOT_PATH = process.cwd()
@@ -63,6 +64,7 @@ const getDataBySlug = async (FOLDER_PATH: string, slug: string) => {
       // This syntax looks weird, but it protects you in case mdx-bundler add or remove plugins in the future.
       options.rehypePlugins = [
         ...(options.rehypePlugins ?? []),
+        rehypeCodeTitles,
         rehypePrismPlus,
       ]
       return options
