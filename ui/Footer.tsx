@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 const Footer = () => {
   return (
-    <footer className='max-w-[70ch] mx-auto grid gap-y-4 md:grid-cols-2 p-5 border-t-2'>
+    <footer className='mx-auto grid max-w-[70ch] gap-y-4 border-t-2 p-5 md:grid-cols-2'>
       <div className='flex flex-col gap-y-4'>
         <Link href='/'>
           <a>About</a>
