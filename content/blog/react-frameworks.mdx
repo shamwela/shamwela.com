@@ -1,25 +1,18 @@
 ---
 title: 'React frameworks'
 description: 'React frameworks'
-imageUrl: ''
+imageUrl: '/images/react-logo.png'
 date: '2022-01-24'
-topics: ['React', 'Next.js']
+topics: ['React', 'Next.js', 'Gatsby']
 ---
 
-**This blog assumes you know React basics.**
+**This blog assumes you know [React basics](https://reactjs.org/tutorial/tutorial.html) and [web rendering strategies](/blog/web-rendering-strategies).**
 
 React frameworks are the frameworks that are built on top of React.
 
-- Next.js
-- Gatsby
-- Remix
-- Hydrogen
-- Refine
-- and many more that come out every week.
-
 ## Why not just use React?
 
-I won't talk about using React with Babel and Webpack. I'll talk about Create React App. React can only do [client-side rendering](https://developers.google.com/web/updates/2019/02/rendering-on-the-web#csr). You can setup [server-side rendering](https://developers.google.com/web/updates/2019/02/rendering-on-the-web#server-rendering) and other rendering methods, but it's an extra step.
+React can only do Client-Side Rendering (CSR). You can setup Server-Side Rendering (SSR) and other rendering methods, but it's hard.
 
 ### Pros
 
@@ -27,21 +20,39 @@ I won't talk about using React with Babel and Webpack. I'll talk about Create Re
 
 ### Cons
 
-- No server-side rendering and other rendering methods by default
+- No SSR and other rendering methods by default
 - No code-splitting by default
-- Have to use a route library like React Router which is harder than file-based routing
+- Have to use a routing library like [React Router](https://reactrouter.com) which is harder than file-based routing
 
 ## Next.js
 
 ### Pros
 
-- Next.js can do Static Site Generation, Server-Side Rendering, Incremental Static Regeneration, and Client-Side Rendering.
-- Can build full-stack app using [API Routes](https://nextjs.org/docs/api-routes/introduction)
+- Next.js provides ISR, SSG, SSR, and CSR on a per-page basis. (Next.js provides ISR, and Gatsby provides DSG. They are similar but have minor differences.)
+- Can build full-stack app using [API Routes](https://nextjs.org/docs/api-routes/introduction).
 - [File-based routing](https://nextjs.org/docs/routing/introduction) (When a file is added to the `pages` directory, it's automatically available as a route.)
-- Can optimize images using the Image Component.
+- Can optimize images using the Next.js Image Component.
 
 ### Cons
 
-- More complex (maybe?)
+- A bit harder than Create React App
+- Doesn't have plugins like Gatsby
 
-I recommend Create React App for beginners. If you know React well, I recommend Next.js.
+## Gatsby
+
+Before [Gatsby version 4](https://www.gatsbyjs.com/gatsby-4), it only provided SSG. For large sites, the build time was very long. Starting from Gatsby version 4, it is now similar to Next.js.
+
+### Pros
+
+- Gatsby provides DSG, SSG, SSR, and CSR on a per-page basis. You can even mix build time data with SSR.
+- Has many [plugins](https://www.gatsbyjs.com/plugins) which can save you time and energy.
+- Includes GraphQL by default.
+- Can optimize images using [the Gatsby Image Plugin](https://www.gatsbyjs.com/plugins/gatsby-plugin-image).
+
+### Cons
+
+- A bit harder than Create React App
+
+## What to use
+
+For beginners, I recommend Create React App. Otherwise, I recommend Next.js.
