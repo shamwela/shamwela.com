@@ -12,7 +12,6 @@ module.exports = {
       accent: '#38aecc',
     },
     fontFamily: {
-      heading: '"Pilat Wide", Roboto, Helvetica, sans-serif',
       sans: 'Roboto, Helvetica, sans-serif',
       mono: '"Roboto Mono", Consolas, monospace',
     },

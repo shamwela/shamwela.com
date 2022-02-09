@@ -4,14 +4,6 @@
 
 @layer base {
   @font-face {
-    font-family: 'Pilat Wide';
-    font-weight: 700;
-    src: local('Pilat Wide'),
-      url('/fonts/Pilat-Wide-Bold.woff2') format('woff2');
-    font-display: swap;
-  }
-
-  @font-face {
     font-family: 'Roboto';
     src: local('Roboto'), url('/fonts/Roboto-Regular.woff2') format('woff2');
     font-display: swap;
@@ -74,7 +66,7 @@
   h1,
   h2,
   h3 {
-    @apply font-heading font-bold;
+    @apply font-bold;
   }
 
   h1,

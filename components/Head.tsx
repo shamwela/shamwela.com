@@ -79,13 +79,6 @@ const CustomHead = ({
       {/* Download and cache the font files as soon as possible */}
       <link
         rel='preload'
-        href='/fonts/Pilat-Wide-Bold.woff2'
-        as='font'
-        type='font/woff2'
-        crossOrigin='anonymous'
-      />
-      <link
-        rel='preload'
         href='/fonts/Roboto-Regular.woff2'
         as='font'
         type='font/woff2'
