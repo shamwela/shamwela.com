@@ -44,6 +44,8 @@ const Footer = () => {
           Facebook
         </a>
       </div>
+
+      <span>Sha Mwe La © {new Date().getFullYear()}</span>
     </footer>
   )
 }
