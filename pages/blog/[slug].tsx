@@ -36,7 +36,7 @@ const BlogPage = ({
   code: string
   imagesProperties: imagesProperties
 }) => {
-  const { title, description, imageUrl, date, readingTime } = meta
+  const { title, description, imageUrl, date, formattedDate, readingTime } = meta
 
   // It's generally a good idea to memoize this function call to
   // avoid re-creating the component every render
@@ -53,6 +53,7 @@ const BlogPage = ({
       />
       <h1>{title}</h1>
       <p>{readingTime}</p>
+      <p>{formattedDate}</p>
       <MDXComponent components={customMDXComponents} />
     </>
   )
