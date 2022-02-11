@@ -84,7 +84,7 @@ const Blog = ({ blogs, topics }: { blogs: BlogData[]; topics: string[] }) => {
 
       <h2>Search blog by topics</h2>
 
-      <section className='flex flex-wrap gap-x-4'>
+      <section className='flex flex-wrap gap-x-4 gap-y-2'>
         {topics.map((topic) => (
           <span key={topic}>
             <input
