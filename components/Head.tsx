@@ -1,22 +1,24 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 
-const CustomHead = ({
-  date,
-  description = "Sha Mwe La's website",
-  imageUrl = '/images/sha-mwe-la-open-graph.png',
-  title = 'Sha Mwe La',
-}: {
-  date?: string
-  description: string
-  imageUrl: string
+type CustomHeadProps = {
   title: string
-}) => {
+  description?: string
+  imageUrl: string
+  date?: string
+}
+
+const CustomHead = ({
+  title,
+  description = title,
+  imageUrl = '/images/sha-mwe-la-open-graph.png',
+  date,
+}: CustomHeadProps) => {
   const baseUrl = 'https://www.shamwela.com'
   const fullImageUrl = baseUrl + imageUrl
 
-  const { asPath } = useRouter()
-  const fullUrl = baseUrl + asPath
+  const { pathname } = useRouter()
+  const fullUrl = baseUrl + pathname
 
   return (
     <Head>
@@ -42,7 +44,7 @@ const CustomHead = ({
       <meta name='twitter:creator' content='@shamwela_' />
       <meta name='twitter:site' content='@shamwela_' />
 
-      {asPath.startsWith('/blog') ? (
+      {pathname.startsWith('/blog') ? (
         <meta property='og:type' content='blog' />
       ) : (
         <meta property='og:type' content='website' />
