@@ -1,8 +1,7 @@
 import 'styles/globals.css'
-
 import { AppProps } from 'next/app'
-import Footer from 'ui/Footer'
-import Navigation from 'ui/Navigation'
+import Footer from 'components/Footer'
+import Navigation from 'components/Navigation'
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (
