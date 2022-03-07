@@ -21,8 +21,7 @@ const getFormattedDate = (date: string) => {
 
 const getAllMeta = (FOLDER_PATH: string) => {
   const mdxFullPaths = glob.sync(`${FOLDER_PATH}/**/*.mdx`)
-
-  return mdxFullPaths
+  const allMetadata = mdxFullPaths
     .map((mdxFullPath) => {
       const mdxFileName = path.basename(mdxFullPath)
       const slug = mdxFileName.replace('.mdx', '')
@@ -31,14 +30,18 @@ const getAllMeta = (FOLDER_PATH: string) => {
       const formattedDate = getFormattedDate(data.date)
       const { text: readingTime } = getReadingTime(content)
 
-      return {
+      const metadata = {
         ...data,
         slug,
         formattedDate,
         readingTime,
       } as BlogData // Since ProjectData and BlogData are the same
+
+      return metadata
     })
     .sort((a, b) => Number(new Date(b.date)) - Number(new Date(a.date)))
+
+  return allMetadata
 }
 
 const PROJECTS_FOLDER_PATH = path.join(CONTENT_FOLDER_PATH, 'projects')
