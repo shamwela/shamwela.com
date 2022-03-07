@@ -44,13 +44,13 @@ export const getCustomMDXComponents = (imagesProperties: imagesProperties) => {
           {children}
         </a>
       )
+    } else {
+      return (
+        <Link href={href}>
+          <a>{children}</a>
+        </Link>
+      )
     }
-
-    return (
-      <Link href={href}>
-        <a>{children}</a>
-      </Link>
-    )
   }
 
   return { img: CustomImage, a: CustomLink }

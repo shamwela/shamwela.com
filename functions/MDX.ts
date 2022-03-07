@@ -1,5 +1,3 @@
-import { format, parseISO } from 'date-fns'
-
 import type { BlogData } from 'types/blog'
 import type { ProjectData } from 'types/project'
 import { bundleMDX } from 'mdx-bundler'
@@ -15,9 +13,9 @@ const ROOT_PATH = process.cwd()
 const CONTENT_FOLDER_PATH = path.join(ROOT_PATH, 'content')
 
 const getFormattedDate = (date: string) => {
-  const dateInstance = parseISO(date)
-  const formattedDate = format(dateInstance, 'd MMMM, yyyy')
-
+  const dateObject = new Date(date)
+  const formatter = new Intl.DateTimeFormat('en-GB', { dateStyle: 'long' })
+  const formattedDate = formatter.format(dateObject)
   return formattedDate
 }
 

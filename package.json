@@ -11,7 +11,6 @@
   },
   "dependencies": {
     "@plaiceholder/next": "^2.2.0",
-    "date-fns": "^2.28.0",
     "glob": "^7.2.0",
     "gray-matter": "^4.0.3",
     "mdx-bundler": "^8.0.1",

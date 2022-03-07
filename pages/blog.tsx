@@ -86,7 +86,7 @@ const Blog = ({ blogs, topics }: { blogs: BlogData[]; topics: string[] }) => {
 
       <section className='flex flex-wrap gap-x-4 gap-y-2'>
         {topics.map((topic) => (
-          <span key={topic}>
+          <span key={topic} className='flex items-center gap-x-1'>
             <input
               id={topic}
               value={topic}
