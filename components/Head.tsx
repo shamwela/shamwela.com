@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 type CustomHeadProps = {
   title: string
   description?: string
-  imageUrl: string
+  imageUrl?: string
   date?: string
 }
 

@@ -27,7 +27,7 @@ const Home = ({
   code: string
   imagesProperties: imagesProperties
 }) => {
-  const { title, description, imageUrl, date } = meta
+  const { title } = meta
 
   // It's generally a good idea to memoize this function call to
   // avoid re-creating the component every render
@@ -48,12 +48,7 @@ const Home = ({
 
   return (
     <>
-      <Head
-        title={title}
-        description={description}
-        imageUrl={imageUrl}
-        date={date}
-      />
+      <Head title={title} />
       <MDXComponent components={{ ...customMDXComponents, ShaMweLaImage }} />
     </>
   )
