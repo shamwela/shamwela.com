@@ -7,14 +7,19 @@ import path from 'path'
 
 export const getStaticProps = async () => {
   const BLOG_FOLDER_PATH = path.join(process.cwd(), 'content', 'blog')
-  const blogs = getAllMetadata(BLOG_FOLDER_PATH)
+  const allBlogMetadata = getAllMetadata(BLOG_FOLDER_PATH) as BlogData[]
+  const sortedAllBlogMetadata = allBlogMetadata.sort(
+    (a, b) => Number(new Date(b.date)) - Number(new Date(a.date))
+  )
 
-  const nestedAndDuplicatedTopics = blogs.map(({ topics }) => topics)
+  const nestedAndDuplicatedTopics = sortedAllBlogMetadata.map(
+    ({ topics }) => topics
+  )
   const duplicatedTopics = nestedAndDuplicatedTopics.flat()
   const uniqueTopics = [...new Set(duplicatedTopics)]
   const topics = uniqueTopics.sort()
 
-  return { props: { blogs, topics } }
+  return { props: { blogs: allBlogMetadata, topics } }
 }
 
 const Blog = ({ blogs, topics }: { blogs: BlogData[]; topics: string[] }) => {

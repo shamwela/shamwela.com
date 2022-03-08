@@ -1,5 +1,3 @@
-import type { BlogData } from 'types/blog'
-import type { ProjectData } from 'types/project'
 import { bundleMDX } from 'mdx-bundler'
 import fs from 'fs'
 import getReadingTime from 'reading-time'
@@ -8,9 +6,7 @@ import grayMatter from 'gray-matter'
 import path from 'path'
 import rehypeCodeTitles from 'rehype-code-titles'
 import rehypePrismPlus from 'rehype-prism-plus'
-
-const ROOT_PATH = process.cwd()
-const CONTENT_FOLDER_PATH = path.join(ROOT_PATH, 'content')
+import type { Metadata } from 'types/metadata'
 
 const getFormattedDate = (date: string) => {
   const dateObject = new Date(date)
@@ -21,25 +17,23 @@ const getFormattedDate = (date: string) => {
 
 export const getAllMetadata = (FOLDER_PATH: string) => {
   const mdxFullPaths = glob.sync(`${FOLDER_PATH}/**/*.mdx`)
-  const allMetadata = mdxFullPaths
-    .map((mdxFullPath) => {
-      const mdxFileName = path.basename(mdxFullPath)
-      const slug = mdxFileName.replace('.mdx', '')
-      const content = fs.readFileSync(mdxFullPath, 'utf8')
-      const data = grayMatter(content).data
-      const formattedDate = getFormattedDate(data.date)
-      const { text: readingTime } = getReadingTime(content)
+  const allMetadata = mdxFullPaths.map((mdxFullPath) => {
+    const mdxFileName = path.basename(mdxFullPath)
+    const slug = mdxFileName.replace('.mdx', '')
+    const content = fs.readFileSync(mdxFullPath, 'utf8')
+    const data = grayMatter(content).data
+    const formattedDate = getFormattedDate(data.date)
+    const { text: readingTime } = getReadingTime(content)
 
-      const metadata = {
-        ...data,
-        slug,
-        formattedDate,
-        readingTime,
-      } as BlogData // Since ProjectData and BlogData are the same
+    const metadata = {
+      ...data,
+      slug,
+      formattedDate,
+      readingTime,
+    } as Metadata
 
-      return metadata
-    })
-    .sort((a, b) => Number(new Date(b.date)) - Number(new Date(a.date)))
+    return metadata
+  })
 
   return allMetadata
 }
@@ -70,7 +64,7 @@ export const getMetadata = async (FOLDER_PATH: string, slug: string) => {
     formattedDate,
     slug,
     readingTime,
-  } as ProjectData // Since ProjectData and BlogData are the same
+  } as Metadata
 
   return { meta, code }
 }
