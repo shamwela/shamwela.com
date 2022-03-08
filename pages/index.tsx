@@ -18,6 +18,19 @@ export const getStaticProps = async () => {
   return { props: { ...aboutMetadata, imagesProperties } }
 }
 
+const ShaMweLaImage = () => (
+  <div className='w-20 md:w-32'>
+    <Image
+      alt='Sha Mwe La'
+      src={ShaMweLaPhoto}
+      quality={100}
+      placeholder='blur'
+      priority
+      className='rounded-full'
+    />
+  </div>
+)
+
 const Home = ({
   meta,
   code,
@@ -33,18 +46,6 @@ const Home = ({
   // avoid re-creating the component every render
   const MDXComponent = useMemo(() => getMDXComponent(code), [code])
   const customMDXComponents = getCustomMDXComponents(imagesProperties)
-  const ShaMweLaImage = () => (
-    <div className='w-20 md:w-32'>
-      <Image
-        src={ShaMweLaPhoto}
-        alt='Sha Mwe La'
-        quality={100}
-        placeholder='blur'
-        priority
-        className='rounded-full'
-      />
-    </div>
-  )
 
   return (
     <>

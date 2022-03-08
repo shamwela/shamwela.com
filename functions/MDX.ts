@@ -56,7 +56,10 @@ export const getMetadata = async (FOLDER_PATH: string, slug: string) => {
     },
   })
 
-  const formattedDate = getFormattedDate(frontmatter.date)
+  let formattedDate: string | null = null
+  if (typeof frontmatter.date === 'string') {
+    formattedDate = getFormattedDate(frontmatter.date)
+  }
   const { text: readingTime } = getReadingTime(content)
 
   const meta = {
