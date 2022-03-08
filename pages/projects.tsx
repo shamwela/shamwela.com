@@ -1,10 +1,12 @@
 import Head from 'components/Head'
 import Link from 'next/link'
 import type { ProjectData } from 'types/project'
-import { getAllProjectsMeta } from 'functions/MDX'
+import { getAllMetadata } from 'functions/MDX'
+import path from 'path'
 
 export const getStaticProps = async () => {
-  const projects = getAllProjectsMeta()
+  const PROJECTS_FOLDER_PATH = path.join(process.cwd(), 'content', 'projects')
+  const projects = getAllMetadata(PROJECTS_FOLDER_PATH)
   return { props: { projects } }
 }
 

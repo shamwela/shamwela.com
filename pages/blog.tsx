@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react'
-
 import type { BlogData } from 'types/blog'
 import Head from 'components/Head'
 import Link from 'next/link'
-import { getAllBlogsMeta } from 'functions/MDX'
+import { getAllMetadata } from 'functions/MDX'
+import path from 'path'
 
 export const getStaticProps = async () => {
-  const blogs = getAllBlogsMeta()
+  const BLOG_FOLDER_PATH = path.join(process.cwd(), 'content', 'blog')
+  const blogs = getAllMetadata(BLOG_FOLDER_PATH)
 
   const nestedAndDuplicatedTopics = blogs.map(({ topics }) => topics)
   const duplicatedTopics = nestedAndDuplicatedTopics.flat()

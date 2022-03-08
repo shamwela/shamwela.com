@@ -19,7 +19,7 @@ const getFormattedDate = (date: string) => {
   return formattedDate
 }
 
-const getAllMeta = (FOLDER_PATH: string) => {
+export const getAllMetadata = (FOLDER_PATH: string) => {
   const mdxFullPaths = glob.sync(`${FOLDER_PATH}/**/*.mdx`)
   const allMetadata = mdxFullPaths
     .map((mdxFullPath) => {
@@ -44,17 +44,7 @@ const getAllMeta = (FOLDER_PATH: string) => {
   return allMetadata
 }
 
-const PROJECTS_FOLDER_PATH = path.join(CONTENT_FOLDER_PATH, 'projects')
-export const getAllProjectsMeta = () => {
-  return getAllMeta(PROJECTS_FOLDER_PATH)
-}
-
-const BLOG_FOLDER_PATH = path.join(CONTENT_FOLDER_PATH, 'blog')
-export const getAllBlogsMeta = () => {
-  return getAllMeta(BLOG_FOLDER_PATH)
-}
-
-const getDataBySlug = async (FOLDER_PATH: string, slug: string) => {
+export const getMetadata = async (FOLDER_PATH: string, slug: string) => {
   const mdxFileName = slug + '.mdx'
   const mdxFullPath = path.join(FOLDER_PATH, mdxFileName)
   const content = fs.readFileSync(mdxFullPath, 'utf8')
@@ -83,16 +73,4 @@ const getDataBySlug = async (FOLDER_PATH: string, slug: string) => {
   } as ProjectData // Since ProjectData and BlogData are the same
 
   return { meta, code }
-}
-
-export const getAboutData = async () => {
-  return getDataBySlug(CONTENT_FOLDER_PATH, 'about')
-}
-
-export const getProjectBySlug = async (slug: string) => {
-  return getDataBySlug(PROJECTS_FOLDER_PATH, slug)
-}
-
-export const getBlogBySlug = async (slug: string) => {
-  return getDataBySlug(BLOG_FOLDER_PATH, slug)
 }

@@ -1,5 +1,5 @@
 import Head from 'components/Head'
-import { getAboutData } from 'functions/MDX'
+import { getMetadata } from 'functions/MDX'
 import { getCustomMDXComponents } from 'functions/CustomMDXComponents'
 import { getImagesProperties } from 'functions/plaiceholder'
 import { getMDXComponent } from 'mdx-bundler/client'
@@ -8,12 +8,14 @@ import { useMemo } from 'react'
 import Image from 'next/image'
 import ShaMweLaPhoto from 'public/images/sha-mwe-la-photo.jpg'
 import type { AboutData } from 'types/about'
+import path from 'path'
 
 export const getStaticProps = async () => {
-  const aboutData = await getAboutData()
+  const CONTENT_FOLDER_PATH = path.join(process.cwd(), 'content')
+  const aboutMetadata = await getMetadata(CONTENT_FOLDER_PATH, 'about')
   const imagesProperties = await getImagesProperties()
 
-  return { props: { ...aboutData, imagesProperties } }
+  return { props: { ...aboutMetadata, imagesProperties } }
 }
 
 const Home = ({

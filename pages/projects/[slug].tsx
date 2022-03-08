@@ -1,5 +1,4 @@
-import { getAllProjectsMeta, getProjectBySlug } from 'functions/MDX'
-
+import { getAllMetadata, getMetadata } from 'functions/MDX'
 import Head from 'components/Head'
 import { ProjectData } from 'types/project'
 import { getCustomMDXComponents } from 'functions/CustomMDXComponents'
@@ -7,21 +6,24 @@ import { getImagesProperties } from 'functions/plaiceholder'
 import { getMDXComponent } from 'mdx-bundler/client'
 import type { imagesProperties } from 'types/imagesProperties'
 import { useMemo } from 'react'
+import path from 'path'
+
+const PROJECTS_FOLDER_PATH = path.join(process.cwd(), 'content', 'projects')
 
 export const getStaticPaths = () => {
-  const projects = getAllProjectsMeta()
+  const projects = getAllMetadata(PROJECTS_FOLDER_PATH)
   const paths = projects.map(({ slug }) => ({ params: { slug } }))
   return { paths, fallback: false }
 }
 
 export const getStaticProps = async (context: { params: { slug: string } }) => {
   const slug = context.params?.slug as string
-  const projectData = await getProjectBySlug(slug)
+  const projectMetadata = await getMetadata(PROJECTS_FOLDER_PATH, slug)
   const imagesProperties = await getImagesProperties()
 
   return {
     props: {
-      ...projectData,
+      ...projectMetadata,
       imagesProperties,
     },
   }
