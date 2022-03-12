@@ -22,7 +22,10 @@ export const getAllMetadata = (FOLDER_PATH: string) => {
     const slug = mdxFileName.replace('.mdx', '')
     const content = fs.readFileSync(mdxFullPath, 'utf8')
     const data = grayMatter(content).data
-    const formattedDate = getFormattedDate(data.date)
+    let formattedDate: string | null = null
+    if (typeof data.date === 'string') {
+      formattedDate = getFormattedDate(data.date)
+    }
     const { text: readingTime } = getReadingTime(content)
 
     const metadata = {
