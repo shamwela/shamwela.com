@@ -33,28 +33,6 @@
     @apply bg-accent text-primary;
   }
 
-  /* Scrollbar for most browsers except Firefox */
-  ::-webkit-scrollbar {
-    width: 16px;
-    height: 16px;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    @apply bg-secondary bg-clip-content;
-    height: 56px;
-    border: 4px solid transparent;
-    border-radius: 8px;
-  }
-
-  /* Scrollbar for Firefox */
-  @supports (scrollbar-color: red green) {
-    * {
-      /* Because secondary and primary colors from tailwind.config.js can't be used here, they are duplicated */
-      scrollbar-color: hsl(0, 0%, 90%) #000;
-      scrollbar-width: thin;
-    }
-  }
-
   body {
     @apply bg-primary;
   }
