@@ -5,7 +5,7 @@ import ShaMweLaPhoto from 'public/images/sha-mwe-la-photo.jpg'
 const Home = () => {
   return (
     <>
-      <Head title='shamwela.com' />
+      <Head title='Sha Mwe La' />
       <div className='w-20 md:w-32'>
         <Image
           alt='Sha Mwe La'
