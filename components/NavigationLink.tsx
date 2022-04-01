@@ -26,7 +26,7 @@ const NavigationLink = ({
         <a
           aria-current={isActive ? 'page' : false}
           className={`rounded-lg px-6 py-2 text-secondary hover:no-underline ${
-            isActive && 'bg-light-primary font-bold'
+            isActive && 'bg-light-primary'
           }`}
         >
           {text}
