@@ -1,29 +1,27 @@
-import Head from 'next/head'
+import NextHead from 'next/head'
 import { useRouter } from 'next/router'
 
-type CustomHeadProps = {
+type HeadProps = {
   title: string
   description?: string
   imageUrl?: string
   date?: string
 }
+const baseUrl = 'https://www.shamwela.com'
 
-const CustomHead = ({
+const Head = ({
   title,
   description = title,
   imageUrl = '/images/sha-mwe-la-open-graph.png',
   date,
-}: CustomHeadProps) => {
-  const baseUrl = 'https://www.shamwela.com'
+}: HeadProps) => {
   const fullImageUrl = baseUrl + imageUrl
-
   const { pathname } = useRouter()
   const fullUrl = baseUrl + pathname
 
   return (
-    <Head>
+    <NextHead>
       <title>{title}</title>
-      <meta name='robots' content='follow, index' />
       <meta property='og:title' content={title} />
       <meta name='twitter:title' content={title} />
 
@@ -100,8 +98,8 @@ const CustomHead = ({
         type='font/woff2'
         crossOrigin='anonymous'
       />
-    </Head>
+    </NextHead>
   )
 }
 
-export default CustomHead
+export default Head
