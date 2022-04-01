@@ -2,8 +2,8 @@ import Link from 'next/link'
 
 const Footer = () => {
   return (
-    <footer className='mx-auto grid max-w-[70ch] gap-y-4 border-t-2 p-5 md:grid-cols-2'>
-      <div className='flex flex-col gap-y-4'>
+    <footer className='mx-auto grid max-w-[70ch] gap-y-4 border-t-[1px] p-5 md:grid-cols-2'>
+      <div className='flex flex-col gap-y-[inherit]'>
         <Link href='/'>
           <a>About</a>
         </Link>
@@ -12,7 +12,7 @@ const Footer = () => {
         </Link>
       </div>
 
-      <div className='flex flex-col gap-y-4'>
+      <div className='flex flex-col gap-y-[inherit]'>
         <a href='mailto:shamwela@hotmail.com' target='_blank' rel='noreferrer'>
           Email
         </a>
