@@ -1,21 +1,18 @@
 # shamwela.com
 
-## Introduction
-
-This is my website to share about me, my projects, and my blog. Almost everything is pre-rendered using Static Site Generation. So, this is extremely fast.
-
 ## Technologies used
 
-- **Main framework**: Next.js
-- **Main language**: TypeScript
-- **Content**: MDX
-- **Styling**: Tailwind CSS
-- **Deployment**: Vercel
-- **Others**: Plaiceholder, ESLint, Prettier.
+- Deployment with Vercel
+- Main framework is Next.js
+- Static types with TypeScript
+- Content with MDX
+- Styling with Tailwind CSS
+- Code formatting with Prettier
+- Linting with ESLint
 
 ## Purpose and goal
 
-I built this website because I want to improve my existing tech stack knowledge and try out new ones. This started as a blog and later I showcased my projects. My expected outcome is to get a developer job. This website design hasn't changed much. I like to keep it simple and dark.
+I built this website because I want to improve my existing tech stack knowledge and try out new ones. My expected outcome is to get a developer job. This website design hasn't changed much. I like to keep it simple and dark.
 
 ## Spotlight
 
@@ -24,10 +21,6 @@ Setting up [MDX](https://mdxjs.com) was hard. MDX is great for content-heavy web
 If I statically import the images and add `placeholder='blur'`, Next.js will automatically generate a blur image placeholder. But I can't statically import images in my MDX files. So, I use the following approach.
 
 I implemented blur image placeholders using `plaiceholder`. Without a blur image placeholder, the user will see a blank area while the image is loading. This is confusing for the user. With a blur image placeholder, the user will see a blurred image while the image is loading. This tells the user that the image is loading. This also gives an illusion that the image loads faster.
-
-## Current status
-
-I usually share my blogs with my friends. They read them to learn about web development. They say they like my website 😅.
 
 ## Lessons learned
 
