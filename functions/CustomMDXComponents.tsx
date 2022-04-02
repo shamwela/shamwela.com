@@ -26,7 +26,7 @@ export const getCustomMDXComponents = (imagesProperties: imagesProperties) => {
     }
 
     return (
-      <Image {...imageProperties} placeholder='blur' alt={alt} quality={100} />
+      <Image {...imageProperties} placeholder='blur' alt={alt} />
     )
   }
 
