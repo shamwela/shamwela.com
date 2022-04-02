@@ -48,7 +48,7 @@ export const getMetadata = async (FOLDER_PATH: string, slug: string) => {
 
   const { code, frontmatter } = await bundleMDX({
     source: content,
-    xdmOptions: (options) => {
+    mdxOptions: (options) => {
       // This syntax looks weird, but it protects you in case mdx-bundler add or remove plugins in the future.
       options.rehypePlugins = [
         ...(options.rehypePlugins ?? []),
