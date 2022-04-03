@@ -6,6 +6,7 @@ const Home = () => {
   return (
     <>
       <Head title='Sha Mwe La' />
+      <p>shamwela</p>
       <div className='w-20 md:w-32'>
         <Image
           alt='Sha Mwe La'
@@ -15,10 +16,6 @@ const Home = () => {
           className='rounded-full'
         />
       </div>
-      <p>
-        Hi! I'm Sha Mwe La. If you're a recruiter, please connect with me on
-        LinkedIn.
-      </p>
     </>
   )
 }
