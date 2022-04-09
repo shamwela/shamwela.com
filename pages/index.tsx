@@ -5,8 +5,11 @@ import ShaMweLaPhoto from 'public/images/sha-mwe-la-photo.jpg'
 const Home = () => {
   return (
     <>
-      <Head title='Sha Mwe La' />
-      <p>shamwela</p>
+      <Head title='About Sha Mwe La' />
+      <p>
+        Hi, I'm Sha Mwe La. I write programs. I love listening to music and
+        watching movies.
+      </p>
       <div className='w-20 md:w-32'>
         <Image
           alt='Sha Mwe La'
