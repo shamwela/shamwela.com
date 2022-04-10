@@ -3,41 +3,29 @@ import Link from 'next/link'
 import type { imagesProperties } from 'types/imagesProperties'
 
 export const getCustomMDXComponents = (imagesProperties: imagesProperties) => {
-  const CustomImage = ({
-    src = '',
-    alt = '',
-  }: {
-    // These optional and undefined are because of mdx-bundler
-    src?: string | undefined
-    alt?: string | undefined
-  }) => {
-    let imageProperties = imagesProperties.find(
-      (imageProperties) => imageProperties.src === src
+  const CustomImage = ({ src, alt }: { src?: string; alt?: string }) => {
+    const imageProperties = imagesProperties.find(
+      (properties) => properties.src === src
     )
 
-    if (!imageProperties) {
-      imageProperties = {
-        src: '',
-        blurDataURL: '',
-        width: 0,
-        height: 0,
-        type: '',
-      }
+    if (imageProperties) {
+      return <Image {...imageProperties} placeholder='blur' alt={alt} />
+    } else {
+      return <></>
     }
-
-    return (
-      <Image {...imageProperties} placeholder='blur' alt={alt} />
-    )
   }
 
   const CustomLink = ({
-    href = '',
-    children = '',
+    href,
+    children,
   }: {
-    // These optional and React.ReactNode are because of mdx-bundler
-    href?: string | undefined
+    href?: string
     children?: React.ReactNode
   }) => {
+    if (!href) {
+      return <></>
+    }
+
     if (href.startsWith('http')) {
       return (
         <a href={href} target='_blank' rel='noreferrer'>
@@ -53,5 +41,6 @@ export const getCustomMDXComponents = (imagesProperties: imagesProperties) => {
     }
   }
 
-  return { img: CustomImage, a: CustomLink }
+  const customMDXComponents = { img: CustomImage, a: CustomLink }
+  return customMDXComponents
 }
