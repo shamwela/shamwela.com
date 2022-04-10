@@ -3,26 +3,6 @@
 @tailwind utilities;
 
 @layer base {
-  @font-face {
-    font-family: 'Roboto';
-    src: local('Roboto'), url('/fonts/Roboto-Regular.woff2') format('woff2');
-    font-display: swap;
-  }
-
-  @font-face {
-    font-family: 'Roboto';
-    font-weight: 700;
-    src: local('Roboto Bold'), url('/fonts/Roboto-Bold.woff2') format('woff2');
-    font-display: swap;
-  }
-
-  @font-face {
-    font-family: 'Roboto Mono';
-    src: local('Roboto Mono'),
-      url('/fonts/Roboto-Mono-Regular.woff2') format('woff2');
-    font-display: swap;
-  }
-
   *,
   ::before,
   ::after {
@@ -425,7 +405,7 @@ pre {
 }
 
 .rehype-code-title {
-  @apply rounded-t-lg bg-light-primary px-5 py-3 font-mono;
+  @apply rounded-t-lg bg-light-primary px-5 py-3;
 }
 
 .rehype-code-title + pre {

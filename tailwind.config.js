@@ -12,8 +12,7 @@ module.exports = {
       accent: '#38aecc',
     },
     fontFamily: {
-      sans: 'Roboto, Helvetica, sans-serif',
-      mono: '"Roboto Mono", Consolas, monospace',
+      sans: 'Helvetica, sans-serif',
     },
   },
 }
