@@ -22,17 +22,17 @@ export const getStaticProps = async (context: { params: { slug: string } }) => {
 
   return {
     props: {
-      ...blogMetadata,
+      blogMetadata,
       imagesProperties,
     },
   }
 }
 
 const BlogPage = ({
-  metadata,
+  blogMetadata,
   imagesProperties,
 }: {
-  metadata: Metadata
+  blogMetadata: Metadata
   imagesProperties: imageProperty[]
 }) => {
   const {
@@ -43,7 +43,7 @@ const BlogPage = ({
     formattedDate,
     readingTime,
     code,
-  } = metadata
+  } = blogMetadata
   const MDXComponent = getMDXComponent(code)
   const customMDXComponents = getCustomMDXComponents(imagesProperties)
 
