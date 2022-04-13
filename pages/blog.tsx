@@ -1,4 +1,4 @@
-import type { BlogData } from 'types/blog'
+import type { Metadata } from 'types/metadata'
 import Head from 'components/Head'
 import Link from 'next/link'
 import { getAllMetadata } from 'functions/MDX'
@@ -6,7 +6,7 @@ import path from 'path'
 
 export const getStaticProps = async () => {
   const BLOG_FOLDER_PATH = path.join(process.cwd(), 'content', 'blog')
-  const allBlogMetadata = getAllMetadata(BLOG_FOLDER_PATH) as BlogData[]
+  const allBlogMetadata = getAllMetadata(BLOG_FOLDER_PATH) as Metadata[]
   const sortedAllBlogMetadata = allBlogMetadata.sort(
     (a, b) => Number(new Date(b.date)) - Number(new Date(a.date))
   )
@@ -15,7 +15,7 @@ export const getStaticProps = async () => {
 }
 
 type BlogPageProps = {
-  blogs: BlogData[]
+  blogs: Metadata[]
 }
 
 const Blog = ({ blogs }: BlogPageProps) => {

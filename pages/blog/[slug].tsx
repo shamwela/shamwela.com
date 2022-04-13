@@ -1,5 +1,5 @@
 import { getAllMetadata, getMetadata } from 'functions/MDX'
-import type { BlogData } from 'types/blog'
+import type { Metadata } from 'types/metadata'
 import Head from 'components/Head'
 import { getCustomMDXComponents } from 'functions/CustomMDXComponents'
 import { getImagesProperties } from 'functions/plaiceholder'
@@ -34,7 +34,7 @@ const BlogPage = ({
   code,
   imagesProperties,
 }: {
-  meta: BlogData
+  meta: Metadata
   code: string
   imagesProperties: imagesProperties
 }) => {
