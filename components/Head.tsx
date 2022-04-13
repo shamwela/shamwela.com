@@ -33,7 +33,7 @@ const Head = ({
       <meta property='og:image' content={fullImageUrl} />
       <meta name='twitter:image' content={fullImageUrl} />
 
-      {date && <meta property='article:published_time' content={date} />}
+      {date ? <meta property='article:published_time' content={date} /> : null}
 
       <meta property='og:url' content={fullUrl} />
       <link rel='canonical' href={fullUrl} />
@@ -47,7 +47,7 @@ const Head = ({
       ) : (
         <meta property='og:type' content='website' />
       )}
-      <meta property='og:site_name' content='Sha Mwe La' />
+      <meta property='og:site_name' content="Sha Mwe La's website" />
 
       {/* Favicons for different platforms */}
       <link
@@ -75,29 +75,6 @@ const Head = ({
       />
       <meta name='msapplication-TileColor' content='#da532c' />
       <meta name='theme-color' content='#ffffff' />
-
-      {/* Download and cache the font files as soon as possible */}
-      <link
-        rel='preload'
-        href='/fonts/Roboto-Regular.woff2'
-        as='font'
-        type='font/woff2'
-        crossOrigin='anonymous'
-      />
-      <link
-        rel='preload'
-        href='/fonts/Roboto-Bold.woff2'
-        as='font'
-        type='font/woff2'
-        crossOrigin='anonymous'
-      />
-      <link
-        rel='preload'
-        href='/fonts/Roboto-Mono-Regular.woff2'
-        as='font'
-        type='font/woff2'
-        crossOrigin='anonymous'
-      />
     </NextHead>
   )
 }

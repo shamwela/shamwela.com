@@ -6,34 +6,27 @@ import path from 'path'
 
 export const getStaticProps = async () => {
   const BLOG_FOLDER_PATH = path.join(process.cwd(), 'content', 'blog')
-  const allBlogMetadata = getAllMetadata(BLOG_FOLDER_PATH) as Metadata[]
-  const sortedAllBlogMetadata = allBlogMetadata.sort(
+  const unsortedBlogs = getAllMetadata(BLOG_FOLDER_PATH)
+  const blogs = unsortedBlogs.sort(
     (a, b) => Number(new Date(b.date)) - Number(new Date(a.date))
   )
-
-  return { props: { blogs: sortedAllBlogMetadata } }
+  return { props: { blogs } }
 }
 
-type BlogPageProps = {
-  blogs: Metadata[]
-}
+const Blog = ({ blogs }: { blogs: Metadata[] }) => (
+  <>
+    <Head title="Sha Mwe La's blog" />
 
-const Blog = ({ blogs }: BlogPageProps) => {
-  return (
-    <>
-      <Head title="Sha Mwe La's blog" />
-
-      <h1>Blog</h1>
-      {blogs.map(({ slug, title, readingTime }) => (
-        <div key={slug} className='flex flex-col'>
-          <Link href={'/blog/' + slug}>
-            <a>{title}</a>
-          </Link>
-          <span>{readingTime}</span>
-        </div>
-      ))}
-    </>
-  )
-}
+    <h1>Blog</h1>
+    {blogs.map(({ slug, title, readingTime }) => (
+      <div key={slug} className='flex flex-col'>
+        <Link href={'/blog/' + slug}>
+          <a>{title}</a>
+        </Link>
+        <span>{readingTime}</span>
+      </div>
+    ))}
+  </>
+)
 
 export default Blog

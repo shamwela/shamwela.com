@@ -45,8 +45,7 @@
   }
 
   pre,
-  img,
-  input {
+  img {
     @apply rounded-lg; /* All border radius should be the same */
   }
 
@@ -69,17 +68,9 @@
   pre > code {
     @apply inline-block min-w-full;
   }
-
-  input[type='search'] {
-    -webkit-appearance: none;
-  }
-
-  input {
-    @apply bg-light-primary px-4 py-2 ring-accent focus:outline-none focus:ring-1;
-  }
 }
 
-/* All following CSS don't work inside the Tailwind CSS base layer */
+/* The following CSS don't work inside the Tailwind CSS base layer */
 
 /* The following code is for "prism-vsc-dark-plus" theme */
 pre[class*='language-'],

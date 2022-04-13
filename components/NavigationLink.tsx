@@ -4,7 +4,7 @@ import Link from 'next/link'
 const NavigationLink = ({
   text,
   href,
-  hasNestedRoutes = false,
+  hasNestedRoutes,
 }: {
   text: string
   href: string

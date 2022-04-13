@@ -4,8 +4,7 @@ import Head from 'components/Head'
 import { getCustomMDXComponents } from 'functions/CustomMDXComponents'
 import { getImagesProperties } from 'functions/plaiceholder'
 import { getMDXComponent } from 'mdx-bundler/client'
-import type { imagesProperties } from 'types/imagesProperties'
-import { useMemo } from 'react'
+import type { imageProperty } from 'types/imageProperty'
 import path from 'path'
 
 const BLOG_FOLDER_PATH = path.join(process.cwd(), 'content', 'blog')
@@ -17,7 +16,7 @@ export const getStaticPaths = () => {
 }
 
 export const getStaticProps = async (context: { params: { slug: string } }) => {
-  const slug = context.params?.slug as string
+  const { slug } = context.params
   const blogMetadata = await getMetadata(BLOG_FOLDER_PATH, slug)
   const imagesProperties = await getImagesProperties()
 
@@ -30,20 +29,22 @@ export const getStaticProps = async (context: { params: { slug: string } }) => {
 }
 
 const BlogPage = ({
-  meta,
-  code,
+  metadata,
   imagesProperties,
 }: {
-  meta: Metadata
-  code: string
-  imagesProperties: imagesProperties
+  metadata: Metadata
+  imagesProperties: imageProperty[]
 }) => {
-  const { title, description, imageUrl, date, formattedDate, readingTime } =
-    meta
-
-  // It's generally a good idea to memoize this function call to
-  // avoid re-creating the component every render
-  const MDXComponent = useMemo(() => getMDXComponent(code), [code])
+  const {
+    title,
+    description,
+    imageUrl,
+    date,
+    formattedDate,
+    readingTime,
+    code,
+  } = metadata
+  const MDXComponent = getMDXComponent(code)
   const customMDXComponents = getCustomMDXComponents(imagesProperties)
 
   return (
