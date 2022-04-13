@@ -17,12 +17,13 @@ export const getStaticPaths = () => {
 
 export const getStaticProps = async (context: { params: { slug: string } }) => {
   const { slug } = context.params
-  const blogMetadata = await getMetadata(BLOG_FOLDER_PATH, slug)
+  const { meta: blogMetadata, code } = await getMetadata(BLOG_FOLDER_PATH, slug)
   const imagesProperties = await getImagesProperties()
 
   return {
     props: {
       blogMetadata,
+      code,
       imagesProperties,
     },
   }
@@ -30,20 +31,15 @@ export const getStaticProps = async (context: { params: { slug: string } }) => {
 
 const BlogPage = ({
   blogMetadata,
+  code,
   imagesProperties,
 }: {
   blogMetadata: Metadata
+  code: string
   imagesProperties: imageProperty[]
 }) => {
-  const {
-    title,
-    description,
-    imageUrl,
-    date,
-    formattedDate,
-    readingTime,
-    code,
-  } = blogMetadata
+  const { title, description, imageUrl, date, formattedDate, readingTime } =
+    blogMetadata
   const MDXComponent = getMDXComponent(code)
   const customMDXComponents = getCustomMDXComponents(imagesProperties)
 
