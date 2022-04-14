@@ -26,8 +26,6 @@ I implemented blur image placeholders using `plaiceholder`. Without a blur image
 
 I learned about [the Open Graph protocol](https://ogp.me) and [Twitter Card Tags](https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/markup). These two are important for Search Engine Optimization.
 
-Another thing is preloading font files. Preloading is downloading and caching as soon as possible. In `vercel.json`, I cached my font files for a year.
-
 Next.js is great. I used Static Site Generation to make this website fast. Next.js also provides image optimization, file-based routing, and much more.
 
 I used to make silly type errors with JavaScript. TypeScript helped me with type checking, autocompletion, and gave me confidence.
