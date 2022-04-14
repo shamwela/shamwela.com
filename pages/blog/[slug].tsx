@@ -38,21 +38,14 @@ const BlogPage = ({
   code: string
   imagesProperties: imageProperty[]
 }) => {
-  const { title, description, imageUrl, date, formattedDate, readingTime } =
-    blogMetadata
+  const { title, imageUrl, date, formattedDate } = blogMetadata
   const MDXComponent = getMDXComponent(code)
   const customMDXComponents = getCustomMDXComponents(imagesProperties)
 
   return (
     <>
-      <Head
-        title={title}
-        description={description}
-        imageUrl={imageUrl}
-        date={date}
-      />
+      <Head title={title} imageUrl={imageUrl} date={date} />
       <h1>{title}</h1>
-      <p>{readingTime}</p>
       <p>{formattedDate}</p>
       <MDXComponent components={customMDXComponents} />
     </>

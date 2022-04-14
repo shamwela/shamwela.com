@@ -1,6 +1,5 @@
 import { bundleMDX } from 'mdx-bundler'
 import fs from 'fs'
-import getReadingTime from 'reading-time'
 import glob from 'glob'
 import grayMatter from 'gray-matter'
 import path from 'path'
@@ -26,13 +25,10 @@ export const getAllMetadata = (FOLDER_PATH: string) => {
     if (typeof data.date === 'string') {
       formattedDate = getFormattedDate(data.date)
     }
-    const { text: readingTime } = getReadingTime(content)
-
     const metadata = {
       ...data,
       slug,
       formattedDate,
-      readingTime,
     } as Metadata
 
     return metadata
@@ -63,13 +59,11 @@ export const getMetadata = async (FOLDER_PATH: string, slug: string) => {
   if (typeof frontmatter.date === 'string') {
     formattedDate = getFormattedDate(frontmatter.date)
   }
-  const { text: readingTime } = getReadingTime(content)
 
   const meta = {
     ...frontmatter,
     formattedDate,
     slug,
-    readingTime,
   } as Metadata
 
   return { meta, code }

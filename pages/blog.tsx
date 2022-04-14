@@ -18,13 +18,10 @@ const Blog = ({ blogs }: { blogs: Metadata[] }) => (
     <Head title="Sha Mwe La's blog" />
 
     <h1>Blog</h1>
-    {blogs.map(({ slug, title, readingTime }) => (
-      <div key={slug} className='flex flex-col'>
-        <Link href={'/blog/' + slug}>
-          <a>{title}</a>
-        </Link>
-        <span>{readingTime}</span>
-      </div>
+    {blogs.map(({ slug, title }) => (
+      <Link href={'/blog/' + slug} key={slug}>
+        <a>{title}</a>
+      </Link>
     ))}
   </>
 )
