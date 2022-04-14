@@ -36,7 +36,6 @@ const Head = ({
       {date ? <meta property='article:published_time' content={date} /> : null}
 
       <meta property='og:url' content={fullUrl} />
-      <link rel='canonical' href={fullUrl} />
 
       <meta name='twitter:card' content='summary_large_image' />
       <meta name='twitter:creator' content='@shamwela_' />
