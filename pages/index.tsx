@@ -1,6 +1,5 @@
 import Head from 'components/Head'
 import Image from 'next/image'
-import ShaMweLaPhoto from 'public/images/sha-mwe-la-photo.jpg'
 
 const Home = () => {
   return (
@@ -10,11 +9,13 @@ const Home = () => {
         Hi, I'm Sha Mwe La. I write programs. I love listening to music and
         watching movies.
       </p>
-      <div className='w-20 md:w-32'>
+      <div className='self-start'>
         <Image
           alt='Sha Mwe La'
-          src={ShaMweLaPhoto}
-          placeholder='blur'
+          src='/images/sha-mwe-la-photo.jpg'
+          blurDataURL='/images/sha-mwe-la-photo.jpg'
+          width={100}
+          height={100}
           priority
           className='rounded-full'
         />
