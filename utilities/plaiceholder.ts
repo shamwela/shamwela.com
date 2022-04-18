@@ -1,10 +1,10 @@
 import { getPlaiceholder } from 'plaiceholder'
 import glob from 'glob'
 import path from 'path'
+import { rootPath } from './rootPath'
 
-const ROOT_PATH = process.cwd()
-const IMAGES_FOLDER_PATH = path.join(ROOT_PATH, 'public', 'images')
-const fullImagePaths = glob.sync(`${IMAGES_FOLDER_PATH}/**/*`)
+const imageFolderPath = rootPath + '/public/images'
+const fullImagePaths = glob.sync(`${imageFolderPath}/**/*`)
 const relativeImagePaths = fullImagePaths.map((fullImagePath) => {
   const imageName = path.basename(fullImagePath)
   return '/images/' + imageName

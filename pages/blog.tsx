@@ -1,12 +1,11 @@
 import type { Metadata } from 'types/metadata'
 import Head from 'components/Head'
 import Link from 'next/link'
-import { getAllMetadata } from 'functions/MDX'
-import path from 'path'
+import { getAllMetadata } from 'utilities/MDX'
+import { blogFolderPath } from 'utilities/blogFolderPath'
 
 export const getStaticProps = async () => {
-  const BLOG_FOLDER_PATH = path.join(process.cwd(), 'content', 'blog')
-  const unsortedBlogs = getAllMetadata(BLOG_FOLDER_PATH)
+  const unsortedBlogs = getAllMetadata(blogFolderPath)
   const blogs = unsortedBlogs.sort(
     (a, b) => Number(new Date(b.date)) - Number(new Date(a.date))
   )

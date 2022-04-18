@@ -1,23 +1,21 @@
-import { getAllMetadata, getMetadata } from 'functions/MDX'
+import { getAllMetadata, getMetadata } from 'utilities/MDX'
 import type { Metadata } from 'types/metadata'
 import Head from 'components/Head'
-import { getCustomMDXComponents } from 'functions/CustomMDXComponents'
-import { getImagesProperties } from 'functions/plaiceholder'
+import { getCustomMDXComponents } from 'utilities/CustomMDXComponents'
+import { getImagesProperties } from 'utilities/plaiceholder'
 import { getMDXComponent } from 'mdx-bundler/client'
 import type { imageProperty } from 'types/imageProperty'
-import path from 'path'
-
-const BLOG_FOLDER_PATH = path.join(process.cwd(), 'content', 'blog')
+import { blogFolderPath } from 'utilities/blogFolderPath'
 
 export const getStaticPaths = () => {
-  const blogs = getAllMetadata(BLOG_FOLDER_PATH)
+  const blogs = getAllMetadata(blogFolderPath)
   const paths = blogs.map(({ slug }) => ({ params: { slug } }))
   return { paths, fallback: false }
 }
 
 export const getStaticProps = async (context: { params: { slug: string } }) => {
   const { slug } = context.params
-  const { meta: blogMetadata, code } = await getMetadata(BLOG_FOLDER_PATH, slug)
+  const { meta: blogMetadata, code } = await getMetadata(blogFolderPath, slug)
   const imagesProperties = await getImagesProperties()
 
   return {

@@ -10,7 +10,7 @@ specifiers:
   eslint: ^8.13.0
   eslint-config-next: ^12.1.5
   eslint-config-prettier: ^8.5.0
-  glob: '7'
+  glob: ^8.0.1
   gray-matter: ^4.0.3
   mdx-bundler: ^9.0.0
   next: ^12.1.5
@@ -29,7 +29,7 @@ specifiers:
 
 dependencies:
   '@plaiceholder/next': 2.3.0_next@12.1.5+sharp@0.30.3
-  glob: 7.2.0
+  glob: 8.0.1
   gray-matter: 4.0.3
   mdx-bundler: 9.0.0_esbuild@0.14.36
   next: 12.1.5_react-dom@18.0.0+react@18.0.0
@@ -676,6 +676,13 @@ packages:
     dependencies:
       balanced-match: 1.0.2
       concat-map: 0.0.1
+    dev: true
+
+  /brace-expansion/2.0.1:
+    resolution: {integrity: sha512-XnAIvQ8eM+kC6aULx6wuQiwVsnzsi9d3WxzV3FpWTGA19F621kwdbsAcFKXgKUHZWsy+mY6iL1sHTxWEFCytDA==}
+    dependencies:
+      balanced-match: 1.0.2
+    dev: false
 
   /braces/3.0.2:
     resolution: {integrity: sha512-b8um+L1RzM3WDSzvhm6gIz1yfTbBt6YTlcEKAvsmqCZZFw46z626lVj9j1yEPW33H5H+lBQpZMP1k8l+78Ha0A==}
@@ -806,6 +813,7 @@ packages:
 
   /concat-map/0.0.1:
     resolution: {integrity: sha1-2Klr13/Wjfd5OnMDajug1UBdR3s=}
+    dev: true
 
   /console-control-strings/1.1.0:
     resolution: {integrity: sha1-PXz0Rk22RG6mRL9LOVB/mFEAjo4=}
@@ -1735,6 +1743,19 @@ packages:
       minimatch: 3.1.2
       once: 1.4.0
       path-is-absolute: 1.0.1
+    dev: true
+
+  /glob/8.0.1:
+    resolution: {integrity: sha512-cF7FYZZ47YzmCu7dDy50xSRRfO3ErRfrXuLZcNIuyiJEco0XSrGtuilG19L5xp3NcwTx7Gn+X6Tv3fmsUPTbow==}
+    engines: {node: '>=12'}
+    dependencies:
+      fs.realpath: 1.0.0
+      inflight: 1.0.6
+      inherits: 2.0.4
+      minimatch: 5.0.1
+      once: 1.4.0
+      path-is-absolute: 1.0.1
+    dev: false
 
   /globals/13.13.0:
     resolution: {integrity: sha512-EQ7Q18AJlPwp3vUDL4mKA0KXrXyNIQyWon6T6XQiBQF0XHvRsiCSrWmmeATpUzdJN2HhWZU6Pdl0a9zdep5p6A==}
@@ -2607,6 +2628,14 @@ packages:
     resolution: {integrity: sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==}
     dependencies:
       brace-expansion: 1.1.11
+    dev: true
+
+  /minimatch/5.0.1:
+    resolution: {integrity: sha512-nLDxIFRyhDblz3qMuq+SoRZED4+miJ/G+tdDrjkkkRnjAsBexeGpgjLEQ0blJy7rHhR2b93rhQY4SvyWu9v03g==}
+    engines: {node: '>=10'}
+    dependencies:
+      brace-expansion: 2.0.1
+    dev: false
 
   /minimist/1.2.6:
     resolution: {integrity: sha512-Jsjnk4bw3YJqYzbdyBiNsPWHPfO++UGG749Cxs6peCu5Xg4nrena6OVxOYxrQTqww0Jmwt+Ref8rggumkTLz9Q==}
