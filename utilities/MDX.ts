@@ -21,10 +21,7 @@ export const getAllMetadata = (folderPath: string) => {
     const slug = mdxFileName.replace('.mdx', '')
     const content = fs.readFileSync(mdxFullPath, 'utf8')
     const data = grayMatter(content).data
-    let formattedDate: string | null = null
-    if (typeof data.date === 'string') {
-      formattedDate = getFormattedDate(data.date)
-    }
+    const formattedDate = getFormattedDate(data.date)
     const metadata = {
       ...data,
       slug,
@@ -54,12 +51,7 @@ export const getMetadata = async (FOLDER_PATH: string, slug: string) => {
       return options
     },
   })
-
-  let formattedDate: string | null = null
-  if (typeof frontmatter.date === 'string') {
-    formattedDate = getFormattedDate(frontmatter.date)
-  }
-
+  const formattedDate = getFormattedDate(frontmatter.date)
   const meta = {
     ...frontmatter,
     formattedDate,
