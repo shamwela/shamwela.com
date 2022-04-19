@@ -1,4 +1,3 @@
-import { getMetadata } from 'utilities/MDX'
 import type { Metadata } from 'types/metadata'
 import Head from 'components/Head'
 import { getCustomMDXComponents } from 'utilities/CustomMDXComponents'
@@ -7,6 +6,11 @@ import { getMDXComponent } from 'mdx-bundler/client'
 import type { imageProperty } from 'types/imageProperty'
 import { blogFolderPath } from 'utilities/blogFolderPath'
 import fs from 'fs'
+import path from 'path'
+import { bundleMDX } from 'mdx-bundler'
+import rehypeCodeTitles from 'rehype-code-titles'
+import rehypePrismPlus from 'rehype-prism-plus'
+import { getFormattedDate } from 'utilities/getFormattedDate'
 
 export const getStaticPaths = () => {
   const mdxFileNames = fs.readdirSync(blogFolderPath)
@@ -20,7 +24,28 @@ export const getStaticPaths = () => {
 
 export const getStaticProps = async (context: { params: { slug: string } }) => {
   const { slug } = context.params
-  const { meta: blogMetadata, code } = await getMetadata(blogFolderPath, slug)
+  const mdxFileName = slug + '.mdx'
+  const mdxFullPath = path.join(blogFolderPath, mdxFileName)
+  const content = fs.readFileSync(mdxFullPath, 'utf8')
+
+  const { code, frontmatter } = await bundleMDX({
+    source: content,
+    mdxOptions: (options) => {
+      // This syntax looks weird, but it protects you in case mdx-bundler add or remove plugins in the future.
+      options.rehypePlugins = [
+        ...(options.rehypePlugins ?? []),
+        rehypeCodeTitles,
+        rehypePrismPlus,
+      ]
+      return options
+    },
+  })
+  const formattedDate = getFormattedDate(frontmatter.date)
+  const blogMetadata = {
+    ...frontmatter,
+    slug,
+    formattedDate,
+  } as Metadata
   const imagesProperties = await getImagesProperties()
 
   return {
