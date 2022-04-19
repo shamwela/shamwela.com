@@ -1,7 +1,7 @@
 import type { Metadata } from 'types/metadata'
 import Head from 'components/Head'
 import { getCustomMDXComponents } from 'utilities/CustomMDXComponents'
-import { getImagesProperties } from 'utilities/plaiceholder'
+import { getImageProperties } from 'utilities/plaiceholder'
 import { getMDXComponent } from 'mdx-bundler/client'
 import type { imageProperty } from 'types/imageProperty'
 import { blogFolderPath } from 'utilities/blogFolderPath'
@@ -46,7 +46,7 @@ export const getStaticProps = async (context: { params: { slug: string } }) => {
     slug,
     formattedDate,
   } as Metadata
-  const imagesProperties = await getImagesProperties()
+  const imagesProperties = await getImageProperties()
 
   return {
     props: {

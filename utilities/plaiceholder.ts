@@ -1,20 +1,15 @@
 import { getPlaiceholder } from 'plaiceholder'
-import glob from 'glob'
-import path from 'path'
-import { rootPath } from './rootPath'
+import fs from 'fs'
 
-const imageFolderPath = rootPath + '/public/images'
-const fullImagePaths = glob.sync(`${imageFolderPath}/**/*`)
-const relativeImagePaths = fullImagePaths.map((fullImagePath) => {
-  const imageName = path.basename(fullImagePath)
-  return '/images/' + imageName
-})
+export const getImageProperties = async () => {
+  const imageFolderPath = process.cwd() + '/public/images'
+  const imageNames = fs.readdirSync(imageFolderPath)
+  const imagePaths = imageNames.map((imageName) => '/images/' + imageName)
 
-export const getImagesProperties = async () => {
-  const imagesProperties = await Promise.all(
-    relativeImagePaths.map(async (relativeImagePath) => {
+  const imageProperties = await Promise.all(
+    imagePaths.map(async (imagePath) => {
       const { img: imageProperties, base64: blurDataURL } =
-        await getPlaiceholder(relativeImagePath)
+        await getPlaiceholder(imagePath)
 
       return {
         ...imageProperties,
@@ -23,5 +18,5 @@ export const getImagesProperties = async () => {
     })
   )
 
-  return imagesProperties
+  return imageProperties
 }

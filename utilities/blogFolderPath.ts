@@ -1,3 +1,1 @@
-import { rootPath } from './rootPath'
-
-export const blogFolderPath = rootPath + '/content/blog'
+export const blogFolderPath = process.cwd() + '/content/blog'
