@@ -1,7 +1,7 @@
 import type { Metadata } from 'types/metadata'
 import Head from 'components/Head'
 import Link from 'next/link'
-import { getAllMetadata } from 'utilities/MDX'
+import { getAllMetadata } from 'utilities/getAllMetadata'
 import { blogFolderPath } from 'utilities/blogFolderPath'
 
 export const getStaticProps = async () => {
