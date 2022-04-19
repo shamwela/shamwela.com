@@ -1,6 +1,6 @@
 import type { Metadata } from 'types/metadata'
 import Head from 'components/Head'
-import { getCustomMDXComponents } from 'utilities/CustomMDXComponents'
+import { getCustomMDXComponents } from 'utilities/getCustomMDXComponents'
 import { getImageProperties } from 'utilities/plaiceholder'
 import { getMDXComponent } from 'mdx-bundler/client'
 import type { imageProperty } from 'types/imageProperty'
