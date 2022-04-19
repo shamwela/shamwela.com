@@ -1,4 +1,4 @@
-import { getAllMetadata, getMetadata } from 'utilities/MDX'
+import { getMetadata } from 'utilities/MDX'
 import type { Metadata } from 'types/metadata'
 import Head from 'components/Head'
 import { getCustomMDXComponents } from 'utilities/CustomMDXComponents'
@@ -6,10 +6,15 @@ import { getImagesProperties } from 'utilities/plaiceholder'
 import { getMDXComponent } from 'mdx-bundler/client'
 import type { imageProperty } from 'types/imageProperty'
 import { blogFolderPath } from 'utilities/blogFolderPath'
+import fs from 'fs'
 
 export const getStaticPaths = () => {
-  const blogs = getAllMetadata(blogFolderPath)
-  const paths = blogs.map(({ slug }) => ({ params: { slug } }))
+  const mdxFileNames = fs.readdirSync(blogFolderPath)
+  const slugs = mdxFileNames.map((mdxFileName) =>
+    mdxFileName.replace('.mdx', '')
+  )
+  const paths = slugs.map((slug) => ({ params: { slug } }))
+
   return { paths, fallback: false }
 }
 

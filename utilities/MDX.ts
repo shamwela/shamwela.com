@@ -15,7 +15,7 @@ const getFormattedDate = (date: string) => {
 }
 
 export const getAllMetadata = (folderPath: string) => {
-  const mdxFullPaths = glob.sync(`${folderPath}/**/*.mdx`)
+  const mdxFullPaths = glob.sync(folderPath + '/*.mdx')
   const allMetadata = mdxFullPaths.map((mdxFullPath) => {
     const mdxFileName = path.basename(mdxFullPath)
     const slug = mdxFileName.replace('.mdx', '')
