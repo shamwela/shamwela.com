@@ -3,7 +3,6 @@ import Head from 'components/Head'
 import { getCustomMDXComponents } from 'utilities/getCustomMDXComponents'
 import { getImageProperties } from 'utilities/plaiceholder'
 import { getMDXComponent } from 'mdx-bundler/client'
-import type { imageProperty } from 'types/imageProperty'
 import { blogFolderPath } from 'utilities/blogFolderPath'
 import fs from 'fs'
 import path from 'path'
@@ -11,6 +10,7 @@ import { bundleMDX } from 'mdx-bundler'
 import rehypeCodeTitles from 'rehype-code-titles'
 import rehypePrismPlus from 'rehype-prism-plus'
 import { getFormattedDate } from 'utilities/getFormattedDate'
+import type { InferGetStaticPropsType } from 'next'
 
 export const getStaticPaths = () => {
   const mdxFileNames = fs.readdirSync(blogFolderPath)
@@ -22,7 +22,7 @@ export const getStaticPaths = () => {
   return { paths, fallback: false }
 }
 
-export const getStaticProps = async (context: { params: { slug: string } }) => {
+export const getStaticProps = async (context: any) => {
   const { slug } = context.params
   const mdxFileName = slug + '.mdx'
   const mdxFullPath = path.join(blogFolderPath, mdxFileName)
@@ -61,11 +61,7 @@ const BlogPage = ({
   blogMetadata,
   code,
   imagesProperties,
-}: {
-  blogMetadata: Metadata
-  code: string
-  imagesProperties: imageProperty[]
-}) => {
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { title, imageUrl, date, formattedDate } = blogMetadata
   const MDXComponent = getMDXComponent(code)
   const customMDXComponents = getCustomMDXComponents(imagesProperties)

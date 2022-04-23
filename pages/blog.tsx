@@ -1,8 +1,8 @@
-import type { Metadata } from 'types/metadata'
 import Head from 'components/Head'
 import Link from 'next/link'
 import { getAllMetadata } from 'utilities/getAllMetadata'
 import { blogFolderPath } from 'utilities/blogFolderPath'
+import type { InferGetStaticPropsType } from 'next'
 
 export const getStaticProps = async () => {
   const unsortedBlogs = getAllMetadata(blogFolderPath)
@@ -12,7 +12,7 @@ export const getStaticProps = async () => {
   return { props: { blogs } }
 }
 
-const Blog = ({ blogs }: { blogs: Metadata[] }) => (
+const Blog = ({ blogs }: InferGetStaticPropsType<typeof getStaticProps>) => (
   <>
     <Head title="Sha Mwe La's blog" />
 
