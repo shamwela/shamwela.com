@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@plaiceholder/next": "^2.3.0",
+    "click-to-react-component": "^1.0.7",
     "gray-matter": "^4.0.3",
     "mdx-bundler": "^9.0.0",
     "next": "^12.1.5",
