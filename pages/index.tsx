@@ -12,8 +12,6 @@ const Home = () => (
       <Image
         alt='Sha Mwe La'
         src='/images/sha-mwe-la-photo.jpg'
-        blurDataURL='/images/sha-mwe-la-photo.jpg'
-        placeholder='blur'
         width={100}
         height={100}
         priority
