@@ -1,36 +1,49 @@
 ---
 title: 'Web rendering strategies'
-imageUrl: '/images/sha-mwe-la-open-graph.png'
-date: '2021-12-28'
+date: '2022-05-15'
 ---
 
-These are the 4 ways to render your web pages:
-
-1. Static Site Generation (SSG)
-2. Server-Side Rendering (SSR)
-3. Incremental Static Regeneration (ISR)
-4. Client-Side Rendering (CSR).
+Knowing how to render can make your website faster, cheaper to host, and easier to develop. Also, there's no such thing as the best rendering method. You have to choose the most suitable one for each page.
 
 ## Static Site Generation (SSG)
 
-This generates HTML at build time. This generated HTML is reused every time someone visits your web page. [Next.js](https://nextjs.org) and [Gatsby](https://www.gatsbyjs.com) support SSG.
-
 ![Static Site Generation](/images/static-site-generation.png)
+
+HTML is generated at build time. This generated HTML is reused every time someone visits your web page and can be cached by a CDN. Use SSG for blog, documentation, marketing page, etc.
+
+### Example
+
+Take a pizza shop for example. SSG is like making the pizzas before customers come. When the customers come, they can get the pizza right away.
 
 ### Pros
 
-- Much faster than Server-Side Rendering
-- Best for [SEO](https://en.wikipedia.org/wiki/Search_engine_optimization)
+- Fastest
+- Cheapest
 - Easiest to deploy
+- Good for [SEO](https://en.wikipedia.org/wiki/Search_engine_optimization)
+- Little to no layout shift
 
 ### Cons
 
-- Builds are slower
-- Need to rebuild every time you make a change
+- Bad for dynamic data
+- Need to rebuild every time you make a change => more database or CMS calls => potentially more cost
+- In big projects, the build time will become like an hour and it will be hard to iterate fast.
+
+## Incremental Static Regeneration (ISR)
+
+This is similar to SSG. But instead of rebuilding the site every time, you set `revalidate` time (for example, every 10 seconds). There's also On-demand Incremental Static Regeneration.
+
+### Pros
+
+- All pros of SSG
+
+### Cons
+
+- Because this revalidates more often than SSG, it may cost more.
 
 ## Server-Side Rendering (SSR)
 
-This generates HTML every time someone visits your web page. This is good for websites with dynamic data and a lot of different pages. Next.js supports SSR.
+This generates HTML every time someone visits your web page. This is good for websites with dynamic data and a lot of different pages.
 
 ![Server-Side Rendering](/images/server-side-rendering.png)
 
@@ -46,21 +59,9 @@ This generates HTML every time someone visits your web page. This is good for we
 - Slow TTFB (Time to First Byte). Time to First Byte is the time between clicking a link and the first bit of content coming in.
 - Full page reloads
 
-## Incremental Static Regeneration (ISR)
-
-This is similar to SSG. But instead of rebuilding the site every time, you set `revalidate` time (for example, every 10 seconds). Next.js supports ISR.
-
-### Pros
-
-- Most pros of SSG
-
-### Cons
-
-- Because this revalidates more often than SSG, it may cost more.
-
 ## Client-Side Rendering (CSR)
 
-First, the browser loads an HTML with little to no content. Then, it fetches JavaScript and compiles everything. If the user disabled JavaScript, your website won't work. [Create React App](https://create-react-app.dev) supports CSR.
+First, the browser loads an HTML with little to no content. Then, it fetches JavaScript and compiles everything. If the user disabled JavaScript, your website won't work.
 
 ### Pros
 
@@ -76,7 +77,8 @@ First, the browser loads an HTML with little to no content. Then, it fetches Jav
 
 ![Rendering decision](/images/rendering-decision.png)
 
-- Use SSG for blog, documentation, marketing page, etc.
-- Use SSR for newsfeed, chat app, etc.
-- Use ISR for a blog page with comments, etc.
-- Use CSR for account dashboard, etc.
+Use ISR for a blog page with comments, etc.
+
+Use SSR for newsfeed, chat app, etc.
+
+Use CSR for account dashboard, etc.
