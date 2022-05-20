@@ -29,6 +29,8 @@ const BlogPage = ({ blog }: InferGetStaticPropsType<typeof getStaticProps>) => {
       <Head title={title} imageUrl={imageUrl} date={date} />
       <h1>{title}</h1>
       <p>{formattedDate}</p>
+
+      {/* Fix CSS for this later */}
       <div dangerouslySetInnerHTML={{ __html: html }} />
     </>
   )
