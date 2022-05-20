@@ -1,7 +1,7 @@
 import Head from 'components/Head'
 import { allBlogs } from 'contentlayer/generated'
 import { useMDXComponent } from 'next-contentlayer/hooks'
-import { getCustomMDXComponents } from 'utilities/getCustomMDXComponents'
+import { getMDXComponents } from 'utilities/getMDXComponents'
 import { getImageProperties } from 'utilities/plaiceholder'
 import type { Blog } from 'contentlayer/generated'
 import type { ImageProperty } from 'types/imageProperty'
@@ -35,7 +35,7 @@ const BlogPage = ({
     return <p>Sorry. Couldn't find this blog on the server.</p>
   }
   const { title, imageUrl, date, formattedDate } = blog
-  const MDXComponents = getCustomMDXComponents(imagesProperties)
+  const MDXComponents = getMDXComponents(imagesProperties)
 
   return (
     <>

@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import type { ImageProperty } from 'types/imageProperty'
 
-export const getCustomMDXComponents = (imagesProperties: ImageProperty[]) => {
+export const getMDXComponents = (imagesProperties: ImageProperty[]) => {
   const CustomImage = ({ src, alt }: { src?: string; alt?: string }) => {
     const imageProperties = imagesProperties.find(
       (properties) => properties.src === src
@@ -41,6 +41,5 @@ export const getCustomMDXComponents = (imagesProperties: ImageProperty[]) => {
     }
   }
 
-  const customMDXComponents = { img: CustomImage, a: CustomLink }
-  return customMDXComponents
+  return { img: CustomImage, a: CustomLink }
 }
