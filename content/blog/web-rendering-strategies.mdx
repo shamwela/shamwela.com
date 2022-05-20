@@ -1,6 +1,6 @@
 ---
 title: 'Web rendering strategies'
-date: '2022-05-15'
+date: '2022-05-20'
 ---
 
 Knowing how to render can make your website faster, cheaper to host, and easier to develop. Also, there's no such thing as the best rendering method. You have to choose the most suitable one for each page.
@@ -43,7 +43,7 @@ This is similar to SSG. But instead of rebuilding the site every time, you set `
 
 ## Server-Side Rendering (SSR)
 
-This generates HTML every time someone visits your web page. This is good for websites with dynamic data and a lot of different pages.
+This generates HTML every time someone visits your web page. This is good for websites with dynamic data and a lot of different pages. Use SSR for newsfeed, chat app, etc.
 
 ![Server-Side Rendering](/images/server-side-rendering.png)
 
@@ -75,10 +75,6 @@ First, the browser loads an HTML with little to no content. Then, it fetches Jav
 
 ## How to choose
 
+Here's an oversimplified guide to choosing a rendering method. This might be wrong in some cases.
+
 ![Rendering decision](/images/rendering-decision.png)
-
-Use ISR for a blog page with comments, etc.
-
-Use SSR for newsfeed, chat app, etc.
-
-Use CSR for account dashboard, etc.
