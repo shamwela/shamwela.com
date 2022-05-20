@@ -8,12 +8,12 @@ const Home = () => (
       Hi, I'm Sha Mwe La. I write programs. I love listening to music and
       watching movies.
     </p>
-    <div className='self-start'>
+    <div className='self-start max-w-[6rem]'>
       <Image
         alt='Sha Mwe La'
         src='/images/sha-mwe-la-photo.jpg'
-        width={100}
-        height={100}
+        width={1050}
+        height={1050}
         priority
         className='rounded-full'
       />
