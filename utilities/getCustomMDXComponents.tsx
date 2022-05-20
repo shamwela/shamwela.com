@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import type { imageProperty } from 'types/imageProperty'
+import type { ImageProperty } from 'types/imageProperty'
 
-export const getCustomMDXComponents = (imagesProperties: imageProperty[]) => {
+export const getCustomMDXComponents = (imagesProperties: ImageProperty[]) => {
   const CustomImage = ({ src, alt }: { src?: string; alt?: string }) => {
     const imageProperties = imagesProperties.find(
       (properties) => properties.src === src

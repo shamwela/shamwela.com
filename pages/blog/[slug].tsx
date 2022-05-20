@@ -1,9 +1,10 @@
 import Head from 'components/Head'
-import type { InferGetStaticPropsType } from 'next'
 import { allBlogs } from 'contentlayer/generated'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import { getCustomMDXComponents } from 'utilities/getCustomMDXComponents'
 import { getImageProperties } from 'utilities/plaiceholder'
+import type { Blog } from 'contentlayer/generated'
+import type { ImageProperty } from 'types/imageProperty'
 
 export const getStaticPaths = () => {
   const paths = allBlogs.map((blog) => ({ params: { slug: blog.slug } }))
@@ -25,13 +26,15 @@ export const getStaticProps = async (context: any) => {
 const BlogPage = ({
   blog,
   imagesProperties,
-}: InferGetStaticPropsType<typeof getStaticProps>) => {
+}: {
+  blog: Blog
+  imagesProperties: ImageProperty[]
+}) => {
+  const Component = useMDXComponent(blog.body.code)
   if (!blog) {
     return <p>Sorry. Couldn't find this blog on the server.</p>
   }
-
   const { title, imageUrl, date, formattedDate } = blog
-  const Component = useMDXComponent(blog.body.code)
   const MDXComponents = getCustomMDXComponents(imagesProperties)
 
   return (

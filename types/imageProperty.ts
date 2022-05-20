@@ -1,4 +1,4 @@
-export type imageProperty = {
+export type ImageProperty = {
   src: string
   blurDataURL: string
   width: number

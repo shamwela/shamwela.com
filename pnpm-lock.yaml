@@ -5,14 +5,10 @@ specifiers:
   '@types/node': ^17.0.24
   '@types/react': ^18.0.5
   autoprefixer: ^10.4.4
-  click-to-react-component: ^1.0.7
   contentlayer: ^0.2.5
-  esbuild: ^0.14.36
   eslint: ^8.13.0
   eslint-config-next: ^12.1.5
   eslint-config-prettier: ^8.5.0
-  gray-matter: ^4.0.3
-  mdx-bundler: ^9.0.0
   next: ^12.1.5
   next-contentlayer: ^0.2.5
   plaiceholder: ^2.3.0
@@ -21,7 +17,6 @@ specifiers:
   prettier-plugin-tailwindcss: ^0.1.8
   react: ^18.0.0
   react-dom: ^18.0.0
-  reading-time: ^1.5.0
   rehype-code-titles: ^1.0.3
   rehype-prism-plus: ^1.3.2
   sharp: ^0.30.3
@@ -30,23 +25,18 @@ specifiers:
 
 dependencies:
   '@plaiceholder/next': 2.3.0_next@12.1.5+sharp@0.30.4
-  click-to-react-component: 1.0.7_r7chf25paampzx346vnsougjny
   contentlayer: 0.2.5
-  gray-matter: 4.0.3
-  mdx-bundler: 9.0.0_esbuild@0.14.38
   next: 12.1.5_zpnidt7m3osuk7shl3s4oenomq
   next-contentlayer: 0.2.5_dtzmyspcyj3erncazrhasijzmy
   plaiceholder: 2.3.0_sharp@0.30.4
   react: 18.0.0
   react-dom: 18.0.0_react@18.0.0
-  reading-time: 1.5.0
   sharp: 0.30.4
 
 devDependencies:
   '@types/node': 17.0.25
   '@types/react': 18.0.6
   autoprefixer: 10.4.4_postcss@8.4.12
-  esbuild: 0.14.38
   eslint: 8.14.0
   eslint-config-next: 12.1.5_7gwklep6qnxozgqaetqbwvd7fe
   eslint-config-prettier: 8.5.0_eslint@8.14.0
@@ -274,43 +264,6 @@ packages:
 
   /@fal-works/esbuild-plugin-global-externals/2.1.2:
     resolution: {integrity: sha512-cEee/Z+I12mZcFJshKcCqC8tuX5hG3s+d+9nZ3LabqKF1vKdF41B92pJVCBggjAGORAeOzyyDDKrZwIkLffeOQ==}
-    dev: false
-
-  /@floating-ui/core/0.6.2:
-    resolution: {integrity: sha512-jktYRmZwmau63adUG3GKOAVCofBXkk55S/zQ94XOorAHhwqFIOFAy1rSp2N0Wp6/tGbe9V3u/ExlGZypyY17rg==}
-    dev: false
-
-  /@floating-ui/dom/0.4.5:
-    resolution: {integrity: sha512-b+prvQgJt8pieaKYMSJBXHxX/DYwdLsAWxKYqnO5dO2V4oo/TYBZJAUQCVNjTWWsrs6o4VDrNcP9+E70HAhJdw==}
-    dependencies:
-      '@floating-ui/core': 0.6.2
-    dev: false
-
-  /@floating-ui/react-dom-interactions/0.3.1_r7chf25paampzx346vnsougjny:
-    resolution: {integrity: sha512-tP2KEh7EHJr5hokSBHcPGojb+AorDNUf0NYfZGg/M+FsMvCOOsSEeEF0O1NDfETIzDnpbHnCs0DuvCFhSMSStg==}
-    dependencies:
-      '@floating-ui/react-dom': 0.6.3_r7chf25paampzx346vnsougjny
-      aria-hidden: 1.1.3
-      point-in-polygon: 1.1.0
-      use-isomorphic-layout-effect: 1.1.2_nt2ojjgx7w2sqdaxvnz6qusn54
-    transitivePeerDependencies:
-      - '@types/react'
-      - react
-      - react-dom
-    dev: false
-
-  /@floating-ui/react-dom/0.6.3_r7chf25paampzx346vnsougjny:
-    resolution: {integrity: sha512-hC+pS5D6AgS2wWjbmSQ6UR6Kpy+drvWGJIri6e1EDGADTPsCaa4KzCgmCczHrQeInx9tqs81EyDmbKJYY2swKg==}
-    peerDependencies:
-      react: '>=16.8.0'
-      react-dom: '>=16.8.0'
-    dependencies:
-      '@floating-ui/dom': 0.4.5
-      react: 18.0.0
-      react-dom: 18.0.0_react@18.0.0
-      use-isomorphic-layout-effect: 1.1.2_nt2ojjgx7w2sqdaxvnz6qusn54
-    transitivePeerDependencies:
-      - '@types/react'
     dev: false
 
   /@grpc/grpc-js/1.6.7:
@@ -969,13 +922,6 @@ packages:
   /argparse/2.0.1:
     resolution: {integrity: sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q==}
 
-  /aria-hidden/1.1.3:
-    resolution: {integrity: sha512-RhVWFtKH5BiGMycI72q2RAFMLQi8JP9bLuQXgR5a8Znp7P5KOIADSJeyfI8PCVxLEp067B2HbP5JIiI/PXIZeA==}
-    engines: {node: '>=8.5.0'}
-    dependencies:
-      tslib: 1.14.1
-    dev: false
-
   /aria-query/4.2.2:
     resolution: {integrity: sha512-o/HelwhuKpTj/frsOsbNLNgnNGVIFsVP/SW2BSF14gVl7kAfMOJ6/8wUAUvG1R1NHKrfG+2sHZTu0yauT1qBrA==}
     engines: {node: '>=6.0'}
@@ -1189,20 +1135,6 @@ packages:
 
   /chownr/1.1.4:
     resolution: {integrity: sha512-jJ0bqzaylmJtVnNgzTeSOs8DPavpbYgEr/b0YL8/2GO3xJEhInFmhKMUnEJQjZumK7KXGFhUy89PrsJWlakBVg==}
-    dev: false
-
-  /click-to-react-component/1.0.7_r7chf25paampzx346vnsougjny:
-    resolution: {integrity: sha512-zD2TH/Tn4a1rzb9UdDMUrSSnIl6rbJtsO14LNs+453elOGczVJakP56XdE+LMsM3rukCkGmULaEltm22NXs1ZQ==}
-    peerDependencies:
-      react: '>=16.8.0'
-    dependencies:
-      '@floating-ui/react-dom-interactions': 0.3.1_r7chf25paampzx346vnsougjny
-      htm: 3.1.1
-      react: 18.0.0
-      react-merge-refs: 1.1.0
-    transitivePeerDependencies:
-      - '@types/react'
-      - react-dom
     dev: false
 
   /clipanion/3.2.0-rc.11:
@@ -1530,6 +1462,7 @@ packages:
     cpu: [x64]
     os: [android]
     requiresBuild: true
+    dev: false
     optional: true
 
   /esbuild-android-arm64/0.14.38:
@@ -1538,6 +1471,7 @@ packages:
     cpu: [arm64]
     os: [android]
     requiresBuild: true
+    dev: false
     optional: true
 
   /esbuild-darwin-64/0.14.38:
@@ -1546,6 +1480,7 @@ packages:
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
+    dev: false
     optional: true
 
   /esbuild-darwin-arm64/0.14.38:
@@ -1554,6 +1489,7 @@ packages:
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
+    dev: false
     optional: true
 
   /esbuild-freebsd-64/0.14.38:
@@ -1562,6 +1498,7 @@ packages:
     cpu: [x64]
     os: [freebsd]
     requiresBuild: true
+    dev: false
     optional: true
 
   /esbuild-freebsd-arm64/0.14.38:
@@ -1570,6 +1507,7 @@ packages:
     cpu: [arm64]
     os: [freebsd]
     requiresBuild: true
+    dev: false
     optional: true
 
   /esbuild-linux-32/0.14.38:
@@ -1578,6 +1516,7 @@ packages:
     cpu: [ia32]
     os: [linux]
     requiresBuild: true
+    dev: false
     optional: true
 
   /esbuild-linux-64/0.14.38:
@@ -1586,6 +1525,7 @@ packages:
     cpu: [x64]
     os: [linux]
     requiresBuild: true
+    dev: false
     optional: true
 
   /esbuild-linux-arm/0.14.38:
@@ -1594,6 +1534,7 @@ packages:
     cpu: [arm]
     os: [linux]
     requiresBuild: true
+    dev: false
     optional: true
 
   /esbuild-linux-arm64/0.14.38:
@@ -1602,6 +1543,7 @@ packages:
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
+    dev: false
     optional: true
 
   /esbuild-linux-mips64le/0.14.38:
@@ -1610,6 +1552,7 @@ packages:
     cpu: [mips64el]
     os: [linux]
     requiresBuild: true
+    dev: false
     optional: true
 
   /esbuild-linux-ppc64le/0.14.38:
@@ -1618,6 +1561,7 @@ packages:
     cpu: [ppc64]
     os: [linux]
     requiresBuild: true
+    dev: false
     optional: true
 
   /esbuild-linux-riscv64/0.14.38:
@@ -1626,6 +1570,7 @@ packages:
     cpu: [riscv64]
     os: [linux]
     requiresBuild: true
+    dev: false
     optional: true
 
   /esbuild-linux-s390x/0.14.38:
@@ -1634,6 +1579,7 @@ packages:
     cpu: [s390x]
     os: [linux]
     requiresBuild: true
+    dev: false
     optional: true
 
   /esbuild-netbsd-64/0.14.38:
@@ -1642,6 +1588,7 @@ packages:
     cpu: [x64]
     os: [netbsd]
     requiresBuild: true
+    dev: false
     optional: true
 
   /esbuild-openbsd-64/0.14.38:
@@ -1650,6 +1597,7 @@ packages:
     cpu: [x64]
     os: [openbsd]
     requiresBuild: true
+    dev: false
     optional: true
 
   /esbuild-sunos-64/0.14.38:
@@ -1658,6 +1606,7 @@ packages:
     cpu: [x64]
     os: [sunos]
     requiresBuild: true
+    dev: false
     optional: true
 
   /esbuild-windows-32/0.14.38:
@@ -1666,6 +1615,7 @@ packages:
     cpu: [ia32]
     os: [win32]
     requiresBuild: true
+    dev: false
     optional: true
 
   /esbuild-windows-64/0.14.38:
@@ -1674,6 +1624,7 @@ packages:
     cpu: [x64]
     os: [win32]
     requiresBuild: true
+    dev: false
     optional: true
 
   /esbuild-windows-arm64/0.14.38:
@@ -1682,6 +1633,7 @@ packages:
     cpu: [arm64]
     os: [win32]
     requiresBuild: true
+    dev: false
     optional: true
 
   /esbuild/0.14.38:
@@ -1710,6 +1662,7 @@ packages:
       esbuild-windows-32: 0.14.38
       esbuild-windows-64: 0.14.38
       esbuild-windows-arm64: 0.14.38
+    dev: false
 
   /escalade/3.1.1:
     resolution: {integrity: sha512-k0er2gUkLf8O0zKJiAhmkTnJlTvINGv7ygDNPbeIsX/TJjGJZHuh9B2UxbsaEkmlEo9MfhrSzmhIlhRlI2GXnw==}
@@ -2412,10 +2365,6 @@ packages:
       property-information: 6.1.1
       space-separated-tokens: 2.0.1
     dev: true
-
-  /htm/3.1.1:
-    resolution: {integrity: sha512-983Vyg8NwUE7JkZ6NmOqpCZ+sh1bKv2iYTlUkzlWmA5JD2acKoxd4KVxbMmxX/85mtfdnDmTFoNKcg5DGAvxNQ==}
-    dev: false
 
   /html-void-elements/2.0.1:
     resolution: {integrity: sha512-0quDb7s97CfemeJAnW9wC0hw78MtW7NU3hqtCD75g2vFlDLt36llsYD7uB7SUzojLMP24N5IatXf7ylGXiGG9A==}
@@ -3551,10 +3500,6 @@ packages:
       - encoding
     dev: false
 
-  /point-in-polygon/1.1.0:
-    resolution: {integrity: sha512-3ojrFwjnnw8Q9242TzgXuTD+eKiutbzyslcq1ydfu82Db2y+Ogbmyrkpv0Hgj31qwT3lbS9+QAAO/pIQM35XRw==}
-    dev: false
-
   /postcss-js/4.0.0_postcss@8.4.12:
     resolution: {integrity: sha512-77QESFBwgX4irogGVPgQ5s07vLvFqWr228qZY+w6lW599cRlK/HmnlivnnVUxkjHnCu4J16PDMHcH+e+2HbvTQ==}
     engines: {node: ^12 || ^14 || >= 16}
@@ -3752,10 +3697,6 @@ packages:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
     dev: true
 
-  /react-merge-refs/1.1.0:
-    resolution: {integrity: sha512-alTKsjEL0dKH/ru1Iyn7vliS2QRcBp9zZPGoWxUOvRGWPUYgjo+V01is7p04It6KhgrzhJGnIj9GgX8W4bZoCQ==}
-    dev: false
-
   /react/18.0.0:
     resolution: {integrity: sha512-x+VL6wbT4JRVPm7EGxXhZ8w8LTROaxPXOqhlGyVSrv0sB1jkyFGgXxJ8LVoPRLvPR6/CIZGFmfzqUa2NYeMr2A==}
     engines: {node: '>=0.10.0'}
@@ -3789,10 +3730,6 @@ packages:
     engines: {node: '>=8.10.0'}
     dependencies:
       picomatch: 2.3.1
-
-  /reading-time/1.5.0:
-    resolution: {integrity: sha512-onYyVhBNr4CmAxFsKS7bz+uTLRakypIe4R+5A824vBSkQy/hB3fZepoVEf8OVAxzLvK+H/jm9TzpI3ETSm64Kg==}
-    dev: false
 
   /refractor/4.6.0:
     resolution: {integrity: sha512-+Px4DX1LmTUzuARW0zqjYLrsCd1/jtKIo4hLH0R7Hwod8joieyQrqf8wXx0wPt81k9+OVYusktapwBhk/CjvVw==}
@@ -4300,6 +4237,7 @@ packages:
 
   /tslib/1.14.1:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
+    dev: true
 
   /tslib/2.4.0:
     resolution: {integrity: sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ==}
@@ -4444,19 +4382,6 @@ packages:
     dependencies:
       punycode: 2.1.1
     dev: true
-
-  /use-isomorphic-layout-effect/1.1.2_nt2ojjgx7w2sqdaxvnz6qusn54:
-    resolution: {integrity: sha512-49L8yCO3iGT/ZF9QttjwLF/ZD9Iwto5LnH5LmEdk/6cFmXddqi2ulF0edxTwjj+7mqvpVVGQWvbXZdn32wRSHA==}
-    peerDependencies:
-      '@types/react': '*'
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    peerDependenciesMeta:
-      '@types/react':
-        optional: true
-    dependencies:
-      '@types/react': 18.0.6
-      react: 18.0.0
-    dev: false
 
   /util-deprecate/1.0.2:
     resolution: {integrity: sha1-RQ1Nyfpw3nMnYvvS1KKJgUGaDM8=}

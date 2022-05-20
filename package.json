@@ -10,23 +10,18 @@
   },
   "dependencies": {
     "@plaiceholder/next": "^2.3.0",
-    "click-to-react-component": "^1.0.7",
     "contentlayer": "^0.2.5",
-    "gray-matter": "^4.0.3",
-    "mdx-bundler": "^9.0.0",
     "next": "^12.1.5",
     "next-contentlayer": "^0.2.5",
     "plaiceholder": "^2.3.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "reading-time": "^1.5.0",
     "sharp": "^0.30.3"
   },
   "devDependencies": {
     "@types/node": "^17.0.24",
     "@types/react": "^18.0.5",
     "autoprefixer": "^10.4.4",
-    "esbuild": "^0.14.36",
     "eslint": "^8.13.0",
     "eslint-config-next": "^12.1.5",
     "eslint-config-prettier": "^8.5.0",
