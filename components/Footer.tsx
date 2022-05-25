@@ -1,39 +1,14 @@
-import Link from 'next/link'
+import ExternalLink from './ExternalLink'
 
 const Footer = () => {
   return (
-    <footer className='mx-auto grid max-w-[70ch] gap-y-4 border-t-[1px] p-5 md:grid-cols-2'>
-      <div className='flex flex-col gap-y-[inherit]'>
-        <Link href='/'>
-          <a>About</a>
-        </Link>
-        <Link href='/blog'>
-          <a>Blog</a>
-        </Link>
-      </div>
-
-      <div className='flex flex-col gap-y-[inherit]'>
-        <a href='mailto:shamwela@hotmail.com' target='_blank' rel='noreferrer'>
-          Email
-        </a>
-        <a href='https://github.com/shamwela' target='_blank' rel='noreferrer'>
-          GitHub
-        </a>
-        <a
-          href='https://www.linkedin.com/in/shamwela'
-          target='_blank'
-          rel='noreferrer'
-        >
-          LinkedIn
-        </a>
-        <a
-          href='https://twitter.com/shamwela_'
-          target='_blank'
-          rel='noreferrer'
-        >
-          Twitter
-        </a>
-      </div>
+    <footer className='mx-auto max-w-[70ch] flex flex-col gap-y-4 border-t-[1px] p-5'>
+      <ExternalLink href='mailto:shamwela@hotmail.com'>Email</ExternalLink>
+      <ExternalLink href='https://github.com/shamwela'>GitHub</ExternalLink>
+      <ExternalLink href='https://www.linkedin.com/in/shamwela'>
+        LinkedIn
+      </ExternalLink>
+      <ExternalLink href='https://twitter.com/shamwela_'>Twitter</ExternalLink>
     </footer>
   )
 }

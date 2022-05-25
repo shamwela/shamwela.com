@@ -1,3 +1,4 @@
+import ExternalLink from 'components/ExternalLink'
 import Image from 'next/image'
 import Link from 'next/link'
 import type { ImageProperty } from 'types/imageProperty'
@@ -19,19 +20,11 @@ export const getMDXComponents = (imagesProperties: ImageProperty[]) => {
     href,
     children,
   }: {
-    href?: string
-    children?: React.ReactNode
+    href: string
+    children: React.ReactNode
   }) => {
-    if (!href) {
-      return <></>
-    }
-
     if (href.startsWith('http')) {
-      return (
-        <a href={href} target='_blank' rel='noreferrer'>
-          {children}
-        </a>
-      )
+      return <ExternalLink href={href}>{children}</ExternalLink>
     } else {
       return (
         <Link href={href}>
