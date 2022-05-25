@@ -1,24 +1,26 @@
 import Head from 'components/Head'
-import Image from 'next/image'
+import Link from 'next/link'
+import type { InferGetStaticPropsType } from 'next'
+import { allBlogs } from 'contentlayer/generated'
 
-const Home = () => (
+export const getStaticProps = async () => {
+  const blogs = allBlogs.sort(
+    (a, b) => Number(new Date(b.date)) - Number(new Date(a.date))
+  )
+  return { props: { blogs } }
+}
+
+const HomePage = ({ blogs }: InferGetStaticPropsType<typeof getStaticProps>) => (
   <>
-    <Head title='About Sha Mwe La' />
-    <p>
-      Hi, I'm Sha Mwe La. I write programs. I love listening to music and
-      watching movies.
-    </p>
-    <div className='self-start max-w-[6rem]'>
-      <Image
-        alt='Sha Mwe La'
-        src='/images/sha-mwe-la-photo.jpg'
-        width={1050}
-        height={1050}
-        priority
-        className='rounded-full'
-      />
-    </div>
+    <Head title="Sha Mwe La's blog" />
+
+    <h1>Sha Mwe La's blog</h1>
+    {blogs.map(({ _id, url, title }) => (
+      <Link href={url} key={_id}>
+        <a>{title}</a>
+      </Link>
+    ))}
   </>
 )
 
-export default Home
+export default HomePage
