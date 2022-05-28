@@ -17,7 +17,6 @@ const Head = ({
 }: HeadProps) => {
   const fullImageUrl = baseUrl + imageUrl
   const { pathname } = useRouter()
-  const fullUrl = baseUrl + pathname
 
   return (
     <NextHead>
