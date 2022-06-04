@@ -31,9 +31,6 @@ const BlogPage = ({
   imagesProperties: ImageProperty[]
 }) => {
   const Component = useMDXComponent(blog.body.code)
-  if (!blog) {
-    return <p>Sorry. Couldn't find this blog on the server.</p>
-  }
   const { title, imageUrl, date, formattedDate } = blog
   const MDXComponents = getMDXComponents(imagesProperties)
 
@@ -42,7 +39,6 @@ const BlogPage = ({
       <Head title={title} imageUrl={imageUrl} date={date} />
       <h1>{title}</h1>
       <p>{formattedDate}</p>
-
       <Component components={MDXComponents} />
     </>
   )

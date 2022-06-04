@@ -2,9 +2,21 @@ import { defineDocumentType, makeSource } from 'contentlayer/source-files'
 import rehypeCodeTitles from 'rehype-code-titles'
 import rehypePrism from 'rehype-prism-plus'
 
+export const Projects = defineDocumentType(() => ({
+  name: 'Projects',
+  filePathPattern: 'projects.mdx',
+  contentType: 'mdx',
+  fields: {
+    title: {
+      type: 'string',
+      required: true,
+    },
+  },
+}))
+
 export const Blog = defineDocumentType(() => ({
   name: 'Blog',
-  filePathPattern: `**/*.mdx`,
+  filePathPattern: 'blog/*.mdx',
   contentType: 'mdx',
   fields: {
     title: {
@@ -44,8 +56,8 @@ export const Blog = defineDocumentType(() => ({
 }))
 
 export default makeSource({
-  contentDirPath: 'content/blog',
-  documentTypes: [Blog],
+  contentDirPath: 'content',
+  documentTypes: [Projects, Blog],
   mdx: {
     rehypePlugins: [rehypeCodeTitles, rehypePrism],
   },
