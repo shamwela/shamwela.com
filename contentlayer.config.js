@@ -35,11 +35,11 @@ export const Blog = defineDocumentType(() => ({
   computedFields: {
     slug: {
       type: 'string',
-      resolve: (blog) => blog._raw.flattenedPath,
+      resolve: (blog) => blog._raw.sourceFileName.replace(/\.mdx$/, ''),
     },
     url: {
       type: 'string',
-      resolve: (blog) => `/blog/${blog._raw.flattenedPath}`,
+      resolve: (blog) => '/' + blog._raw.flattenedPath,
     },
     formattedDate: {
       type: 'string',
