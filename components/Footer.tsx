@@ -9,7 +9,7 @@ const Footer = () => (
     <Link href='/'>
       <a>Blog</a>
     </Link>
-    <ExternalLink href='mailto:shamwela@hotmail.com'>Email</ExternalLink>
+    <ExternalLink href='mailto:shamwela2002@gmail.com'>Email</ExternalLink>
     <ExternalLink href='https://github.com/shamwela'>GitHub</ExternalLink>
     <ExternalLink href='https://www.linkedin.com/in/shamwela'>
       LinkedIn
