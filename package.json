@@ -9,28 +9,28 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@plaiceholder/next": "^2.4.0",
-    "contentlayer": "^0.2.6",
-    "next": "^12.2.2",
-    "next-contentlayer": "^0.2.6",
-    "plaiceholder": "^2.4.0",
+    "@plaiceholder/next": "^2.5.0",
+    "contentlayer": "^0.2.7",
+    "next": "^12.2.5",
+    "next-contentlayer": "^0.2.7",
+    "plaiceholder": "^2.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "sharp": "^0.30.7"
   },
   "devDependencies": {
-    "@types/node": "^18.0.6",
-    "@types/react": "^18.0.15",
-    "autoprefixer": "^10.4.7",
-    "eslint": "^8.20.0",
-    "eslint-config-next": "^12.2.2",
+    "@types/node": "^18.7.14",
+    "@types/react": "^18.0.18",
+    "autoprefixer": "^10.4.8",
+    "eslint": "^8.23.0",
+    "eslint-config-next": "^12.2.5",
     "eslint-config-prettier": "^8.5.0",
-    "postcss": "^8.4.14",
+    "postcss": "^8.4.16",
     "prettier": "^2.7.1",
-    "prettier-plugin-tailwindcss": "^0.1.12",
+    "prettier-plugin-tailwindcss": "^0.1.13",
     "rehype-code-titles": "^1.1.0",
-    "rehype-prism-plus": "^1.4.2",
-    "tailwindcss": "^3.1.6",
-    "typescript": "^4.7.4"
+    "rehype-prism-plus": "^1.5.0",
+    "tailwindcss": "^3.1.8",
+    "typescript": "^4.8.2"
   }
 }
