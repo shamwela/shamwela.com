@@ -30,9 +30,6 @@ const BlogPage = ({
   blog: Blog
   imagesProperties: ImageProperty[]
 }) => {
-  console.log(blog.body.code)
-  return null;
-
   const Component = useMDXComponent(blog.body.code)
   const { title, imageUrl, date, formattedDate } = blog
   const MDXComponents = getMDXComponents(imagesProperties)
