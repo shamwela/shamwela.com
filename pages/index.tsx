@@ -10,14 +10,16 @@ export const getStaticProps = async () => {
   return { props: { blogs } }
 }
 
-const HomePage = ({ blogs }: InferGetStaticPropsType<typeof getStaticProps>) => (
+const HomePage = ({
+  blogs,
+}: InferGetStaticPropsType<typeof getStaticProps>) => (
   <>
     <Head title="Sha Mwe La's blog" />
 
     <h1>Sha Mwe La's blog</h1>
     {blogs.map(({ _id, url, title }) => (
       <Link href={url} key={_id}>
-        <a>{title}</a>
+        {title}
       </Link>
     ))}
   </>

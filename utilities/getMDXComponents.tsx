@@ -26,11 +26,7 @@ export const getMDXComponents = (imagesProperties: ImageProperty[]) => {
     if (href.startsWith('http')) {
       return <ExternalLink href={href}>{children}</ExternalLink>
     } else {
-      return (
-        <Link href={href}>
-          <a>{children}</a>
-        </Link>
-      )
+      return <Link href={href}>{children}</Link>
     }
   }
 

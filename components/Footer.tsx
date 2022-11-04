@@ -3,9 +3,7 @@ import ExternalLink from './ExternalLink'
 
 const Footer = () => (
   <footer className='mx-auto max-w-[70ch] flex flex-col gap-y-4 border-t-[1px] p-5'>
-    <Link href='/'>
-      <a>Blog</a>
-    </Link>
+    <Link href='/'>Blog</Link>
     <ExternalLink href='https://www.linkedin.com/in/shamwela'>
       LinkedIn
     </ExternalLink>
