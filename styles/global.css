@@ -21,6 +21,12 @@
     @apply bg-primary;
   }
 
+  nav,
+  main,
+  footer {
+    @apply mx-auto max-w-[70ch] p-4;
+  }
+
   main > * {
     @apply mt-5;
   }

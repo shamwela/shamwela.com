@@ -2,6 +2,7 @@ import 'styles/global.css'
 import { AppProps } from 'next/app'
 import Footer from 'components/Footer'
 import { pilatWideBoldFont } from 'utilities/pilatWideBoldFont'
+import Navigation from 'components/Navigation'
 
 const App = ({ Component, pageProps }: AppProps) => (
   <>
@@ -12,7 +13,8 @@ const App = ({ Component, pageProps }: AppProps) => (
         font-family: ${pilatWideBoldFont.style.fontFamily};
       }
     `}</style>
-    <main className='mx-auto flex max-w-[70ch] flex-col p-5'>
+    <Navigation />
+    <main className='flex flex-col'>
       <Component {...pageProps} />
     </main>
     <Footer />
