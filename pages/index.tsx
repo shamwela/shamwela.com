@@ -1,28 +1,41 @@
 import Head from 'components/Head'
-import Link from 'next/link'
-import type { InferGetStaticPropsType } from 'next'
-import { allBlogs } from 'contentlayer/generated'
+import ExternalLink from 'components/ExternalLink'
 
-export const getStaticProps = async () => {
-  const blogs = allBlogs.sort(
-    (a, b) => Number(new Date(b.date)) - Number(new Date(a.date))
+const projects = [
+  {
+    name: 'SML Eats',
+    description: 'A food delivery app',
+    gitHubUrl: 'https://github.com/shamwela/sml-eats',
+    liveUrl: 'https://smleats.vercel.app',
+  },
+  {
+    name: 'SML Social',
+    description: 'Facebook clone',
+    gitHubUrl: 'https://github.com/shamwela/sml-social',
+  },
+  {
+    name: 'shamwela.com',
+    description: 'My website',
+    gitHubUrl: 'https://github.com/shamwela/shamwela.com',
+    liveUrl: 'https://www.shamwela.com',
+  },
+]
+
+export default function Portfolio() {
+  return (
+    <>
+      <Head title="Sha Mwe La's portfolio" />
+      <h1>Portfolio</h1>
+      <div className='flex flex-col gap-y-4'>
+        {projects.map(({ name, description, gitHubUrl, liveUrl }) => (
+          <div key={name} className='flex flex-col gap-y-4'>
+            <h2>{name}</h2>
+            <p>{description}</p>
+            <ExternalLink href={gitHubUrl}>GitHub</ExternalLink>
+            {liveUrl && <ExternalLink href={liveUrl}>Live site</ExternalLink>}
+          </div>
+        ))}
+      </div>
+    </>
   )
-  return { props: { blogs } }
 }
-
-const BlogPage = ({
-  blogs,
-}: InferGetStaticPropsType<typeof getStaticProps>) => (
-  <>
-    <Head title="Sha Mwe La's blog" />
-
-    <h1>Sha Mwe La's blog</h1>
-    {blogs.map(({ _id, url, title }) => (
-      <Link href={url} key={_id}>
-        {title}
-      </Link>
-    ))}
-  </>
-)
-
-export default BlogPage
