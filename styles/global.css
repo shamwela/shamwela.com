@@ -17,7 +17,7 @@
     @apply bg-accent text-primary;
   }
 
-  body {
+  html {
     @apply bg-primary;
   }
 
@@ -43,7 +43,7 @@
   }
 
   a {
-    @apply max-w-fit text-accent hover:underline;
+    @apply max-w-fit underline;
   }
 
   ol {
