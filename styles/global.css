@@ -34,7 +34,7 @@
   h1,
   h2,
   h3 {
-    @apply font-bold;
+    @apply font-bold font-display;
   }
 
   h1,

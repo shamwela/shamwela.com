@@ -1,3 +1,4 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     './components/**/*.{js,ts,jsx,tsx}',
@@ -9,6 +10,9 @@ module.exports = {
       'light-primary': '#202020',
       secondary: 'hsl(0, 0%, 90%)',
       accent: '#38aecc',
+    },
+    fontFamily: {
+      display: ['var(--pilat-wide)'],
     },
   },
 }

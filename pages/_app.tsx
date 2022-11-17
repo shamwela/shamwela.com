@@ -5,20 +5,13 @@ import { pilatWideBoldFont } from 'utilities/pilatWideBoldFont'
 import Navigation from 'components/Navigation'
 
 const App = ({ Component, pageProps }: AppProps) => (
-  <>
-    <style jsx global>{`
-      h1,
-      h2,
-      h3 {
-        font-family: ${pilatWideBoldFont.style.fontFamily};
-      }
-    `}</style>
+  <div className={pilatWideBoldFont.variable}>
     <Navigation />
     <main className='flex flex-col'>
       <Component {...pageProps} />
     </main>
     <Footer />
-  </>
+  </div>
 )
 
 export default App
