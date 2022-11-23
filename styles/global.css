@@ -19,6 +19,7 @@
 
   html {
     @apply bg-primary;
+    font-family: Times, serif;
   }
 
   nav,
@@ -34,7 +35,7 @@
   h1,
   h2,
   h3 {
-    @apply font-bold font-display;
+    @apply font-bold;
   }
 
   h1,
