@@ -16,6 +16,7 @@ const gtAmericaExtended = localFont({
     },
   ],
   variable: '--gt-america',
+  display: 'swap',
 })
 
 const App = ({ Component, pageProps }: AppProps) => (
