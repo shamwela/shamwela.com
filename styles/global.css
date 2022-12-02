@@ -27,6 +27,10 @@
     @apply mx-auto max-w-[70ch] p-4;
   }
 
+  nav > a {
+    @apply no-underline;
+  }
+
   main > * {
     @apply mt-5;
   }
