@@ -1,3 +1,5 @@
+const { fontFamily } = require('tailwindcss/defaultTheme')
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -12,7 +14,7 @@ module.exports = {
       accent: '#38aecc',
     },
     fontFamily: {
-      sans: ['var(--gt-america)', 'sans-serif'],
+      sans: ['var(--gt-america)', ...fontFamily.sans],
     },
   },
 }

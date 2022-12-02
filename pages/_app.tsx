@@ -20,7 +20,7 @@ const gtAmericaExtended = localFont({
 })
 
 const App = ({ Component, pageProps }: AppProps) => (
-  <div className={gtAmericaExtended.variable}>
+  <div className={`${gtAmericaExtended.variable} font-sans`}>
     <Navigation />
     <main className='flex flex-col'>
       <Component {...pageProps} />

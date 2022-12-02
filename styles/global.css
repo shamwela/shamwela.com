@@ -10,7 +10,7 @@
   *,
   ::before,
   ::after {
-    @apply text-secondary font-sans;
+    @apply text-secondary;
   }
 
   ::selection {
