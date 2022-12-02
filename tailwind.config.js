@@ -11,5 +11,8 @@ module.exports = {
       secondary: 'hsl(0, 0%, 90%)',
       accent: '#38aecc',
     },
+    fontFamily: {
+      sans: ['var(--gt-america)', 'sans-serif'],
+    },
   },
 }

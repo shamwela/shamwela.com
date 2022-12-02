@@ -10,7 +10,7 @@
   *,
   ::before,
   ::after {
-    @apply text-secondary;
+    @apply text-secondary font-sans;
   }
 
   ::selection {
@@ -19,7 +19,6 @@
 
   html {
     @apply bg-primary;
-    font-family: Times, serif;
   }
 
   nav,
@@ -35,7 +34,7 @@
   h1,
   h2,
   h3 {
-    @apply font-bold;
+    @apply font-black;
   }
 
   h1,
