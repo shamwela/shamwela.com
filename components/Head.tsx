@@ -4,18 +4,11 @@ import { useRouter } from 'next/router'
 type HeadProps = {
   title: string
   description?: string
-  imageUrl?: string
   date?: string
 }
-const baseUrl = 'https://www.shamwela.com'
 
-const Head = ({
-  title,
-  description = title,
-  imageUrl = '/images/sha-mwe-la-open-graph.png',
-  date,
-}: HeadProps) => {
-  const fullImageUrl = baseUrl + imageUrl
+const Head = ({ title, description = title, date }: HeadProps) => {
+  const openGraphImageUrl = 'https://www.shamwela.com/images/open-graph.png'
   const { pathname } = useRouter()
 
   return (
@@ -28,9 +21,9 @@ const Head = ({
       <meta property='og:description' content={description} />
       <meta name='twitter:description' content={description} />
 
-      <meta name='image' content={fullImageUrl} />
-      <meta property='og:image' content={fullImageUrl} />
-      <meta name='twitter:image' content={fullImageUrl} />
+      <meta name='image' content={openGraphImageUrl} />
+      <meta property='og:image' content={openGraphImageUrl} />
+      <meta name='twitter:image' content={openGraphImageUrl} />
 
       {date ? <meta property='article:published_time' content={date} /> : null}
 
