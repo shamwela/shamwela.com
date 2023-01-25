@@ -8,12 +8,12 @@ export default function AboutPage() {
       <Head title='Sha Mwe La' />
       <h1>About</h1>
       <p>
-        I'm a full-stack web developer based in Yangon, Myanmar. I'm studying
-        Computing at GUSTO University.
+        I'm a front-end developer. I live in Yangon, Myanmar. In my free time, I
+        watch movies and listen to music.
       </p>
       <Image
         src={ShaMweLaImage}
-        alt='Sha Mwe La image'
+        alt="Sha Mwe La's image"
         width={200}
         height={200}
         placeholder='blur'
