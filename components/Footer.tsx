@@ -1,7 +1,7 @@
 import ExternalLink from './ExternalLink'
 
 const Footer = () => (
-  <footer className='flex flex-col gap-y-4 border-t'>
+  <footer className='flex flex-col gap-y-4'>
     <ExternalLink href='https://www.linkedin.com/in/shamwela'>
       LinkedIn
     </ExternalLink>

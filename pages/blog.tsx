@@ -18,7 +18,7 @@ const BlogPage = ({
 
     <h1>Blog</h1>
     {blogs.map(({ _id, url, title }) => (
-      <Link href={url} key={_id}>
+      <Link href={url} key={_id} className='no-underline'>
         {title}
       </Link>
     ))}
