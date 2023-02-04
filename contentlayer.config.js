@@ -4,8 +4,8 @@ import rehypePrism from 'rehype-prism-plus'
 
 export const Blog = defineDocumentType(() => ({
   name: 'Blog',
-  filePathPattern: 'blog/*.md',
-  contentType: 'markdown',
+  filePathPattern: 'blog/*.mdx',
+  contentType: 'mdx',
   fields: {
     title: {
       type: 'string',
