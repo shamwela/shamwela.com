@@ -1,5 +1,16 @@
 ---
-title: Hello
+title: React state
 date: 2023-02-04
 ---
 
+# Server state
+
+For server state, you can fetch data in an effect and store it somewhere. You also need to manage error and loading states and caching and more. Therefore, most of the time, a data fetching library is used. The most popular ones are React Query and SWR. These data fetching libraries provide error and loading states, caching, and more.
+
+# UI state
+
+Simple, local with some prop drillings ⇒ useState
+
+Simple, global ⇒ Context or Jotai
+
+Complex, global ⇒ Zustand or Redux Toolkit
