@@ -6,7 +6,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@next/font": "^13.0.6",
     "@plaiceholder/next": "^2.5.0",
     "contentlayer": "^0.2.9",
     "next": "^13.0.6",
