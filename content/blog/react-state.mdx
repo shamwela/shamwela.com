@@ -7,10 +7,18 @@ date: 2023-02-04
 
 For server state, you can fetch data in an effect and store it somewhere. You also need to manage error and loading states and caching and more. Therefore, most of the time, a data fetching library is used. The most popular ones are React Query and SWR. These data fetching libraries provide error and loading states, caching, and more.
 
+If your data from the server does not need interactivity, you can also use React Server Components, server-side rendering, or static site generation.
+
 # UI state
+
+State that is used only for the UI is called UI state. For example, a state that tracks whether a menu is open or not.
+
+I use the followings for the UI states:
 
 Simple, local with some prop drillings ⇒ useState
 
 Simple, global ⇒ Context or Jotai
 
 Complex, global ⇒ Zustand or Redux Toolkit
+
+I didn't mention other state management libraries because I haven't used them enough to form opinions about them.
