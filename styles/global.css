@@ -47,7 +47,7 @@
   }
 
   a {
-    @apply max-w-fit underline;
+    @apply max-w-fit text-accent hover:underline;
   }
 
   ol {
