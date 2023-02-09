@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "@plaiceholder/next": "^2.5.0",
-    "contentlayer": "^0.2.9",
+    "contentlayer": "^0.3.0",
     "next": "^13.0.6",
     "next-contentlayer": "^0.2.9",
     "plaiceholder": "^2.5.0",
