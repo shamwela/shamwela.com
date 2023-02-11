@@ -5,6 +5,7 @@ import { getMDXComponents } from 'utilities/getMDXComponents'
 import { getImageProperties } from 'utilities/plaiceholder'
 import type { Blog } from 'contentlayer/generated'
 import type { ImageProperty } from 'types/imageProperty'
+import Link from 'next/link'
 
 export const getStaticPaths = () => {
   const paths = allBlogs.map((blog) => ({ params: { slug: blog.slug } }))
@@ -40,6 +41,7 @@ const BlogPage = ({
       <h1>{title}</h1>
       <p>{formattedDate}</p>
       <Component components={MDXComponents} />
+      <Link href='/blog'>Read other blogs</Link>
     </>
   )
 }
