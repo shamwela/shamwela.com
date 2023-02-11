@@ -1,0 +1,100 @@
+---
+title: Stateless forms in React
+date: 2023-02-11
+---
+
+Here's a typical form in React.
+
+```jsx:BadForm.jsx
+import { useState } from 'react'
+
+export const BadForm = () => {
+  const [email, setEmail] = useState('')
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    // Use the email state here
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        value={email}
+        // Update the state on every input change
+        onChange={(event) => setEmail(event.target.value)}
+        type='email'
+        required
+      />
+      <button type='submit'>Submit</button>
+    </form>
+  )
+}
+```
+
+Unless you validate on every input change, this state is unnecessary.
+
+1. It unnecessarily re-renders on every input change.
+2. You have to write and read more code.
+
+So, here's a better alternative.
+
+1. Give input name.
+2. On submit, extract the input value from the event.
+
+This is so much faster and simpler.
+
+```jsx:GoodForm.jsx
+export const GoodForm = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    // Extract the input value from the event
+    const email = event.target.email.value
+    // ...
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        // Give input name
+        name='email'
+        type='email'
+        required
+      />
+      <button type='submit'>Submit</button>
+    </form>
+  )
+}
+```
+
+Here's the typescript version.
+
+```tsx:GoodForm.tsx
+import { type SyntheticEvent } from 'react'
+
+export const GoodForm = () => {
+  const handleSubmit = (event: SyntheticEvent) => {
+    event.preventDefault()
+    type Input = {
+      email: {
+        value: string
+      }
+    }
+    // Should type the target with a type assertion
+    const target = event.target as typeof event.target & Input
+    const email = target.email.value
+    // ...
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        // Give input name
+        name='email'
+        type='email'
+        required
+      />
+      <button type='submit'>Submit</button>
+    </form>
+  )
+}
+```
