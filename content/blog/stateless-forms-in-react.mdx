@@ -69,10 +69,10 @@ export const GoodForm = () => {
 Here's the TypeScript version.
 
 ```tsx:GoodForm.tsx
-import { type SyntheticEvent } from 'react'
+import { type FormEvent } from 'react'
 
 export const GoodForm = () => {
-  const handleSubmit = (event: SyntheticEvent) => {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     type Input = {
       email: {
