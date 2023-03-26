@@ -2,9 +2,6 @@ import ExternalLink from './ExternalLink'
 
 const Footer = () => (
   <footer className='flex flex-col gap-y-4'>
-    <ExternalLink href='https://docs.google.com/document/d/1HP5KAJlqz0JeeKpEf6gXrFCvNujy1dCjvIATl2serVU/edit?usp=sharing'>
-      Resume
-    </ExternalLink>
     <ExternalLink href='https://www.linkedin.com/in/shamwela'>
       LinkedIn
     </ExternalLink>
