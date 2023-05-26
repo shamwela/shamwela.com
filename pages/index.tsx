@@ -6,7 +6,10 @@ const AboutPage = () => (
   <>
     <Head title='Sha Mwe La' />
     <h1>Hi! I'm Sha Mwe La.</h1>
-    <p>I work as a Junior Software Engineer at K-Link Myanmar. I mainly work on web apps. Outside of work, I love trying out new food, traveling, and running.</p>
+    <p>
+      I work as a Junior Software Engineer at K-Link Myanmar. I mainly work on
+      web apps.
+    </p>
     <Image
       src={ShaMweLaImage}
       alt="Sha Mwe La's image"
