@@ -16,12 +16,14 @@ const BlogPage = ({
   <>
     <Head title="Sha Mwe La's blog" />
 
-    <h1>Blog</h1>
-    {blogs.map(({ _id, url, title }) => (
-      <Link href={url} key={_id} className='text-[inherit]'>
-        {title}
-      </Link>
-    ))}
+    <h1 className='text-center'>Blog</h1>
+    <div className='flex flex-col items-center gap-y-4'>
+      {blogs.map(({ _id, url, title }) => (
+        <Link href={url} key={_id} className='text-center'>
+          {title}
+        </Link>
+      ))}
+    </div>
   </>
 )
 
