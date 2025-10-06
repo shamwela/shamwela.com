@@ -8,12 +8,12 @@
   "dependencies": {
     "@plaiceholder/next": "^2.5.0",
     "contentlayer": "^0.3.4",
-    "next": "^13.4.13",
+    "next": "^13.5.9",
     "next-contentlayer": "^0.3.4",
     "plaiceholder": "^2.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "sharp": "^0.32.4"
+    "sharp": "^0.32.6"
   },
   "devDependencies": {
     "@types/node": "^18.17.4",
